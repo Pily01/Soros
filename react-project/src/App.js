@@ -1,18 +1,18 @@
+import {Routes, Route} from 'react-router-dom'
+
 import './App.css';
 
-function App() {
-  return (
-    <div>
-      <h1>Welcome to Soros</h1>
-      <h2>Team</h2>
-      <ul>
-        <li>Maria</li>
-        <li>Tara</li>
-        <li>Hannah</li>
-        <li>Azamat</li>
-      </ul>
-    </div>
-  );
-}
+import Home from './routes/home/home.component';
+import Company from './components/company/company.component';
 
+const App = () => {
+  return (
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/companies/:name' element={<Company/>}/>
+    </Routes>
+    
+  );
+
+}
 export default App;
