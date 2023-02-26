@@ -1,18 +1,35 @@
 import './App.css';
+import SearchBox from './components/cardlist/search/search-box';
+import CardList from './components/cardlist/cardlist/cardlist';
+import {useState, useEffect} from 'react';
 
-function App() {
+const App = () => {
+  const vals = ["azamat", "maria", "tara", "hannah"];
+  const [searchStr, updateSearchStr] = useState("");
+  const [filtList, updateFiltList] = useState(vals);
+ 
+//function to update state Search string variable that is going to be updated everytime user types a character in search bar
+  const onSearch = (event) => {
+    var tempSearchStr = event.target.value.toLocaleLowerCase();
+    updateSearchStr(tempSearchStr);
+  };
+
+//function to create a filtered list based on original one and search string
+
+  useEffect(() => {
+    const newFiltList = vals.filter(val => val.toLocaleLowerCase().includes(searchStr));
+    console.log(newFiltList);
+    updateFiltList(newFiltList);
+  }, [searchStr]);
+
+  
   return (
     <div>
-      <h1>Welcome to Soros</h1>
-      <h2>Team</h2>
-      <ul>
-        <li>Maria</li>
-        <li>Tara</li>
-        <li>Hannah</li>
-        <li>Azamat</li>
-      </ul>
+      <SearchBox onChangeHandler={onSearch}/>
+      <CardList filteredList={filtList}/>
     </div>
   );
+
 }
 
 export default App;
