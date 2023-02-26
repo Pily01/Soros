@@ -5,8 +5,8 @@ const CardList = props => {
 
     return (
         <div className="search-wrapper">
-            {props.filteredList.map(val => {
-                return <h2>{val}</h2>
+            {props.filteredList.map(company => {
+                return <h2>{company.name}</h2>
             })}
 
         </div>
