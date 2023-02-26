@@ -1,6 +1,6 @@
 import '../../App.css';
-import SearchBox from '../../components/cardlist/search/search-box';
-import CardList from '../../components/cardlist/cardlist/cardlist';
+import SearchBox from '../../components/search/search-box';
+import CardList from '../../components/cardlist/cardlist';
 import {useState, useEffect} from 'react';
 
 import companies_list from '../../data/companies';
