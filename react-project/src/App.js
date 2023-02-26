@@ -26,7 +26,8 @@ const App = () => {
 
   
   return (
-    <div>
+    <div className='App-main-div'>
+      <h1> Find a company </h1>
       <SearchBox onChangeHandler={onSearch}/>
       <CardList filteredList={filtList}/>
     </div>
