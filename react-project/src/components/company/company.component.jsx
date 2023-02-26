@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom"
+import companies_list from "../../data/companies";
 
 
 const Company = () => {

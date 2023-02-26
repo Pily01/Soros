@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 import './App.css';
 
 import Home from './routes/home/home.component';
-import Company from './components/cardlist/company/company.component';
+import Company from './components/company/company.component';
 
 const App = () => {
   return (
