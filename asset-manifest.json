@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Soros/static/css/main.f771c3cf.css",
+    "main.js": "/Soros/static/js/main.d06356a0.js",
+    "static/js/787.a2bf511c.chunk.js": "/Soros/static/js/787.a2bf511c.chunk.js",
+    "index.html": "/Soros/index.html",
+    "main.f771c3cf.css.map": "/Soros/static/css/main.f771c3cf.css.map",
+    "main.d06356a0.js.map": "/Soros/static/js/main.d06356a0.js.map",
+    "787.a2bf511c.chunk.js.map": "/Soros/static/js/787.a2bf511c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f771c3cf.css",
+    "static/js/main.d06356a0.js"
+  ]
+}
