@@ -10,7 +10,6 @@ const CardList = props => {
                     <Link to={`companies/${company.name}`}><h3>{company.name}</h3></Link>
                 )
             })}
-
         </div>
     )
 }
