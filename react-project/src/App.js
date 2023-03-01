@@ -8,8 +8,8 @@ import Company from './components/company/company.component';
 const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/companies/:name' element={<Company/>}/>
+      <Route path='/Soros' element={<Home/>}/>
+      <Route path='/Soros/companies/:name' element={<Company/>}/>
     </Routes>
     
   );
