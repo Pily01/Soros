@@ -20,7 +20,7 @@ const CardList = props => {
                                     {company.location}
                                 </Card.Text>
                                 <Link className = "cardlist-link" to={`companies/${company.name}`}>
-                                    <Button variant="primary">Go somewhere</Button>
+                                    <Button className='cardlist-button'>See Company</Button>
                                 </Link>
                             </Card.Body>
                         </Card>
