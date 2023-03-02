@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/Soros/static/css/main.f771c3cf.css",
-    "main.js": "/Soros/static/js/main.bb01f226.js",
+    "main.css": "/Soros/static/css/main.3260c2a7.css",
+    "main.js": "/Soros/static/js/main.63f3c3c4.js",
     "static/js/787.a2bf511c.chunk.js": "/Soros/static/js/787.a2bf511c.chunk.js",
+    "static/media/company.png": "/Soros/static/media/company.059f601da877eb1e2b9d.png",
     "index.html": "/Soros/index.html",
-    "main.f771c3cf.css.map": "/Soros/static/css/main.f771c3cf.css.map",
-    "main.bb01f226.js.map": "/Soros/static/js/main.bb01f226.js.map",
+    "main.3260c2a7.css.map": "/Soros/static/css/main.3260c2a7.css.map",
+    "main.63f3c3c4.js.map": "/Soros/static/js/main.63f3c3c4.js.map",
     "787.a2bf511c.chunk.js.map": "/Soros/static/js/787.a2bf511c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f771c3cf.css",
-    "static/js/main.bb01f226.js"
+    "static/css/main.3260c2a7.css",
+    "static/js/main.63f3c3c4.js"
   ]
 }
