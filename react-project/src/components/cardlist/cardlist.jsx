@@ -1,15 +1,32 @@
 import { Link } from 'react-router-dom'
+import './cardlist.styles.scss'
+import companyimg from '../../company.png'
+
+import { Card, Button, Container } from 'react-bootstrap'
 
 //cardlist componenet that will display all relevent search results
 const CardList = props => {
 
     return (
-        <div className="search-wrapper">
-            {props.filteredList.map(company => {
+        <div>
+            <Container className="search-wrapper">
+               {props.filteredList.map(company => {
                 return (
-                    <Link to={`companies/${company.name}`}><h3>{company.name}</h3></Link>
+                        <Card className = "cardlist-card" style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={companyimg}/>
+                            <Card.Body>
+                                <Card.Title>{company.name}</Card.Title>
+                                <Card.Text>
+                                    {company.location}
+                                </Card.Text>
+                                <Link className = "cardlist-link" to={`companies/${company.name}`}>
+                                    <Button variant="primary">Go somewhere</Button>
+                                </Link>
+                            </Card.Body>
+                        </Card>
                 )
-            })}
+                })} 
+            </Container>
         </div>
     )
 }
