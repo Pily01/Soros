@@ -2,6 +2,7 @@ import '../../App.css';
 import './home.styles.scss'
 import SearchBox from '../../components/search/search-box';
 import CardList from '../../components/cardlist/cardlist';
+import NavbarComponent from '../../components/navbar/navbar.component';
 import {useState, useEffect} from 'react';
 
 import {Button, Container, Row} from 'react-bootstrap';
@@ -32,6 +33,7 @@ const Home = () => {
   
   return (
     <div className='App-main-div'>
+      <NavbarComponent/>
       <Container fluid>
         <Row className='home-jumbotron'>
           <h1> SOROS</h1>
