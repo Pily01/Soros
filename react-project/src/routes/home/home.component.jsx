@@ -37,8 +37,8 @@ const Home = () => {
           <h1> SOROS</h1>
           <h4> One Safe Place At A Time</h4>
         </Row>
-        <Row>
-        <h1> Find a company </h1>
+        <Row className='home-search-bar'>
+          <h1> Find a company </h1>
           <SearchBox onChangeHandler={onSearch}/>
           <CardList filteredList={filtList}/>
         </Row>
