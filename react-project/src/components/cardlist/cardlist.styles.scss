@@ -1,0 +1,21 @@
+.search-wrapper{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.cardlist-card{
+    margin: 10px;
+}
+
+.cardlist-link{
+    text-decoration: none;
+    color: black;
+    transition: all ease 0.5s;
+}
+
+.cardlist-link:hover {
+    text-decoration: none;
+    color: black;
+}
