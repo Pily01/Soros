@@ -1,7 +1,13 @@
 import '../../App.css';
+import './home.styles.scss'
 import SearchBox from '../../components/search/search-box';
 import CardList from '../../components/cardlist/cardlist';
+import NavbarComponent from '../../components/navbar/navbar.component';
 import {useState, useEffect} from 'react';
+
+import {Button, Container, Row} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import companies_list from '../../data/companies';
 
@@ -27,9 +33,18 @@ const Home = () => {
   
   return (
     <div className='App-main-div'>
-      <h1> Find a company </h1>
-      <SearchBox onChangeHandler={onSearch}/>
-      <CardList filteredList={filtList}/>
+      <NavbarComponent/>
+      <Container fluid>
+        <Row className='home-jumbotron'>
+          <h1> SOROS</h1>
+          <h4> One Safe Place At A Time</h4>
+        </Row>
+        <Row className='home-search-bar'>
+          <h1> Find a company </h1>
+          <SearchBox onChangeHandler={onSearch}/>
+          <CardList filteredList={filtList}/>
+        </Row>
+      </Container>
     </div>
   );
 
