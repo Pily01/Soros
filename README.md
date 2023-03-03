@@ -1,6 +1,9 @@
 # Soros
 This is a web application for the Boston University Spark! course XC475.
 
+Firebase Project Link
+https://console.firebase.google.com/u/0/project/soros-web-app/overview
+
 ## Commit Conventions
 
 Types
