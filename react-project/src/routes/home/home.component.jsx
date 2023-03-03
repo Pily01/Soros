@@ -30,9 +30,12 @@ const Home = () => {
       <h1> Find a company </h1>
       <SearchBox onChangeHandler={onSearch}/>
       <CardList filteredList={filtList}/>
+      <button>
+        <a href="/test">Test</a>
+      </button>
     </div>
   );
 
-}
+};
 
 export default Home;
