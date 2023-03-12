@@ -91,12 +91,12 @@ const FormInput = () => {
             <Form.Group className="mb-3" controlId="experience">
                 <Form.Label>Have you experienced any type of sexual harassment in this workplace?</Form.Label>
                 {['radio'].map((type) => (
-                    <div key={`inline-${type}`} className="mb-3">
-                        <Form.Check inline type={type} label= 'Yes' name="experience" 
+                    <div key={`default-${type}`} className="mb-3">
+                        <Form.Check type={type} label= 'Yes' name="experience" 
                         value="Yes" 
                         checked={experiencedHarass === "Yes"}
                         onChange={(e)=>setExperiencedHarass(e.target.value)} />
-                        <Form.Check inline type={type} label= 'No' name="experience" 
+                        <Form.Check type={type} label= 'No' name="experience" 
                         value="No"
                         checked={experiencedHarass === "No"}
                         onChange={(e)=>setExperiencedHarass(e.target.value)} />
@@ -108,12 +108,12 @@ const FormInput = () => {
             <Form.Group className="mb-3" controlId="witnessed">
                 <Form.Label> Have you witnessed any harassment happening to other employees at the company? </Form.Label>
                 {['radio'].map((type) => (
-                    <div key={`inline-${type}`} className="mb-3">
-                        <Form.Check inline type={type} label= 'Yes' name="witnessed" 
+                    <div key={`default-${type}`} className="mb-3">
+                        <Form.Check type={type} label= 'Yes' name="witnessed" 
                         value="Yes" 
                         checked={witnessedHarass === "Yes"}
                         onChange={(e)=>setWitnessedHarass(e.target.value)}/>
-                        <Form.Check inline type={type} label= 'No' name="witnessed" 
+                        <Form.Check type={type} label= 'No' name="witnessed" 
                         value="No"
                         checked={witnessedHarass === "No"}
                         onChange={(e)=>setWitnessedHarass(e.target.value)}/>
@@ -122,8 +122,27 @@ const FormInput = () => {
             </Form.Group>
             
             {/* Frequency */}
-            
-           
+
+            <Form.Group>
+                <Form.Label>How frequent was the harassment you experienced and/or witnessed? </Form.Label>
+                {['radio'].map((type) => (
+                    <div key={`default-${type}`} className="mb-3">
+                        <Form.Check type={type} label= 'Rare' name="frequent"
+                        value="rarely" 
+                        checked={howFrequent === "rarely"}
+                        onChange={(e)=>setHowFrequent(e.target.value)}/>
+                        <Form.Check type={type} label= 'Often' name="frequent" 
+                        value="often"
+                        checked={howFrequent === "often"}
+                        onChange={(e)=>setHowFrequent(e.target.value)}/>
+                        <Form.Check type={type} label= 'Very frequent' name="frequent" 
+                        value="very often"
+                        checked={howFrequent === "very often"}
+                        onChange={(e)=>setHowFrequent(e.target.value)}/>
+                    </div>
+                ))}
+            </Form.Group>
+
             <Button variant="primary" type="submit">
               Submit
             </Button>
