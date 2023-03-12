@@ -4,6 +4,7 @@ import SearchBox from '../../components/search/search-box';
 import CardList from '../../components/cardlist/cardlist';
 import NavbarComponent from '../../components/navbar/navbar.component';
 import {useState, useEffect} from 'react';
+import FormInput from "../.././components/form-input/form-input.component";
 
 import {Button, Container, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
