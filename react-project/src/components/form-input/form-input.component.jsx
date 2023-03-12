@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom';
 
+import { Form, Button } from 'react-bootstrap'
 
 import { collection, addDoc } from "firebase/firestore";
 import {db} from '../../utils/firebase/firebase.utils';
@@ -40,69 +41,156 @@ const FormInput = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                <label>How would you rate this workplace on a scale from 1 to 5? </label>
-                <input type="text" value={workPlaceRating} onChange={(e)=>setWorkPlaceRating(e.target.value)}/>
-                </div>
 
-                <div>
-                <label>How safe do you feel at work?</label>
-                <input name="safe" type="radio" value="super safe" checked={safeAtWork === "super safe"}
-                onChange={(e)=>setSafeAtWork(e.target.value)}/> Super Safe 
-                <input name="safe" type="radio" value="moderately safe" checked={safeAtWork === "moderately safe"}
-                onChange={(e)=>setSafeAtWork(e.target.value)}/> Moderately Safe 
-                <input name="safe" type="radio" value="not safe" checked={safeAtWork === "not safe"}
-                onChange={(e)=>setSafeAtWork(e.target.value)}/> Not Safe At All 
-                </div>
+        <Form>
+            <h1>Safety Report</h1>
+            <p> Please answer the following questions to the best of your ability.
+                Only the questions marked with an asterisk * are required. </p>
+            
+            {/* General  Rating*/}
+            <Form.Group className="mb-3" controlId="formGeneralRating">
+                <Form.Label>Generally speaking, how would you rate this workplace on a scale from 1 to 5? *</Form.Label>
+                {['radio'].map((type) => (
+                    <div key={`inline-${type}`} className="mb-3">
+                        <Form.Check inline type={type} label= '1' name="rating" value="1"/>
+                        <Form.Check inline type={type} label= '2' name="rating" value="2"/>
+                        <Form.Check inline type={type} label= '3' name="rating" value="3"/>
+                        <Form.Check inline type={type} label= '4' name="rating" value="4"/>
+                        <Form.Check inline type={type} label= '5' name="rating" value="5"/>
+                    </div>
+                ))}
+            </Form.Group >
 
-                <div>
-                <label>Have you experienced any type of harassment in this workplace?</label>
-                <input type="radio" name="experience" value="Yes" checked={experiencedHarass === "Yes"}
-                onChange={(e)=>setExperiencedHarass(e.target.value)}/>Yes
-                <input type="radio" name="experience" value="No" checked={experiencedHarass === "No"}
-                onChange={(e)=>setExperiencedHarass(e.target.value)}/>No
-                </div>
+            {/* Safety  */}
+            <Form.Group className="mb-3" controlId="formSafety">
+                <Form.Label>How safe do you feel at work? *</Form.Label>
+                {['radio'].map((type) => (
+                    <div key={`inline-${type}`} className="mb-3">
+                        <Form.Check inline type={type} label= 'Not safe at all' name="safe"
+                        value = "not safe"
+                        checked={safeAtWork === "not safe"}
+                        onChange={(e)=>setSafeAtWork(e.target.value)}/>
+                        <Form.Check inline type={type} label= 'Moderately safe' name="safe"
+                        value = "moderately safe"
+                        checked={safeAtWork === "moderately safe"}
+                        onChange={(e)=>setSafeAtWork(e.target.value)}/>
+                        <Form.Check inline type={type} label= 'Completely safe' name="safe"
+                        value ="super safe"
+                        checked={safeAtWork === "super safe"}
+                        onChange={(e)=>setSafeAtWork(e.target.value)}/>
+                    </div>
+                ))}
+            </Form.Group >
 
-                <div>
-                <label>Have you witnessed any harassment happening to other employees at the company?</label>
-                <input type="radio" name="witnessed" value="Yes" checked={witnessedHarass === "Yes"}
-                onChange={(e)=>setWitnessedHarass(e.target.value)}/>Yes
-                <input type="radio" name="witnessed" value="No" checked={witnessedHarass === "No"}
-                onChange={(e)=>setWitnessedHarass(e.target.value)}/>No
-                </div>
+            <p>
+                The following questions are optional, but can help other women get a better idea of the safety of this workplace. 
+                Please only answer questions you feel safe and comfortable asking. 
+            </p>
+            
+            {/* Experience */}
+            <Form.Group className="mb-3" controlId="experience">
+                <Form.Label>Have you experienced any type of sexual harassment in this workplace?</Form.Label>
+                {['radio'].map((type) => (
+                    <div key={`inline-${type}`} className="mb-3">
+                        <Form.Check inline type={type} label= 'Yes' name="experience" 
+                        value="Yes" 
+                        checked={experiencedHarass === "Yes"}
+                        onChange={(e)=>setExperiencedHarass(e.target.value)} />
+                        <Form.Check inline type={type} label= 'No' name="experience" 
+                        value="No"
+                        checked={experiencedHarass === "No"}
+                        onChange={(e)=>setExperiencedHarass(e.target.value)} />
+                    </div>
+                ))}
+            </Form.Group >
+            
+            {/* Witness */}
+            <Form.Group className="mb-3" controlId="witnessed">
+                <Form.Label> Have you witnessed any harassment happening to other employees at the company? </Form.Label>
+                {['radio'].map((type) => (
+                    <div key={`inline-${type}`} className="mb-3">
+                        <Form.Check inline type={type} label= 'Yes' name="witnessed" 
+                        value="Yes" 
+                        checked={witnessedHarass === "Yes"}
+                        onChange={(e)=>setWitnessedHarass(e.target.value)}/>
+                        <Form.Check inline type={type} label= 'No' name="witnessed" 
+                        value="No"
+                        checked={witnessedHarass === "No"}
+                        onChange={(e)=>setWitnessedHarass(e.target.value)}/>
+                    </div>
+                ))}
+            </Form.Group>
+            
+            {/* Frequency */}
+            
+           
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+        </Form>
+        //     <div>
+        //     <form onSubmit={handleSubmit}>
+        //         <div>
+        //         <label>How would you rate this workplace on a scale from 1 to 5? </label>
+        //         <input type="text" value={workPlaceRating} onChange={(e)=>setWorkPlaceRating(e.target.value)}/>
+        //         </div>
 
-                <div>
-                <label>How frequent is it?</label>
-                <input name="frequent" type="radio" value="rarely" checked={howFrequent === "rarely"}
-                onChange={(e)=>setHowFrequent(e.target.value)}/> Rarely
-                <input name="frequent" type="radio" value="often" checked={howFrequent === "often"}
-                onChange={(e)=>setHowFrequent(e.target.value)}/> Often
-                <input name="frequent" type="radio" value="very often" checked={howFrequent === "very often"}
-                onChange={(e)=>setHowFrequent(e.target.value)}/> Very Often
-                </div>
+        //         <div>
+        //         <label>How safe do you feel at work?</label>
+        //         <input name="safe" type="radio" value="super safe" checked={safeAtWork === "super safe"}
+        //         onChange={(e)=>setSafeAtWork(e.target.value)}/> Super Safe 
+        //         <input name="safe" type="radio" value="moderately safe" checked={safeAtWork === "moderately safe"}
+        //         onChange={(e)=>setSafeAtWork(e.target.value)}/> Moderately Safe 
+        //         <input name="safe" type="radio" value="not safe" checked={safeAtWork === "not safe"}
+        //         onChange={(e)=>setSafeAtWork(e.target.value)}/> Not Safe At All 
+        //         </div>
 
-                <div>
-                <label>Have you reported the harassment to anyone at the company?</label> 
-                <input type="radio" name="reported" value="Yes" checked={reportedHarass === "Yes"}
-                onChange={(e)=>setReportedHarass(e.target.value)}/>Yes
-                <input type="radio" name="reported" value="No" checked={reportedHarass === "No"}
-                onChange={(e)=>setReportedHarass(e.target.value)}/>No
-                </div>
+        //         <div>
+        //         <label>Have you experienced any type of harassment in this workplace?</label>
+        //         <input type="radio" name="experience" value="Yes" checked={experiencedHarass === "Yes"}
+        //         onChange={(e)=>setExperiencedHarass(e.target.value)}/>Yes
+        //         <input type="radio" name="experience" value="No" checked={experiencedHarass === "No"}
+        //         onChange={(e)=>setExperiencedHarass(e.target.value)}/>No
+        //         </div>
 
-                <div>
-                <label>If yes, did the company provide you with any support after the harassment occurred?</label>
-                <input type="radio" name="support" value="Yes" checked={companySupport === "Yes"}
-                onChange={(e)=>setCompanySupport(e.target.value)}/>Yes
-                <input type="radio" name="support" value="No" checked={companySupport === "No"}
-                onChange={(e)=>setCompanySupport(e.target.value)}/>No
-                </div>
+        //         <div>
+        //         <label>Have you witnessed any harassment happening to other employees at the company?</label>
+        //         <input type="radio" name="witnessed" value="Yes" checked={witnessedHarass === "Yes"}
+        //         onChange={(e)=>setWitnessedHarass(e.target.value)}/>Yes
+        //         <input type="radio" name="witnessed" value="No" checked={witnessedHarass === "No"}
+        //         onChange={(e)=>setWitnessedHarass(e.target.value)}/>No
+        //         </div>
 
-                <button type="submit">Submit</button>
+        //         <div>
+        //         <label>How frequent is it?</label>
+        //         <input name="frequent" type="radio" value="rarely" checked={howFrequent === "rarely"}
+        //         onChange={(e)=>setHowFrequent(e.target.value)}/> Rarely
+        //         <input name="frequent" type="radio" value="often" checked={howFrequent === "often"}
+        //         onChange={(e)=>setHowFrequent(e.target.value)}/> Often
+        //         <input name="frequent" type="radio" value="very often" checked={howFrequent === "very often"}
+        //         onChange={(e)=>setHowFrequent(e.target.value)}/> Very Often
+        //         </div>
 
-            </form>
-        </div>
+        //         <div>
+        //         <label>Have you reported the harassment to anyone at the company?</label> 
+        //         <input type="radio" name="reported" value="Yes" checked={reportedHarass === "Yes"}
+        //         onChange={(e)=>setReportedHarass(e.target.value)}/>Yes
+        //         <input type="radio" name="reported" value="No" checked={reportedHarass === "No"}
+        //         onChange={(e)=>setReportedHarass(e.target.value)}/>No
+        //         </div>
+
+        //         <div>
+        //         <label>If yes, did the company provide you with any support after the harassment occurred?</label>
+        //         <input type="radio" name="support" value="Yes" checked={companySupport === "Yes"}
+        //         onChange={(e)=>setCompanySupport(e.target.value)}/>Yes
+        //         <input type="radio" name="support" value="No" checked={companySupport === "No"}
+        //         onChange={(e)=>setCompanySupport(e.target.value)}/>No
+        //         </div>
+
+        //         <button type="submit">Submit</button>
+
+        //     </form>
+        // </div>
     )
 
 }
