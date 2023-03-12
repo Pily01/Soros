@@ -9,7 +9,7 @@ const SearchBox = props => {
     return (
         <div className="search-wrapper">
             <Form>
-            <Form.Control className="search-search-bar" type="search" placeholder="Company" onChange={props.onChangeHandler} />
+            <Form.Control className="search-search-bar" type="search" placeholder="Search Company" onChange={props.onChangeHandler} />
             </Form>
         </div>
     )
