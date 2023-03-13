@@ -38,10 +38,11 @@ const Home = () => {
       <Container fluid>
         <Row className='home-jumbotron'>
           <h1> SOROS</h1>
-          <h4> One Safe Place At A Time</h4>
+          <h3> Empowering Women: One Safe Place At A Time</h3>
         </Row>
         <Row className='home-search-bar'>
-          <h1> Find a company </h1>
+          <h1> Prevent, report, and check </h1>
+          <h1> anonymously </h1>
           <SearchBox onChangeHandler={onSearch}/>
           <CardList filteredList={filtList}/>
         </Row>
