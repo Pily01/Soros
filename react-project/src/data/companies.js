@@ -1,91 +1,136 @@
 let companies_list = [
     { 
-        name: 'ABC Corporation', 
-        location: 'New York' },
+        name: 'Teleperformance', 
+        location: '1',
+        rating:'3',
+        img_src: 'https://lideresmexicanos.com/wp-content/uploads/2021/05/GPTW3.jpg'
+    },
     { 
-        name: 'XYZ Inc.', 
-        location: 'Los Angeles' },
+        name: 'Sliders', 
+        location: '1',
+        rating:'3',
+        img_src: 'https://media-cdn.tripadvisor.com/media/photo-s/13/23/91/87/entrada-a-sliders-polanco.jpg'
+    },
     { 
-        name: 'ACME Co.', 
-        location: 'Chicago' },
+        name: 'Secretaria de A.F', 
+        location: '1 Review',
+        rating:'4',
+        img_src: 'https://www.yo-local.com/sites/default/files/imagen_negocio/0dl-012.jpg'
+    },
     { 
-        name: 'Global Industries', 
-        location: 'Miami' },
+        name: 'CMF GAM', 
+        location: '1',
+        rating:'4',
+        img_src: 'https://www.elsoldesalamanca.com.mx/local/x3m4vp-clinica-issste-1/ALTERNATES/LANDSCAPE_960/Clinica-issste-1'
+    },
     { 
-        name: 'Bright Future Enterprises', 
-        location: 'Dallas' },
+        name: 'Starbucks Centro Historico', 
+        location: '1',
+        rating:'5',
+        img_src: 'https://fastly.4sqi.net/img/general/600x600/Ur8QqZ-wNhOFGSHHMXMh6ID_5UBAq38Rab1h5UuRIKc.jpg'
+    },
     { 
-        name: 'Innovative Solutions', 
-        location: 'San Francisco' },
+        name: 'Hospital Español', 
+        location: '1',
+        rating:'4',
+        img_src: 'https://pbs.twimg.com/ext_tw_video_thumb/1253839851524362240/pu/img/5haBTSw4mrk8hLzA.jpg'
+    },
     { 
-        name: 'MegaCorp', 
-        location: 'Boston' },
+        name: 'BBVA', 
+        location: '1',
+        rating:'4',
+        img_src: 'https://www.jll.com.co/images/client-stories/am-Mexico-jll-Torre-BBVA-gallery-12.jpg.rendition/cq5dam.web.1280.1280.jpeg'
+    },
     { 
-        name: 'PrimeTime Corporation', 
-        location: 'Atlanta' },
+        name: 'Banorte', 
+        location: '1',
+        rating:'4',
+        img_src: 'https://www.banorte.com/cms/imagenes/2sep2020.jpg'
+    },
     { 
-        name: 'Northern Lights Co.', 
-        location: 'Seattle' },
+        name: 'Rhenus Torre Mitikah', 
+        location: '1',
+        rating: '4',
+        img_src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFiHb_hHI6LQZVbNf0OyjhJJhOQcS3aQPOwIop3BJQkiYgMjK34wqZvEPGz1T3IMmMfsg&usqp=CAU'
+    },
     { 
-        name: 'TechWise Solutions', 
-        location: 'Austin' },
+        name: 'Hospital General de Mexico', 
+        location: '1',
+        rating: '2',
+        img_src: 'https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2023/02/44e63ee1-hospital-general-de-mexico.jpeg'
+    },
     { 
-        name: 'SkyHigh Enterprises', 
-        location: 'Denver' },
+        name: 'Escuela Moderna Americana', 
+        location: '1',
+        rating: '3',
+        img_src: 'https://edutory.mx/wp-content/uploads/2021/05/escuela-moderna-americana.jpeg'
+    },
     { 
-        name: 'Dynamic Industries', 
-        location: 'Washington D.C.' },
+        name: 'Aeroméxico', 
+        location: '1',
+        rating: '3',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
     { 
-        name: 'Growth Company', 
-        location: 'Houston' },
+        name: 'Pipiol Camp', 
+        location: '1',
+        rating: '5',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
     { 
-        name: 'Pinnacle Inc.', 
-        location: 'Philadelphia' },
+        name: 'INDICE', 
+        location: '1',
+        rating: '5',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
     { 
-        name: 'Leading Edge Solutions', 
-        location: 'San Diego' },
+        name: 'Millesime', 
+        location: '1',
+        rating: '4',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
     { 
-        name: 'Summit Enterprises', 
-        location: 'Minneapolis' },
+        name: 'Alsea', 
+        location: '1',
+        rating: '4',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
     { 
-        name: 'Elite Industries', 
-        location: 'Phoenix' },
+        name: 'AGVM', 
+        location: '1',
+        rating: '3',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
     { 
-        name: 'Golden Gate Corporation', 
-        location: 'San Francisco' },
+        name: 'Medica Mia', 
+        location: '1',
+        rating:'3',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
     { 
-        name: 'Optimum Solutions', 
-        location: 'Orlando' },
+        name: 'Nápoles', 
+        location: '1',
+        rating:'5',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
     { 
-        name: 'Bayside Corporation', 
-        location: 'Tampa' },
+        name: 'Svetia', 
+        location: '1',
+        rating:'5',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
     { 
-        name: 'Silver State Enterprises', 
-        location: 'Las Vegas' },
+        name: 'Instituto Mexicano del Petróleo', 
+        location: '1',
+        rating:'4',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
     { 
-        name: 'First Rate Co.', 
-        location: 'New York' },
-    { 
-        name: 'Sunset Corporation', 
-        location: 'Los Angeles' },
-    { 
-        name: 'Infinite Solutions', 
-        location: 'Chicago' },
-    { 
-        name: 'East Coast Enterprises', 
-        location: 'Miami' },
-    { 
-        name: 'Rising Star Co.', 
-        location: 'Dallas' },
-    { 
-        name: 'NextGen Industries', 
-        location: 'San Francisco' },
-    { 
-        name: 'Peak Performance Corporation', 
-        location: 'Boston' },
-    { 
-        name: 'New Horizons Solutions', 
-        location: 'Atlanta' }
+        name: 'deep_dive', 
+        location: '1',
+        rating:'5',
+        img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg'
+    },
   ];
 
   export default companies_list;
