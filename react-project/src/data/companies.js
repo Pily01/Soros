@@ -1,91 +1,67 @@
 let companies_list = [
     { 
-        name: 'ABC Corporation', 
-        location: 'New York' },
+        name: 'Teleperformance', 
+        location: '1 review' },
     { 
-        name: 'XYZ Inc.', 
-        location: 'Los Angeles' },
+        name: 'Sliders', 
+        location: '1 Review' },
     { 
-        name: 'ACME Co.', 
-        location: 'Chicago' },
+        name: 'Secretaria de A.F', 
+        location: '1 Review' },
     { 
-        name: 'Global Industries', 
-        location: 'Miami' },
+        name: 'CMF GAM', 
+        location: '1 Review' },
     { 
-        name: 'Bright Future Enterprises', 
-        location: 'Dallas' },
+        name: 'Starbucks Centro Historico', 
+        location: '1 Review' },
     { 
-        name: 'Innovative Solutions', 
-        location: 'San Francisco' },
+        name: 'Hospital Español', 
+        location: '1 Review' },
     { 
-        name: 'MegaCorp', 
-        location: 'Boston' },
+        name: 'BBVA', 
+        location: '1 Review' },
     { 
-        name: 'PrimeTime Corporation', 
-        location: 'Atlanta' },
+        name: 'Banorte', 
+        location: '1 Review' },
     { 
-        name: 'Northern Lights Co.', 
-        location: 'Seattle' },
+        name: 'Rhenus Torre Mitikah', 
+        location: '1 Review' },
     { 
-        name: 'TechWise Solutions', 
-        location: 'Austin' },
+        name: 'Hospital General de Mexico', 
+        location: '1 Review' },
     { 
-        name: 'SkyHigh Enterprises', 
-        location: 'Denver' },
+        name: 'Escuela Moderna Americana', 
+        location: '1 Review' },
     { 
-        name: 'Dynamic Industries', 
-        location: 'Washington D.C.' },
+        name: 'Aeroméxico', 
+        location: '1 Review' },
     { 
-        name: 'Growth Company', 
-        location: 'Houston' },
+        name: 'Pipiol Camp', 
+        location: '1 Review' },
     { 
-        name: 'Pinnacle Inc.', 
-        location: 'Philadelphia' },
+        name: 'INDICE', 
+        location: '1 Review' },
     { 
-        name: 'Leading Edge Solutions', 
-        location: 'San Diego' },
+        name: 'Millesime', 
+        location: '1 Review' },
     { 
-        name: 'Summit Enterprises', 
-        location: 'Minneapolis' },
+        name: 'Alsea', 
+        location: '1 Review' },
     { 
-        name: 'Elite Industries', 
-        location: 'Phoenix' },
+        name: 'AGVM', 
+        location: '1 Review' },
     { 
-        name: 'Golden Gate Corporation', 
-        location: 'San Francisco' },
+        name: 'Medica Mia', 
+        location: '1 Review' },
     { 
-        name: 'Optimum Solutions', 
-        location: 'Orlando' },
+        name: 'Nápoles', 
+        location: '1 Review' },
     { 
-        name: 'Bayside Corporation', 
-        location: 'Tampa' },
+        name: 'Svetia', 
+        location: '1 Review' },
     { 
-        name: 'Silver State Enterprises', 
-        location: 'Las Vegas' },
-    { 
-        name: 'First Rate Co.', 
-        location: 'New York' },
-    { 
-        name: 'Sunset Corporation', 
-        location: 'Los Angeles' },
-    { 
-        name: 'Infinite Solutions', 
-        location: 'Chicago' },
-    { 
-        name: 'East Coast Enterprises', 
-        location: 'Miami' },
-    { 
-        name: 'Rising Star Co.', 
-        location: 'Dallas' },
-    { 
-        name: 'NextGen Industries', 
-        location: 'San Francisco' },
-    { 
-        name: 'Peak Performance Corporation', 
-        location: 'Boston' },
-    { 
-        name: 'New Horizons Solutions', 
-        location: 'Atlanta' }
+        name: 'Instituto Mexicano del Petróleo', 
+        location: '1 Review' },
   ];
 
   export default companies_list;
