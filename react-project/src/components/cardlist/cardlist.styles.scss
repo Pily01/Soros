@@ -8,6 +8,9 @@
 .cardlist-card{
     margin: 10px;
     transition: all ease 0.5s;
+    .card-image{
+        height: 60%;
+    }
 }
 
 .cardlist-card:hover{
