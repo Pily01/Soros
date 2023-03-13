@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Soros/static/css/main.c4d636a0.css",
-    "main.js": "/Soros/static/js/main.277afd4b.js",
+    "main.js": "/Soros/static/js/main.a3c49faf.js",
     "static/js/787.a2bf511c.chunk.js": "/Soros/static/js/787.a2bf511c.chunk.js",
     "static/media/company.png": "/Soros/static/media/company.059f601da877eb1e2b9d.png",
     "index.html": "/Soros/index.html",
     "main.c4d636a0.css.map": "/Soros/static/css/main.c4d636a0.css.map",
-    "main.277afd4b.js.map": "/Soros/static/js/main.277afd4b.js.map",
+    "main.a3c49faf.js.map": "/Soros/static/js/main.a3c49faf.js.map",
     "787.a2bf511c.chunk.js.map": "/Soros/static/js/787.a2bf511c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c4d636a0.css",
-    "static/js/main.277afd4b.js"
+    "static/js/main.a3c49faf.js"
   ]
 }
