@@ -2,6 +2,7 @@ import { useState } from "react";
 import {useNavigate} from 'react-router-dom';
 
 import { Form, Button } from 'react-bootstrap'
+import './form-input.styles.scss'
 
 import { collection, addDoc } from "firebase/firestore";
 import {db} from '../../utils/firebase/firebase.utils';
@@ -41,15 +42,15 @@ const FormInput = () => {
     }
 
     return (
-
-        <Form>
+        <div className="form-container">
+        <Form className="report-form">
             <h1>Safety Report</h1>
             <p> Please answer the following questions to the best of your ability.
                 Only the questions marked with an asterisk * are required. </p>
             
             {/* General  Rating*/}
             <Form.Group className="mb-3" controlId="formGeneralRating">
-                <Form.Label>Generally speaking, how would you rate this workplace on a scale from 1 to 5? *</Form.Label>
+                <Form.Label>1. Generally speaking, how would you rate this workplace on a scale from 1 to 5? *</Form.Label>
                 {['radio'].map((type) => (
                     <div key={`inline-${type}`} className="mb-3">
                         <Form.Check inline type={type} label= '1' name="rating" value="1"/>
@@ -63,7 +64,7 @@ const FormInput = () => {
 
             {/* Safety  */}
             <Form.Group className="mb-3" controlId="formSafety">
-                <Form.Label>How safe do you feel at work? *</Form.Label>
+                <Form.Label>2. How safe do you feel at work? *</Form.Label>
                 {['radio'].map((type) => (
                     <div key={`inline-${type}`} className="mb-3">
                         <Form.Check inline type={type} label= 'Not safe at all' name="safe"
@@ -89,7 +90,7 @@ const FormInput = () => {
             
             {/* Experience */}
             <Form.Group className="mb-3" controlId="experience">
-                <Form.Label>Have you experienced any type of sexual harassment in this workplace?</Form.Label>
+                <Form.Label>3. Have you experienced any type of sexual harassment in this workplace?</Form.Label>
                 {['radio'].map((type) => (
                     <div key={`default-${type}`} className="mb-3">
                         <Form.Check type={type} label= 'Yes' name="experience" 
@@ -106,7 +107,7 @@ const FormInput = () => {
             
             {/* Witness */}
             <Form.Group className="mb-3" controlId="witnessed">
-                <Form.Label> Have you witnessed any harassment happening to other employees at the company? </Form.Label>
+                <Form.Label>4. Have you witnessed any harassment happening to other employees at the company? </Form.Label>
                 {['radio'].map((type) => (
                     <div key={`default-${type}`} className="mb-3">
                         <Form.Check type={type} label= 'Yes' name="witnessed" 
@@ -122,9 +123,8 @@ const FormInput = () => {
             </Form.Group>
             
             {/* Frequency */}
-
-            <Form.Group>
-                <Form.Label>How frequent was the harassment you experienced and/or witnessed? </Form.Label>
+            <Form.Group className="mb-3" controlId="frequency">
+                <Form.Label>5. How frequent was the harassment you experienced and/or witnessed? </Form.Label>
                 {['radio'].map((type) => (
                     <div key={`default-${type}`} className="mb-3">
                         <Form.Check type={type} label= 'Rare' name="frequent"
@@ -142,11 +142,47 @@ const FormInput = () => {
                     </div>
                 ))}
             </Form.Group>
+            
+            {/* Reported */}
+            <Form.Group className="mb-3" controlId="reported">
+                <Form.Label>6. Have you reported the harassment to anyone at the company?</Form.Label>
+                {['radio'].map((type) => (
+                    <div key={`default-${type}`} className="mb-3">
+                        <Form.Check type={type} label= 'Yes' name="reported" 
+                        value="Yes" 
+                        checked={reportedHarass === "Yes"}
+                        onChange={(e)=>setReportedHarass(e.target.value)}/>
+                        <Form.Check type={type} label= 'No' name="reported" 
+                        value="No"
+                        checked={reportedHarass === "Yes"}
+                        onChange={(e)=>setReportedHarass(e.target.value)}/>
+                    </div>
+                ))}
+            </Form.Group>
 
-            <Button variant="primary" type="submit">
-              Submit
+            {/* Support */}
+            <Form.Group className="mb-3" controlId="support">
+                <Form.Label>7. If yes, did the company provide you with any support after the harassment occurred?</Form.Label>
+                {['radio'].map((type) => (
+                    <div key={`default-${type}`} className="mb-3">
+                        <Form.Check type={type} label= 'Yes' name="support" 
+                        value="Yes" 
+                        checked={companySupport === "Yes"}
+                        onChange={(e)=>setCompanySupport(e.target.value)}/>
+                        <Form.Check type={type} label= 'No' name="support"
+                        value="No"
+                        checked={companySupport === "Yes"}
+                        onChange={(e)=>setCompanySupport(e.target.value)}/>
+                    </div>
+                ))}
+            </Form.Group>
+
+            <Button className="form-button" type="submit">
+              Submit Safety Report
             </Button>
         </Form>
+        </div>
+
         //     <div>
         //     <form onSubmit={handleSubmit}>
         //         <div>
