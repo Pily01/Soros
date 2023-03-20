@@ -36,7 +36,7 @@ const Home = () => {
   return (
     <div className='App-main-div'>
       <NavbarComponent/>
-      <Container fluid>
+      <Container className='home-jumbotron' fluid>
         <Row >
           <Col sm={8} className='home-jumbotron-col1'>
             <p>Together, we can make workplaces in Mexico City safer.</p>
