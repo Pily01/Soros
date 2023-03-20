@@ -16,7 +16,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
-
 const responses = [
     {
         companyName: "Teleperformance",
@@ -250,5 +249,4 @@ const responses = [
         address:""
       }
 ];
-
 
