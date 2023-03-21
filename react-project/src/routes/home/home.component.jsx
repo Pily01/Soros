@@ -1,5 +1,6 @@
 import '../../App.css';
 import './home.styles.scss'
+import React from 'react';
 import SearchBox from '../../components/search/search-box';
 import CardList from '../../components/cardlist/cardlist';
 import NavbarComponent from '../../components/navbar/navbar.component';
