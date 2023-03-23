@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 import { Form, Button } from 'react-bootstrap'
 import './form-input.styles.scss'
@@ -8,6 +9,8 @@ import { collection, addDoc } from "firebase/firestore";
 import {db} from '../../utils/firebase/firebase.utils';
 
 const FormInput = () => {
+    const {name} = useParams();
+    console.log(name);
     const navigate = useNavigate();
 //various states for our form inputs
     const [workPlaceRating, setWorkPlaceRating] = useState('');
@@ -24,6 +27,7 @@ const FormInput = () => {
 
         try{
             const docRef = await addDoc(collection(db, "responses"), {
+                companyName: name,
                 rating: workPlaceRating,   
                 safe: safeAtWork,
                 experiencedHarassment: experiencedHarass,
@@ -43,7 +47,7 @@ const FormInput = () => {
 
     return (
         <div className="form-container">
-        <Form className="report-form" onSubmit={handleSubmit()}>
+        <Form className="report-form" onSubmit={handleSubmit}>
             <h1>Safety Report</h1>
             <p> Please answer the following questions to the best of your ability.
                 Only the questions marked with an asterisk * are required. </p>
@@ -53,11 +57,16 @@ const FormInput = () => {
                 <Form.Label>1. Generally speaking, how would you rate this workplace on a scale from 1 to 5? *</Form.Label>
                 {['radio'].map((type) => (
                     <div key={`inline-${type}`} className="mb-3">
-                        <Form.Check inline type={type} label= '1' name="rating" value="1"/>
-                        <Form.Check inline type={type} label= '2' name="rating" value="2"/>
-                        <Form.Check inline type={type} label= '3' name="rating" value="3"/>
-                        <Form.Check inline type={type} label= '4' name="rating" value="4"/>
-                        <Form.Check inline type={type} label= '5' name="rating" value="5"/>
+                        <Form.Check inline type={type} label= '1' name="rating" value="1" 
+                        checked={workPlaceRating === "1" } onChange={(e)=>setWorkPlaceRating(e.target.value)}/>
+                        <Form.Check inline type={type} label= '2' name="rating" value="2"
+                        checked={workPlaceRating === "2" } onChange={(e)=>setWorkPlaceRating(e.target.value)}/>
+                        <Form.Check inline type={type} label= '3' name="rating" value="3"
+                        checked={workPlaceRating === "3" } onChange={(e)=>setWorkPlaceRating(e.target.value)}/>
+                        <Form.Check inline type={type} label= '4' name="rating" value="4"
+                        checked={workPlaceRating === "4" } onChange={(e)=>setWorkPlaceRating(e.target.value)}/>
+                        <Form.Check inline type={type} label= '5' name="rating" value="5"
+                        checked={workPlaceRating === "5" } onChange={(e)=>setWorkPlaceRating(e.target.value)}/>
                     </div>
                 ))}
             </Form.Group >
@@ -154,7 +163,7 @@ const FormInput = () => {
                         onChange={(e)=>setReportedHarass(e.target.value)}/>
                         <Form.Check type={type} label= 'No' name="reported" 
                         value="No"
-                        checked={reportedHarass === "Yes"}
+                        checked={reportedHarass === "No"}
                         onChange={(e)=>setReportedHarass(e.target.value)}/>
                     </div>
                 ))}
@@ -171,7 +180,7 @@ const FormInput = () => {
                         onChange={(e)=>setCompanySupport(e.target.value)}/>
                         <Form.Check type={type} label= 'No' name="support"
                         value="No"
-                        checked={companySupport === "Yes"}
+                        checked={companySupport === "No"}
                         onChange={(e)=>setCompanySupport(e.target.value)}/>
                     </div>
                 ))}
