@@ -41,5 +41,5 @@ const App = () => {
       </BrowserRouter>
     </>
   );
-};
+} //should there be a semicolon here
 export default App;
