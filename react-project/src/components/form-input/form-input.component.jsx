@@ -53,6 +53,7 @@ const FormInput = () => {
                 <Form.Label>1. Generally speaking, how would you rate this workplace on a scale from 1 to 5? *</Form.Label>
                 {['radio'].map((type) => (
                     <div key={`inline-${type}`} className="mb-3">
+                        required                {/*ADDED THIS*/}
                         <Form.Check inline type={type} label= '1' name="rating" value="1"/>
                         <Form.Check inline type={type} label= '2' name="rating" value="2"/>
                         <Form.Check inline type={type} label= '3' name="rating" value="3"/>
@@ -141,9 +142,10 @@ const FormInput = () => {
                         onChange={(e)=>setHowFrequent(e.target.value)}/>
                     </div>
                 ))}
-            </Form.Group>
+            </Form.Group> 
             
-            {/* Reported */}
+            {/* Reported */} 
+            
             <Form.Group className="mb-3" controlId="reported">
                 <Form.Label>6. Have you reported the harassment to anyone at the company?</Form.Label>
                 {['radio'].map((type) => (
