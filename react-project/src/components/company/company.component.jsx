@@ -1,12 +1,14 @@
 import { useParams } from "react-router-dom"
-import companies_list from "../../data/companies";
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+
 import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
 
 import { Button, Container, Row, Col, Table } from 'react-bootstrap';
 import "./company.styles.scss"
+
+import Example from "./company-safe-chart.component";
 
 const Company = () => {
     const { name } = useParams();
@@ -59,15 +61,25 @@ const Company = () => {
                                 <Table borderless>
                                     <tbody>
                                         <tr>
-                                          <td>Address:</td>
+                                          <td><b>Address:</b></td>
                                           <td>{company.address}</td>
                                         </tr>
                                         <tr>
-                                            <td>Website:</td>
+                                            <td><b>Website:</b></td>
                                             <td>https://www.example.com</td>
                                         </tr>
                                     </tbody>
                                 </Table>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="harassment-cases"> 
+                                <p><b>100%</b> of users experienced hasrrassment</p>
+                                <p><b>0%</b> of reported cases were resolved</p>
+                            </Col>
+                            <Col>
+                                <h4>Overall Safety</h4>
+                                <Example/> 
                             </Col>
                         </Row>
                     </Container>
