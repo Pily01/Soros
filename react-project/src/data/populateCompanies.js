@@ -63,12 +63,12 @@ const responses = [
       },
       {
         companyName: "Starbucks",
-        rating: "",
-        safe: "",
-        experiencedHarassment: "",
-        frequency: "",
-        witnessedHarassment: "",
-        reportedHarassment: "",
+        rating: "5",
+        safe: "super safe",
+        experiencedHarassment: "No",
+        frequency: "rarely",
+        witnessedHarassment: "No",
+        reportedHarassment: "No",
         companySupport: "",
         address:"Sucursales Centro Histórico"
       },
@@ -250,3 +250,35 @@ const responses = [
       }
 ];
 
+
+
+// Assuming you have initialized Firebase and authenticated the user
+
+
+const responsesCollection = db.collection("responses");
+
+const initialize =() => {
+  for (let i = 0; i < responses.length; i++) {
+  const company = responses[i];
+  
+  responsesCollection.add({
+    companyName: company.name,
+    rating: company.rating,
+    safe: company.safe,
+    experiencedHarassment: company.experiencedHarassment,
+    frequency: company.frequency,
+    witnessedHarassment: company.witnessedHarassment,
+    reportedHarassment: company.reportedHarassment,
+    companySupport: company.companySupport,
+    address: company.address
+  })
+  .then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+  })
+  .catch((error) => {
+    console.error("Error adding document: ", error);
+  });
+}
+}
+
+initialize()
