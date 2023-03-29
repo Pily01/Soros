@@ -5,7 +5,8 @@ import { useState, useEffect, useRef } from 'react';
 import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
 
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Button, Container, Row, Col, Table } from 'react-bootstrap';
+import "./company.styles.scss"
 
 const Company = () => {
     const { name } = useParams();
@@ -44,18 +45,29 @@ const Company = () => {
             
             {companyData.map(company => {
                 return (
-                    <Container>
-                        <Row>
-                            <Col>
-                                <h1> {name}</h1>
-                                <h1>{company.rating}/5</h1>
+                    <Container className="company-container">
+                        <Row className="company-main-row">
+                            <Col className="company-main-info">
+                                <h1 className="company-name"> {name}</h1>
+                                <h1 className="rating">{company.rating}/5</h1>
+                                <p>Overall Quality Based on 1 rating</p>
                                 <Link className="cardlist-link" to={new_href}>
-                                    <Button className='cardlist-button'>Rate</Button>
+                                    <Button className='cardlist-button' size="lg">Rate</Button>
                                 </Link>
                             </Col>
-                            <Col>
-                                Address: {company.address}
-                                Website: https://examplewebsite.com
+                            <Col className="company-secondary-info">
+                                <Table borderless>
+                                    <tbody>
+                                        <tr>
+                                          <td>Address:</td>
+                                          <td>{company.address}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Website:</td>
+                                            <td>https://www.example.com</td>
+                                        </tr>
+                                    </tbody>
+                                </Table>
                             </Col>
                         </Row>
                     </Container>
