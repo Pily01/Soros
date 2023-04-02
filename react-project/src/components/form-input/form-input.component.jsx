@@ -44,7 +44,17 @@ const FormInput = () => {
     return (
         <div className="form-container">
         <Form className="report-form" onSubmit={handleSubmit()}>
-            <h1>Safety Report</h1>
+            <h1>Safety Report Form</h1>
+
+            <div className="company">
+                <h6>COMPANY INFORMATION</h6>
+            </div>
+            
+            <div className="company">
+                <h6>COMPANY SAFETY</h6>
+            </div>
+            
+
             <p> Please answer the following questions to the best of your ability.
                 Only the questions marked with an asterisk * are required. </p>
             
