@@ -3,20 +3,25 @@
     display: flex;
     padding-left: 300px;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: left;
     color: black;
     padding-left: 10% !important;
+    padding-top: 5%;
+    //align-items: flex-start;
+   
+
 }
 .home-jumbotron-col2{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-bottom:15%;
 }
 
 .home-search-bar{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 30px;
+    padding-bottom: 5px;
 }
 
 .home-img{
