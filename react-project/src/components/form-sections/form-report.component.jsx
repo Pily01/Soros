@@ -1,11 +1,10 @@
-import { Form, ProgressBar } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 import FormWrapper from './form-wrapper.component';
 
 const FormReport = () => {
     return(
-        <FormWrapper>
-            <ProgressBar now={95} />
+        <FormWrapper progress={95}>
             {/* Reported */}
             <Form.Group className="mb-3" controlId="reported">
                 <Form.Label>If you have experienced or witnessed any harassment, did you report it to someone in the company? </Form.Label>

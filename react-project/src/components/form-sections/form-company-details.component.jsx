@@ -1,10 +1,9 @@
-import { Form, ProgressBar } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import FormWrapper from './form-wrapper.component';
 
 const FormCompanyDetails = () => {
     return(
-        <FormWrapper>
-            <ProgressBar now={20} />
+        <FormWrapper progress={20}>
             {/* Company Name */}
             <Form.Group className="mb-3" controlId="company">
                 <Form.Label>What is the name of the company you would like to report?*</Form.Label>

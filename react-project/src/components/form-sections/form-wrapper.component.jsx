@@ -1,13 +1,17 @@
+import { ProgressBar } from "react-bootstrap";
 
-const FormWrapper = ({title, children}) => {
+const FormWrapper = ({ description, children, progress}) => {
     return(
-        <div style={{display: "flex", padding: '1rem'}}>
-            <h2 style={{textAlign: 'center', margin: 0, marginBottom: '2rem'}}>{title}</h2>
+        <div style={{padding: '2rem'}}>
+            <ProgressBar now={progress} />
+            <h2 style={{textAlign: 'center', margin: 0, marginBottom: '2rem'}}>
+                Safety Report Form
+            </h2>
+            <p>{description}</p>
             <div style={{
-                display: 'grid',
                 gap: '1rem .5rem',
                 justifyContent: 'flex-start',
-                gridTemplateColumns: 'auto minimax(auto, 400px)'
+                gridTemplateColumns: 'auto minmax(auto, 400px)'
             }}>{children}</div>    
         </div>
 
