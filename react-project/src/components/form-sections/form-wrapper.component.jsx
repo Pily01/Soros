@@ -4,6 +4,7 @@ const FormWrapper = ({ description, children, progress}) => {
     return(
         <div style={{padding: '2rem'}}>
             <ProgressBar now={progress} />
+            <br></br>
             <h2 style={{textAlign: 'center', margin: 0, marginBottom: '2rem'}}>
                 Safety Report Form
             </h2>
