@@ -1,10 +1,18 @@
 import { useMultistepForm } from "./form.hook";
 
+import FormCompanyDetails from "./form-company-details.component";
+import FormRating from "./form-rating.component";
+import FormExperience from "./form-experience.component";
+import FormWitness from "./form-witness.component";
+import FormReport from "./form-report.component";
+
 const FormManager = () => {
     const { steps, currentStepIndex, step, back, next, isLastStep } = useMultistepForm([
-        <div>One</div>,
-        <div>Two</div>,
-        <div>Three</div>
+        <FormCompanyDetails/>,
+        <FormRating/>,
+        <FormExperience/>,
+        <FormWitness/>,
+        <FormReport/>
     ]);
     return(
         <div>
