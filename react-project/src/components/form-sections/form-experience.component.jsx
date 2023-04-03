@@ -1,8 +1,10 @@
-import { Form } from 'react-bootstrap';
+import { Form, ProgressBar } from 'react-bootstrap';
+import FormWrapper from './form-wrapper.component';
 
 const FormExperience = () => {
     return(
-        <div>
+        <FormWrapper>
+            <ProgressBar now={60}/>
             {/* Experience */}
             <Form.Group className="mb-3" controlId="experience">
                 <Form.Label>Have you experienced any form of sexual harassment at this workplace?</Form.Label>
@@ -35,7 +37,7 @@ const FormExperience = () => {
                     </div>
                 ))}
             </Form.Group>
-        </div>
+        </FormWrapper>
     )
 }
 

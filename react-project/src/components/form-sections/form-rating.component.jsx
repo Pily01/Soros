@@ -1,8 +1,11 @@
-import { Form } from 'react-bootstrap';
+import { Form, ProgressBar } from 'react-bootstrap';
+
+import FormWrapper from './form-wrapper.component';
 
 const FormRating = () => {
     return (
-        <div>
+        <FormWrapper>
+            <ProgressBar now={40} />
             {/* General  Rating*/}
             <Form.Group className="mb-3" controlId="formGeneralRating">
                 <Form.Label>On a scale from 1 to 5, how would you rate this company? *</Form.Label>
@@ -41,7 +44,7 @@ const FormRating = () => {
                     </div>
                 ))}
             </Form.Group >
-        </div>
+        </FormWrapper>
     )
 }
 

@@ -1,8 +1,11 @@
-import { Form } from 'react-bootstrap';
+import { Form, ProgressBar } from 'react-bootstrap';
+
+import FormWrapper from './form-wrapper.component';
 
 const FormWitness = () => {
     return (
-        <div>
+        <FormWrapper>
+            <ProgressBar now={80} />
             {/* Witness */}
             <Form.Group className="mb-3" controlId="witnessed">
                 <Form.Label>Have you witnessed any form of sexual harassment at this company? </Form.Label>
@@ -35,7 +38,7 @@ const FormWitness = () => {
                     </div>
                 ))}
             </Form.Group>
-        </div>
+        </FormWrapper>
     )
 }
 

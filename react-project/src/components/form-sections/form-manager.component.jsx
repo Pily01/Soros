@@ -1,5 +1,7 @@
 import { useMultistepForm } from "./form.hook";
 
+import { Button } from 'react-bootstrap';
+
 import FormCompanyDetails from "./form-company-details.component";
 import FormRating from "./form-rating.component";
 import FormExperience from "./form-experience.component";
@@ -17,13 +19,12 @@ const FormManager = () => {
     return(
         <div>
             <form>
-                {currentStepIndex + 1} / {steps.length}
                 {step}
                 <div>
-                    {currentStepIndex !== 0 && <button type='button' onClick={back}>Back</button>}
-                    <button type='button' onClick={next}>
+                    {currentStepIndex !== 0 && <Button type='button' onClick={back}>Back</Button>}
+                    <Button type='button' onClick={next}>
                         {isLastStep ? "Submit" : "Next"}
-                    </button>
+                    </Button>
                 </div>
             </form>
         </div>
