@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap';
 const FormRating = () => {
     return (
         <div>
-                        {/* General  Rating*/}
+            {/* General  Rating*/}
             <Form.Group className="mb-3" controlId="formGeneralRating">
                 <Form.Label>On a scale from 1 to 5, how would you rate this company? *</Form.Label>
                 {['radio'].map((type) => (
@@ -29,15 +29,14 @@ const FormRating = () => {
                     <div key={`inline-${type}`} className="mb-3">
                         <Form.Check inline type={type} label= 'Not safe at all' name="safe"
                         value = "not safe"
-                        checked={safeAtWork === "not safe"}
                         />
                         <Form.Check inline type={type} label= 'Moderately safe' name="safe"
                         value = "moderately safe"
-                        checked={safeAtWork === "moderately safe"}
+                        
                         />
                         <Form.Check inline type={type} label= 'Completely safe' name="safe"
                         value ="super safe"
-                        checked={safeAtWork === "super safe"}
+    
                         />
                     </div>
                 ))}
