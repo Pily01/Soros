@@ -13,14 +13,16 @@ const AutoComplete = (props) => {
 
 
     useEffect(() => {
-        autoCompleteRef.current = new window.google.maps.places.Autocomplete(
-            inputRef.current,
-            options
-        );
-        autoCompleteRef.current.addListener("place_changed", async function () {
-            const place = await autoCompleteRef.current.getPlace();
-            props.handleCallback(place);
-        })
+        if (typeof window !== 'undefined' && window.google) {
+            autoCompleteRef.current = new window.google.maps.places.Autocomplete(
+                inputRef.current,
+                options
+            );
+            autoCompleteRef.current.addListener("place_changed", async function () {
+                const place = await autoCompleteRef.current.getPlace();
+                props.handleCallback(place);
+            })
+        }
     }, []);
     return (
         <div>
