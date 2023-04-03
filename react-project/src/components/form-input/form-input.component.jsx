@@ -15,6 +15,7 @@ const FormInput = () => {
     const [experiencedHarass, setExperiencedHarass] = useState(false);
     const [witnessedHarass, setWitnessedHarass] = useState(false);
     const [howFrequent, setHowFrequent] = useState('');
+    const [typeHarass, setTypeHarass] = useState('');
     const [reportedHarass, setReportedHarass] = useState(false);
     const [companySupport, setCompanySupport] = useState(false);
 
@@ -60,15 +61,17 @@ const FormInput = () => {
             
             {/* General  Rating*/}
             <Form.Group className="mb-3" controlId="formGeneralRating">
-                <Form.Label>1. Generally speaking, how would you rate this workplace on a scale from 1 to 5? *</Form.Label>
+                <Form.Label>1. Generally speaking, how would you rate this workplace on a scale from 1 to 5? *required</Form.Label>
                 {['radio'].map((type) => (
-                    <div key={`inline-${type}`} className="mb-3">
-                        required                {/*ADDED THIS*/}
+                    <div key={`inline-${type}`} className={'mb-3' + '' + 'vertical'}>
+                        
                         <Form.Check inline type={type} label= '1' name="rating" value="1"/>
                         <Form.Check inline type={type} label= '2' name="rating" value="2"/>
                         <Form.Check inline type={type} label= '3' name="rating" value="3"/>
                         <Form.Check inline type={type} label= '4' name="rating" value="4"/>
                         <Form.Check inline type={type} label= '5' name="rating" value="5"/>
+                        <br></br>
+                        <p className="under-button">Dangerous</p> <p className="under-button">Safe</p> <p className="under-button">Protective</p> 
                     </div>
                 ))}
             </Form.Group >
@@ -98,10 +101,14 @@ const FormInput = () => {
                 The following questions are optional, but can help other women get a better idea of the safety of this workplace. 
                 Please only answer questions you feel safe and comfortable asking. 
             </p>
+
+            <div className="company">
+                <h6>HARASSMENT EXPERIENCE</h6>
+            </div>
             
             {/* Experience */}
             <Form.Group className="mb-3" controlId="experience">
-                <Form.Label>3. Have you experienced any type of sexual harassment in this workplace?</Form.Label>
+                <Form.Label>3. Have you <b>experienced</b> any type of sexual harassment in this workplace?</Form.Label>
                 {['radio'].map((type) => (
                     <div key={`default-${type}`} className="mb-3">
                         <Form.Check type={type} label= 'Yes' name="experience" 
@@ -116,9 +123,48 @@ const FormInput = () => {
                 ))}
             </Form.Group >
             
+
+            {/*Type of Harrassment */}
+            <Form.Group className="mb-3" controlId="typeHarass">
+                <Form.Label>4. If yes, what type of harassment was it? </Form.Label>
+                {['radio'].map((type) => (
+                    <div key={`default-${type}`} className="mb-3">
+                        <Form.Check  type={type} label= 'Verbal' name="Verbal"
+                        value = "Verbal"
+                        checked={typeHarass === "Verbal"}
+                        onChange={(e)=>setTypeHarass(e.target.value)}/>
+                        
+                        <Form.Check  type={type} label= 'Physical' name="Physical"
+                        value = "Physical"
+                        checked={typeHarass === "Physical"}
+                        onChange={(e)=>setTypeHarass(e.target.value)}/>
+                        
+                        <Form.Check  type={type} label= 'Threats' name="Threats"
+                        value ="Threats"
+                        checked={typeHarass === "Threats"}
+                        onChange={(e)=>setTypeHarass(e.target.value)}/>
+                        
+                        <Form.Check  type={type} label= 'Threats' name="Threats"
+                        value ="Threats"
+                        checked={typeHarass === "Threats"}
+                        onChange={(e)=>setTypeHarass(e.target.value)}/>
+
+<Form.Check  type={type} label= 'Threats' name="Threats"
+                        value ="Threats"
+                        checked={typeHarass === "Threats"}
+                        onChange={(e)=>setTypeHarass(e.target.value)}/>
+                    </div>
+                ))}
+            </Form.Group >
+
+
+
+
+
+
             {/* Witness */}
             <Form.Group className="mb-3" controlId="witnessed">
-                <Form.Label>4. Have you witnessed any harassment happening to other employees at the company? </Form.Label>
+                <Form.Label>4. Have you <b>witnessed</b> any harassment happening to other employees at the company? </Form.Label>
                 {['radio'].map((type) => (
                     <div key={`default-${type}`} className="mb-3">
                         <Form.Check type={type} label= 'Yes' name="witnessed" 
