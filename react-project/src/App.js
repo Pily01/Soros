@@ -13,8 +13,9 @@ const App = () => {
       <Route path='/Soros' element={<Home/>}/>
       <Route path='/Soros/companies/:name' element={<Company/>}/>
       <Route path='/Soros/form/:name' element={<FormInput/>}/>
-      <Route path='/Soros/form' element={<FormInput/>}/>
       <Route path='/Soros/form-manager' element={<FormManager/>}/>
+      <Route path='/Soros/form' element={<FormInput/>}/>
+
     </Routes>
     
   );
