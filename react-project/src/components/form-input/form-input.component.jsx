@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {useNavigate} from 'react-router-dom';
 import { useParams } from "react-router-dom";
+import AutoComplete from "./autocomplete";
 
 import { Form, Button } from 'react-bootstrap'
 import './form-input.styles.scss'
@@ -13,6 +14,7 @@ const FormInput = () => {
     console.log(name);
     const navigate = useNavigate();
 //various states for our form inputs
+    const [companyName, setCompanyName] = useState('');
     const [workPlaceRating, setWorkPlaceRating] = useState('');
     const [safeAtWork, setSafeAtWork] = useState('');
     const [experiencedHarass, setExperiencedHarass] = useState(false);
@@ -20,6 +22,17 @@ const FormInput = () => {
     const [howFrequent, setHowFrequent] = useState('');
     const [reportedHarass, setReportedHarass] = useState(false);
     const [companySupport, setCompanySupport] = useState(false);
+    const addressString = useRef("");
+
+    const callBack = (mapsData) => {
+        console.log(mapsData);
+        setCompanyName(mapsData.name);
+        mapsData.address_components.map(address => {
+            addressString.current = addressString.current+ address.long_name + "," + " ";
+        });
+
+        console.log(addressString.current);
+    }
 
 //method to add data to firestore database
     const handleSubmit = async (event) => {
@@ -27,7 +40,8 @@ const FormInput = () => {
 
         try{
             const docRef = await addDoc(collection(db, "responses"), {
-                companyName: name,
+                address: addressString.current,
+                companyName: companyName,
                 rating: workPlaceRating,   
                 safe: safeAtWork,
                 experiencedHarassment: experiencedHarass,
@@ -52,6 +66,14 @@ const FormInput = () => {
             <p> Please answer the following questions to the best of your ability.
                 Only the questions marked with an asterisk * are required. </p>
             
+            <AutoComplete handleCallback={callBack}/>
+            
+            {/* Company Name */}
+            <Form.Group className="mb-3" controlId="company">
+                <Form.Label>Company Name</Form.Label>
+                <Form.Control type="text" className="mb-3" value={companyName} onChange={(e)=>setCompanyName(e.target.value)}/>
+            </Form.Group >
+
             {/* General  Rating*/}
             <Form.Group className="mb-3" controlId="formGeneralRating">
                 <Form.Label>1. Generally speaking, how would you rate this workplace on a scale from 1 to 5? *</Form.Label>
