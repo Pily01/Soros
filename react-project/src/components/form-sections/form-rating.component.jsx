@@ -45,3 +45,5 @@ const FormRating = () => {
         </div>
     )
 }
+
+export default FormRating;
