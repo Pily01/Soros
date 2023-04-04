@@ -1,9 +1,8 @@
 import { Form } from 'react-bootstrap';
-import FormWrapper from './form-wrapper.component';
 
 const FormExperience = () => {
     return(
-        <FormWrapper progress={60}>
+        <Form>
             {/* Experience */}
             <Form.Group className="mb-3" controlId="experience">
                 <Form.Label>Have you experienced any form of sexual harassment at this workplace?</Form.Label>
@@ -19,24 +18,21 @@ const FormExperience = () => {
                 ))}
             </Form.Group >
 
-            {/* Frequency */}
-            <Form.Group className="mb-3" controlId="frequency">
-                <Form.Label>If yes, how frequent was the harassment? </Form.Label>
+            {/* Witness */}
+            <Form.Group className="mb-3" controlId="witnessed">
+                <Form.Label>Have you witnessed any form of sexual harassment at this company? </Form.Label>
                 {['radio'].map((type) => (
                     <div key={`default-${type}`} className="mb-3">
-                        <Form.Check type={type} label= 'Rare' name="frequent"
-                        value="rarely" 
+                        <Form.Check type={type} label= 'Yes' name="witnessed" 
+                        value="Yes" 
                         />
-                        <Form.Check type={type} label= 'Often' name="frequent" 
-                        value="often"
-                        />
-                        <Form.Check type={type} label= 'Very frequent' name="frequent" 
-                        value="very often"
+                        <Form.Check type={type} label= 'No' name="witnessed" 
+                        value="No"
                         />
                     </div>
                 ))}
             </Form.Group>
-        </FormWrapper>
+        </Form>
     )
 }
 
