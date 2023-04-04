@@ -4,15 +4,15 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 const data = [
   {
     name: 'Completely safe',
-    uv: 80,
+    uv: 0,
   },
   {
     name: 'Moderately Safe',
-    uv: 10,
+    uv: 100,
   },
   {
     name: 'Not safe',
-    uv: 10,
+    uv: 0,
   }
 ];
 

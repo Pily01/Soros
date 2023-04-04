@@ -8,7 +8,10 @@ import FormExperience from "./form-experience.component";
 import FormWitness from "./form-witness.component";
 import FormReport from "./form-report.component";
 
+
+
 const FormManager = () => {
+
     const { steps, currentStepIndex, step, back, next, isLastStep } = useMultistepForm([
         <FormCompanyDetails/>,
         <FormRating/>,
@@ -16,13 +19,17 @@ const FormManager = () => {
         <FormWitness/>,
         <FormReport/>
     ]);
+    const onSubmit = (event) => {
+        event.preventDefault();
+        next();
+    }
     return(
         <div>
-            <form>
+            <form onSubmit={onSubmit}>
                 {step}
                 <div>
                     {currentStepIndex !== 0 && <Button type='button' onClick={back}>Back</Button>}
-                    <Button type='button' onClick={next}>
+                    <Button type='submit'>
                         {isLastStep ? "Submit" : "Next"}
                     </Button>
                 </div>

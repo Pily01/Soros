@@ -4,6 +4,7 @@ import {Container, Nav, Navbar} from 'react-bootstrap';
 
 function NavbarComponent() {
   return (
+
     <Navbar bg="light" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand href="#home">
@@ -26,3 +27,4 @@ function NavbarComponent() {
 }
 
 export default NavbarComponent;
+
