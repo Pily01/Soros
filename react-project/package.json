@@ -1,7 +1,7 @@
 {
   "name": "react-project",
   "version": "0.1.0",
-  "homepage": "http://Pily01.github.io/Soros",
+  "homepage": "http://Pily01.github.io",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
