@@ -21,3 +21,5 @@ const FormInputs = () => {
 
     return content
 }
+
+export default FormInputs;
