@@ -50,14 +50,8 @@ const Form = () => {
                         Submit
                     </button>
                     </div>
-            </header>
-
-            <h2>Billing Info</h2>
-
-            
-
-           
-
+            </header>  
+            <FormInputs/>
         </form>
     )
 
