@@ -43,7 +43,7 @@ const Form = () => {
                     <button 
                     type='button' 
                     className='button'
-                    onClick={handleNexts}
+                    onClick={handleNext}
                     >Next</button>
                     
                     <button 
