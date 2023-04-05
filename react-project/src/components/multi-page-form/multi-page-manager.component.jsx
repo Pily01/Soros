@@ -1,7 +1,7 @@
 import useFormContext from '../../hooks/useFormContext.hook';
 import FormInputs from './form-inputs.component';
 
-const Form = () => {
+const MultiPageManager = () => {
 
     const {
         title, 
@@ -57,4 +57,4 @@ const Form = () => {
 
     return content
 }
-export default Form
+export default MultiPageManager;
