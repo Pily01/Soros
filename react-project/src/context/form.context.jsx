@@ -29,8 +29,6 @@ export const FormProvider = ({ children }) => {
         ...requiredInputs
     } = data
 
-    const canSubmit = [...Object.values(requiredInputs)].every(Boolean) && page === Object.keys(title).length - 1
-
     const handleChange = e => {
         const type = e.target.type;
         const name = e.target.name;
@@ -42,9 +40,21 @@ export const FormProvider = ({ children }) => {
         }))
     }
 
+    const canSubmit = [...Object.values(requiredInputs)].every(Boolean) && page === Object.keys(title).length - 1
+
+    const canNextPage1 = () => {
+        if (data.companyName !== "" && data.companyAdress != ""){
+            return true
+        }else{
+            return false
+        }
+    }
+    const disablePrev = page === 0
+    const disabledNext = (page === 0 && !canNextPage1) || (page === Object.keys(title).length - 1)
+
 
     return(
-        <FormContext.Provider value={{title, page, setPage, data, setData, canSubmit, handleChange}}>
+        <FormContext.Provider value={{title, page, setPage, data, setData, canSubmit, handleChange, disablePrev, disabledNext}}>
             {children}
         </FormContext.Provider>
     )
