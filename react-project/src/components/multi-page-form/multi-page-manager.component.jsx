@@ -1,9 +1,5 @@
 import useFormContext from '../../hooks/useFormContext.hook';
-
-import FormCompanyDetails from './form-company-details.component';
-import FormExperience from './form-experience.component';
-import FormReport from './form-report.component';
-
+import FormInputs from './form-inputs.component';
 
 const Form = () => {
 
@@ -12,8 +8,9 @@ const Form = () => {
         page, 
         setPage, 
         data, 
-        setData, 
-        canSubmit
+        canSubmit,
+        disablePev,
+        disableNext
     } = useFormContext();
 
     const handleSubmit = e => {
