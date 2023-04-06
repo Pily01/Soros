@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import CompanyDetails from './CompanyDetails.component';
+import CompanyRating from './CompanyRating.component';
 
 const Form = () => {
     const [page, setPage] = useState(0);
@@ -21,7 +22,9 @@ const Form = () => {
     const pageDisplay = () => {
         if(page === 0){
             return <CompanyDetails formData={formData} setFormData={setFormData}/>
-        } 
+        }else if (page === 1) {
+            return <CompanyRating formData={formData} setFormData={setFormData}/>
+        }
     }
 
     return (
