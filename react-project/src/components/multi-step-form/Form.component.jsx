@@ -26,23 +26,39 @@ const Form = () => {
 
     return (
         <div>
-            {"Progress Bar"}
+            {/*Progress Bar*/}
 
-            {"Form"}
+            {/*Form*/}
             <div>
                 <h1>{FormTitles[page]}</h1>
             </div>
-            {"Page Display"}
+            {/* Page Display */}
             <div>
                 {pageDisplay()}
             </div>
-            {"Buttons"}
+            {/* Buttons */}
             <div className='footer'>
-                <button>
+                {/* Back button */}
+                <button
+                    disabled= {page == 0}
+                    onClick={()=>{
+                        setPage((currentPage) => currentPage -1)
+                    }}
+                >
                     Back
                 </button>
-                <button>
-                    Next
+                {/* Next button */}
+                <button
+                    onClick={() => {
+                        if (page === FormTitles.length - 1) {
+                          alert("FORM SUBMITTED");
+                          console.log(formData);
+                        } else {
+                          setPage((currPage) => currPage + 1);
+                        }
+                      }}
+                >
+                    {page === FormTitles.length - 1 ? "Submit" : "Next"}
                 </button>
             </div>
         </div>
