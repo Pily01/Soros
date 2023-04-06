@@ -4,7 +4,7 @@ const Form = () => {
     const [page, setPage] = useState(0);
     const[formData, setFormData] = useState({
         companyName: "",
-        companyAdress: "",
+        companyAddress: "",
         rating: "",
         safety: "",
         experiencedHarass: "",
