@@ -3,6 +3,7 @@ import CompanyDetails from './CompanyDetails.component';
 import CompanyRating from './CompanyRating.component';
 import CompanyExperience from './CompanyExperience.component';
 import CompanyWitness from './CompanyWitness.component';
+import CompanyReport from './CompanyReport.component';
 
 const Form = () => {
     const [page, setPage] = useState(0);
@@ -30,6 +31,8 @@ const Form = () => {
             return <CompanyExperience formData={formData} setFormData={setFormData}/>
         }else if(page === 3) {
             return <CompanyWitness formData={formData} setFormData={setFormData}/>
+        }else if(page === 4) {
+            return <CompanyReport formData={formData} setFormData={setFormData}/>
         }
     }
 
