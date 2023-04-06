@@ -19,7 +19,23 @@ const Form = () => {
 
     return (
         <div>
+            {"Progress Bar"}
 
+            {"Form"}
+            <div>
+                <h1>{FormTitles[page]}</h1>
+            </div>
+            {"Page Display"}
+
+            {"Buttons"}
+            <div className='footer'>
+                <button>
+                    Back
+                </button>
+                <button>
+                    Next
+                </button>
+            </div>
         </div>
     )
 }
