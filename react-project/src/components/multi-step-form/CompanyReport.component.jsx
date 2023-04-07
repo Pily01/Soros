@@ -18,6 +18,7 @@ const CompanyReport = ({formData, setFormData}) => {
             />
             <label for="yes">Yes</label>
             <br/>
+
             <input 
             type="radio" 
             id="no" 
@@ -29,8 +30,10 @@ const CompanyReport = ({formData, setFormData}) => {
             checked = {reportedHarass == "no"}
             />
             <label for="no">No</label>
+            <br/>
 
             <label>If yes, did the company do anything about it?</label>
+            <br/>
             <input 
             type="radio" 
             id="fully-resolved" 
