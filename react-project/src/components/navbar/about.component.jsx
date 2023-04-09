@@ -4,9 +4,8 @@ import { View, Text } from 'react-native';
 function about() {
 return (
     <View>
-        <Text> hi gurl</Text>
-        console.log('hi')
-        console.log("hih")
+        <Text> hi grl</Text>
+        console.log("hi")
     </View> 
     );
 }
