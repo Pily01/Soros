@@ -207,10 +207,11 @@ const FormInput = () => {
                     </div>
                 ))}
             </Form.Group>
-
-            <Button className="form-button" type="submit">
-              Submit Safety Report
-            </Button>
+            <form class="form-inline">
+                <Button className="form-button" type="submit">
+                Submit Safety Report
+                </Button>
+            </form>
         </Form>
         </div>
 
