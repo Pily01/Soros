@@ -1,3 +1,4 @@
+import React from 'react';
 import '../../App.css';
 import './home.styles.scss'
 import homeimg from '../../soros-home.png'
@@ -9,6 +10,7 @@ import {useState, useEffect} from 'react';
 
 import {Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from 'react-router-dom';
 
 
 import companies_list from '../../data/companies';
@@ -32,15 +34,15 @@ const Home = () => {
     updateFiltList(newFiltList);
   }, [searchStr]);
 
-  
+          //why isnt the submit a safety report showing up on homepage ughh
   return (
     <div className='App-main-div'>
       <NavbarComponent/>
       <Container className='home-jumbotron' fluid>
         <Row >
           <Col sm={8} className='home-jumbotron-col1'>
-            <p>Together, we can make workplaces in Mexico City safer.</p>
-            <h1> Prevent, report, and check <br/>anonymously</h1>
+            <p className="paragraph-text">Together, we can make workplaces in Mexico City safer.</p>
+            <h1 className="header-text"> Prevent, report, and check <br/>anonymously.</h1>
             <SearchBox onChangeHandler={onSearch}/>
           </Col>
           <Col sm={4} className='home-jumbotron-col2'>
@@ -50,6 +52,11 @@ const Home = () => {
         <Row className='home-search-bar'>
           <CardList filteredList={filtList}/>
         </Row>
+        <nav class="nav flex-column">   
+          <a class="nav-link active" href="/Soros/form">Submit a Safety Report</a>
+        </nav>
+
+          
       </Container>
     </div>
   );

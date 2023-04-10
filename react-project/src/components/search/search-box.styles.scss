@@ -1,14 +1,18 @@
 .search-wrapper{
     padding-top: 30px;
     padding-bottom: 0px;
-    width: 60%;
+    width: 80%;
 }
 
 .search-search-bar{
+    position: relative;
     border-radius: 10px;
-    margin-left: 200px;
-    margin-right:200px;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 0px;
+    margin-right:450px;
     margin-bottom: 0px;
+    width: 1000px;
     
     
     border-color: rgb(187, 187, 187);
