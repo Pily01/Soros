@@ -1,18 +1,18 @@
+import NavbarComponent from '../../components/navbar/navbar.component';
 import teampic from './team-pic.JPG' 
 import { Container } from 'react-bootstrap';
 import './about.styles.scss'
-import NavbarComponent from '../../components/navbar/navbar.component';
+
+
 
 
 //still have to edit the formatting after figure out how to get it to show 
 //up on the screen
 function About() {
 return (
-    
-<Container className= "container">
-    <NavbarComponent/>
-     
     <div className= "entire_page">
+    <NavbarComponent/>
+    <Container>
         <br></br>
         <div class="d-flex justify-content-center ">
           <img className="team_picture"
@@ -46,9 +46,9 @@ return (
                 <br></br>
                 <br></br>
                 Thank you for choosing Soros, the platform that empowers women and holds companies accountable.
-        </div>
-    </div> 
-</Container>
+            </div> 
+    </Container>
+</div>
     );
 }
 

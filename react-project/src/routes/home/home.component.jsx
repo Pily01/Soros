@@ -34,7 +34,7 @@ const Home = () => {
     updateFiltList(newFiltList);
   }, [searchStr]);
 
-          //why isnt the submit a safety report showing up on homepage ughh
+
   return (
     <div className='App-main-div'>
       <NavbarComponent/>
