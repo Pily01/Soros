@@ -7,7 +7,7 @@ import Home from './routes/home/home.component';
 import Company from './components/company/company.component';
 import FormInput from './components/form-input/form-input.component'
 import FormManager from './components/form-sections/form-manager.component';
-import About from './components/navbar/navbar.component'; //if i try to change it to bout.component it gives me error saying react native doesnt excist
+import About from './components/navbar/about.component'; //if i try to change it to bout.component it gives me error saying react native doesnt excist
 
 const App = () => {
   return (
