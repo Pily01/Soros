@@ -1,0 +1,49 @@
+.form-container{
+    height: 100vh;
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    justify-content: center;
+    display: flex;
+    
+
+    .form-title{
+        color: black;
+    }
+
+    .form{
+        margin-top: 3rem;
+    }
+
+    .progress-bar{
+        
+        margin-bottom: 20px;
+    }
+
+    .section-title{
+        font-weight: 600;
+        font-size: 13px;
+        background-color: #F8F9FA;
+        color: #343A40;
+        max-width: max-content;
+        padding: 0px 8px;
+        border-radius: 16px;
+    }
+
+    .form-button{
+        background-color: #EA868F;
+        border: none;
+        color: white;
+        border-radius: 6px;
+        padding: 5px 20px;
+        box-shadow: none;
+        
+    }
+
+
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 80px;
+    }
+}

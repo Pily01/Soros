@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import AutoComplete from "./autocomplete";
 
 import { Form, Button } from 'react-bootstrap'
-import './form-input.styles.scss'
+
 
 import { collection, addDoc } from "firebase/firestore";
 import {db} from '../../utils/firebase/firebase.utils';

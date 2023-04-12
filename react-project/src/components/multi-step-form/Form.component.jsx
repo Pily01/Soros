@@ -5,6 +5,10 @@ import CompanyExperience from './CompanyExperience.component';
 import CompanyWitness from './CompanyWitness.component';
 import CompanyReport from './CompanyReport.component';
 
+
+import './Form.styles.scss'
+
+
 const Form = () => {
     const [page, setPage] = useState(0);
     const[formData, setFormData] = useState({
@@ -20,7 +24,7 @@ const Form = () => {
         support: ""
     })
 
-    const FormTitles = ["Company Details", "Rating", "Experience", "Witnessed", "Report"];
+    const FormTitles = ["COMPANY INFORMATION", "COMPANY SAFETY", "EXPERIENCE", "WITNESSED EXPERIENCE", "COMPANY SUPPORT"];
 
     const pageDisplay = () => {
         if(page === 0){
@@ -37,43 +41,47 @@ const Form = () => {
     }
 
     return (
-        <div>
-            {/*Progress Bar*/}
+        <div className='form-container'>
+            <div className='form'>
+                <h1 className='form-title'> Safety Report Form</h1>
+                {/*Progress Bar*/}
 
-            {/*Form*/}
-            <div>
-                <h1>{FormTitles[page]}</h1>
-            </div>
-            {/* Page Display */}
-            <div>
-                {pageDisplay()}
-            </div>
-            {/* Buttons */}
-            <div className='footer'>
-                {/* Back button */}
-                <button
-                    disabled= {page == 0}
-                    onClick={()=>{
-                        setPage((currentPage) => currentPage -1)
-                    }}
-                >
-                    Back
-                </button>
-                {/* Next button */}
-                <button
-                    onClick={() => {
-                        if (page === FormTitles.length - 1) {
-                          alert("FORM SUBMITTED");
-                          console.log(formData);
-                        } else {
-                          setPage((currPage) => currPage + 1);
-                        }
-                      }}
-                >
-                    {page === FormTitles.length - 1 ? "Submit" : "Next"}
-                </button>
+                {/*Form*/}
+                <div className='section-title'>
+                    <p>{FormTitles[page]}</p>
+                </div>
+                {/* Page Display */}
+                <div>
+                    {pageDisplay()}
+                </div>
+                {/* Buttons */}
+                <div className='footer'>
+                    {/* Back button */}
+                    <button className='form-button'
+                        disabled= {page == 0}
+                        onClick={()=>{
+                            setPage((currentPage) => currentPage -1)
+                        }}
+                    >
+                        Back
+                    </button>
+                    {/* Next button */}
+                    <button className='form-button'
+                        onClick={() => {
+                            if (page === FormTitles.length - 1) {
+                              alert("FORM SUBMITTED");
+                              console.log(formData);
+                            } else {
+                              setPage((currPage) => currPage + 1);
+                            }
+                          }}
+                    >
+                        {page === FormTitles.length - 1 ? "Submit" : "Next"}
+                    </button>
+                </div>
             </div>
         </div>
+
     )
 }
 

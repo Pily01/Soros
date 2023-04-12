@@ -4,7 +4,7 @@ const CompanyRating = ({formData, setFormData}) => {
     const {rating, safety} = formData;
     return(
         <div>
-            <label for="rating">How would you rate this company?</label><br />
+            <label for="rating">On a scale from 1 to 5, how would you rate your company? * </label><br />
                 <input 
                 type="radio" 
                 id="rating1" 
@@ -43,6 +43,32 @@ const CompanyRating = ({formData, setFormData}) => {
                 checked = {rating == "3"} 
                 />
                 <label for="rating3">3</label><br />
+
+                <input 
+                type="radio" 
+                id="rating4" 
+                name="rating" 
+                value="4" 
+                required 
+                onChange={(event) =>
+                    setFormData({ ...formData, rating: event.target.value })
+                }
+                checked = {rating == "4"} 
+                />
+                <label for="rating3">4</label><br />
+
+                <input 
+                type="radio" 
+                id="rating5" 
+                name="rating" 
+                value="5" 
+                required 
+                onChange={(event) =>
+                    setFormData({ ...formData, rating: event.target.value })
+                }
+                checked = {rating == "5"} 
+                />
+                <label for="rating3">5</label><br />
                 
                 <label for="safety-rating">How safe do you feel at this company?</label><br />
 
