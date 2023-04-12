@@ -2,7 +2,7 @@ import soroslogo from "./soros-logo.png"
 import {Container, Nav, Navbar} from 'react-bootstrap';
 
 
-//justify-content="flex-end" and between wont work for navbar > am not sure how to move them to right-most part of screen
+
 function NavbarComponent() {
   return (
     <Navbar bg="light" expand="lg" sticky="top" >
@@ -21,6 +21,7 @@ function NavbarComponent() {
           <Nav className="me-auto">
             <Nav.Link href="/Soros/form" >Submit Safety Report</Nav.Link>
             <Nav.Link href="/Soros/about">About Us</Nav.Link>
+            <Nav.Link href="/Soros/resources">Resources</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

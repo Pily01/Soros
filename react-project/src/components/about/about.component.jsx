@@ -1,13 +1,9 @@
-import NavbarComponent from '../../components/navbar/navbar.component';
+import NavbarComponent from '../navbar/navbar.component';
 import teampic from './team-pic.JPG' 
 import { Container } from 'react-bootstrap';
 import './about.styles.scss'
 
 
-
-
-//still have to edit the formatting after figure out how to get it to show 
-//up on the screen
 function About() {
 return (
     <div className= "entire_page">
