@@ -9,18 +9,11 @@ return (
     <div className= "entire_page">
     <NavbarComponent/>
     <Container>
-        <br></br>
-        <div class="d-flex justify-content-center ">
-          <img className="team_picture"
-          width="550"
-          height="400"
-          alt="React Bootstrap logo"
-          src={teampic}/> 
+        <div className="heading">
+            About Us
         </div>
-        <br></br>
-
-        <div className="under_pic"> From left to right: Azamat Khan, María del Pilar Domínguez Molina, Hanna Hong, Tara Sarli </div>
-            <div className="main_writing">
+        <div class="d-flex flex-row">
+            <div class="p-2" className="main_writing">
                 <br></br>
                 Hello there! 
                 <br></br>
@@ -43,6 +36,18 @@ return (
                 <br></br>
                 Thank you for choosing Soros, the platform that empowers women and holds companies accountable.
             </div> 
+            <br></br>
+            <div class="p-2">
+                <img className="team_picture"
+                width="550"
+                height="400"
+                alt="React Bootstrap logo"
+                src={teampic}/> 
+            </div>
+            </div>
+            <div className="under_pic"> From left to right: Azamat Khan, María del Pilar Domínguez Molina, Hanna Hong, Tara Sarli </div>
+            <br></br>
+        
     </Container>
 </div>
     );
