@@ -26,7 +26,8 @@ const CompanyDetails = ({ formData, setFormData}) => {
 
                 <Form.Group className="mb-3">
                     <Form.Label>Company Name</Form.Label>
-                <Form.Control 
+                <Form.Control
+                    required
                     type = "text"
                     placeholder='Market 123'
                     value = {formData.companyName}
@@ -38,7 +39,8 @@ const CompanyDetails = ({ formData, setFormData}) => {
 
                 <Form.Group className="mb-3">
                     <Form.Label>Company Address</Form.Label>
-                    <Form.Control 
+                    <Form.Control
+                    required
                     type = "text"
                     placeholder='10 Street'
                     value = {formData.companyAddress}
@@ -51,15 +53,9 @@ const CompanyDetails = ({ formData, setFormData}) => {
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>City</Form.Label>
-                    <Form.Control />
-                  </Form.Group>
-
-                  <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>State</Form.Label>
-                    <Form.Select defaultValue="Choose...">
-                      <option>Choose...</option>
-                      <option>...</option>
-                    </Form.Select>
+                    <Form.Control 
+                    value="Mexico City"
+                    />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridZip">

@@ -1,116 +1,60 @@
 import React from 'react';
+import {Form} from 'react-bootstrap';
+
+import './Form-steps.styles.scss'
 
 const CompanyRating = ({formData, setFormData}) => {
     const {rating, safety} = formData;
     return(
         <div>
-            <label for="rating">On a scale from 1 to 5, how would you rate your company? * </label><br />
-                <input 
-                type="radio" 
-                id="rating1" 
-                name="rating" 
-                value="1" 
-                required
-                onChange={(event) =>
-                    setFormData({ ...formData, rating: event.target.value })
-                }
-                checked = {rating == "1"} 
-                />
-                <label for="rating1">1</label><br />
-
-                <input 
-                type="radio" 
-                id="rating2" 
-                name="rating" 
-                value="2" 
-                required
-                onChange={(event) =>
-                    setFormData({ ...formData, rating: event.target.value })
-                }
-                checked = {rating == "2"}  
-                />
-                <label for="rating2">2</label><br />
-
-                <input 
-                type="radio" 
-                id="rating3" 
-                name="rating" 
-                value="3" 
-                required 
-                onChange={(event) =>
-                    setFormData({ ...formData, rating: event.target.value })
-                }
-                checked = {rating == "3"} 
-                />
-                <label for="rating3">3</label><br />
-
-                <input 
-                type="radio" 
-                id="rating4" 
-                name="rating" 
-                value="4" 
-                required 
-                onChange={(event) =>
-                    setFormData({ ...formData, rating: event.target.value })
-                }
-                checked = {rating == "4"} 
-                />
-                <label for="rating3">4</label><br />
-
-                <input 
-                type="radio" 
-                id="rating5" 
-                name="rating" 
-                value="5" 
-                required 
-                onChange={(event) =>
-                    setFormData({ ...formData, rating: event.target.value })
-                }
-                checked = {rating == "5"} 
-                />
-                <label for="rating3">5</label><br />
+            <Form.Group>
+              <Form.Label>
+                On a scale from 1 to 5, how would you rate your company? *
+              </Form.Label>
+              <div>
+                {Array.from({ length: 5 }, (_, i) => i + 1).map((number) => (
+                  <Form.Check
+                    key={number}
+                    inline
+                    label={number}
+                    name="rating"
+                    type="radio"
+                    id={`rating${number}`}
+                    value={number}
+                    required
+                    checked={rating == number}
+                    onChange={(event) =>
+                      setFormData({ ...formData, rating: event.target.value })
+                    }
+                  />
+                ))}
+              </div>
+            </Form.Group>
                 
-                <label for="safety-rating">How safe do you feel at this company?</label><br />
-
-                <input 
-                type="radio" 
-                id="safe" 
-                name="safety-rating" 
-                value="safe" 
-                required
-                onChange={(event) =>
-                    setFormData({ ...formData, safety: event.target.value })
-                }
-                checked = {safety == "safe"} 
-                />
-                <label for="safe">Safe</label><br />
-
-                <input 
-                type="radio" 
-                id="moderately-safe" 
-                name="safety-rating" 
-                value="moderately safe" 
-                required
-                onChange={(event) =>
-                    setFormData({ ...formData, safety: event.target.value })
-                }
-                checked = {safety == "moderately safe"}  
-                />
-                <label for="moderately-safe">Moderately Safe</label><br />
-
-                <input 
-                type="radio" 
-                id="unsafe" 
-                name="safety-rating" 
-                value="unsafe" 
-                required
-                onChange={(event) =>
-                    setFormData({ ...formData, safety: event.target.value })
-                }
-                checked = {safety == "unsafe"}  
-                />
-                <label for="unsafe">Unsafe</label><br />
-
+            <Form.Group className='bottom-form-group'>
+                <Form.Label>How safe do you feel at this company?</Form.Label>
+                <div>
+                  {[
+                    { label: "Safe", value: "safe" },
+                    { label: "Moderately Safe", value: "moderately safe" },
+                    { label: "Unsafe", value: "unsafe" },
+                  ].map(({ label, value }) => (
+                    <Form.Check
+                      key={value}
+                      label={label}
+                      name="safety-rating"
+                      type="radio"
+                      id={value}
+                      value={value}
+                      required
+                      checked={safety == value}
+                      onChange={(event) =>
+                        setFormData({ ...formData, safety: event.target.value })
+                      }
+                    />
+                  ))}
+                </div>
+            </Form.Group>
         </div>
     )
 }
