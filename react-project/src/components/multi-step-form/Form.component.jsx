@@ -5,10 +5,10 @@ import CompanyExperience from './CompanyExperience.component';
 import CompanyWitness from './CompanyWitness.component';
 import CompanyReport from './CompanyReport.component';
 
+import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, getDocs, addDoc} from "firebase/firestore";
+import {db} from '../../utils/firebase/firebase.utils';
 
 import './Form.styles.scss'
-
-
 
 const Form = () => {
     const [page, setPage] = useState(0);
