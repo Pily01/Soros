@@ -1,6 +1,21 @@
 import React from 'react';
+import AutoComplete from "../form-input/autocomplete";
+import { useRef } from 'react';
 
 const CompanyDetails = ({ formData, setFormData}) => {
+    const addressString = useRef("");
+
+    const callBack = (mapsData) => {
+        setFormData({ ...formData, companyName: mapsData.name});
+        mapsData.address_components.map(address => {
+            addressString.current = addressString.current+ address.long_name + "," + " ";
+        });
+
+        setFormData({ ...formData, companyName: mapsData.name, companyAddress: addressString.current })
+        console.log(formData.companyName)
+        console.log(addressString.current);
+    }
+
     return (
         <div>
             

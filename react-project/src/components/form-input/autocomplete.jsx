@@ -4,7 +4,6 @@ import {Form} from 'react-bootstrap';
 const AutoComplete = (props) => {
     const autoCompleteRef = useRef();
     const inputRef = useRef();
-    const test = useRef(0);
     const options = {
         componentRestrictions: { country: "mx" },
         fields: ["address_components", "geometry", "icon", "name"],

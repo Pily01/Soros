@@ -9,6 +9,7 @@ import CompanyReport from './CompanyReport.component';
 import './Form.styles.scss'
 
 
+
 const Form = () => {
     const [page, setPage] = useState(0);
     const[formData, setFormData] = useState({
@@ -25,6 +26,87 @@ const Form = () => {
     })
 
     const FormTitles = ["COMPANY INFORMATION", "COMPANY SAFETY", "EXPERIENCE", "WITNESSED EXPERIENCE", "COMPANY SUPPORT"];
+
+    const handleSubmit = async () => {
+
+        try{
+            const docRef = await addDoc(collection(db, "responses"), {
+                address: formData.companyAddress,
+                companyName: formData.companyName,
+                rating: formData.rating,   
+                safe: formData.safety,
+                experiencedHarassment: formData.experiencedHarass,
+                experiencedFrequency: formData.experiencedFrequency,
+                witnessedHarass: formData.witnessedHarass,
+                witnessedFrequency: formData.witnessedFrequency,
+                reportedHarass: formData.reportedHarass,
+                support: formData.support 
+              });
+            console.log("Document written with ID: ", docRef.id);
+
+           // navigate('/Soros', {replace: true});
+        }
+        catch(e){
+            console.error("Error adding document: ", e);
+        }
+    }
+
+    const handleData = async () => {
+        const q = query(collection(db, "companies"), where("companyName", "==", formData.companyName));
+        const querySnapshot = await getDocs(q);
+
+        if(querySnapshot.docs.length > 0){
+            console.log("Exists");
+            const docRef = querySnapshot.docs[0].ref;
+            await updateData(docRef);
+        }
+        else{
+            const docRef = await addDoc(collection(db, "companies"), {
+                companyName: formData.companyName,
+                address: formData.companyAddress,
+                rating: {"1": 0, "2": 0, "3": 0},
+                experiencedHarass: {"yes": 0, "no": 0},
+                experiencedFrequency: {"rare": 0, "sometimes": 0, "often": 0, "always": 0},
+                safety: {"safe": 0, "moderately safe": 0, "unsafe": 0},
+                witnessedHarass: {"yes": 0, "no": 0},
+                witnessedFrequency: {"rare": 0, "sometimes": 0, "often": 0, "always": 0},
+                reportedHarass: {"yes": 0, "no": 0},
+                support: {"fully-resolved": 0, "partially-resolved": 0, "no-action": 0}
+            });
+            console.log("Doesn't exist")
+            await updateData(docRef);
+        }
+    }
+
+    const updateData = async (docRef) => {
+        const updates = {};
+        if (formData.rating) {
+            updates[`rating.${formData.rating}`] = increment(1);
+        }
+        if (formData.experiencedHarass) {
+            updates[`experiencedHarass.${formData.experiencedHarass}`] = increment(1);
+        }
+        if (formData.experiencedFrequency) {
+            updates[`experiencedFrequency.${formData.experiencedFrequency}`] = increment(1);
+        }
+        if (formData.safety) {
+            updates[`safety.${formData.safety}`] = increment(1);
+        }
+        if (formData.witnessedHarass) {
+            updates[`witnessedHarass.${formData.witnessedHarass}`] = increment(1);
+        }
+        if (formData.witnessedFrequency) {
+            updates[`witnessedFrequency.${formData.witnessedFrequency}`] = increment(1);
+        }
+        if (formData.reportedHarass) {
+            updates[`reportedHarass.${formData.reportedHarass}`] = increment(1);
+        }
+        if (formData.support) {
+            updates[`support.${formData.support}`] = increment(1);
+        }
+        
+        await updateDoc(docRef, updates);
+    }
 
     const pageDisplay = () => {
         if(page === 0){
