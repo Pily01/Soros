@@ -6,7 +6,7 @@ import './navbar.styles.scss'
 function NavbarComponent() {
   return (
 
-    <Navbar bg="light" expand="lg" sticky="top">
+    <Navbar className="navbar" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand href="/Soros">
           <img 
