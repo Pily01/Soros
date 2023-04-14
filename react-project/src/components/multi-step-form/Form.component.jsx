@@ -57,7 +57,7 @@ const Form = () => {
     }
 
     const handleData = async () => {
-        const q = query(collection(db, "companies"), where("companyName", "==", formData.companyName));
+        const q = query(collection(db, "companies_fake"), where("companyName", "==", formData.companyName));
         const querySnapshot = await getDocs(q);
 
         if(querySnapshot.docs.length > 0){
@@ -66,7 +66,7 @@ const Form = () => {
             await updateData(docRef);
         }
         else{
-            const docRef = await addDoc(collection(db, "companies"), {
+            const docRef = await addDoc(collection(db, "companies_fake"), {
                 companyName: formData.companyName,
                 address: formData.companyAddress,
                 rating: {"1": 0, "2": 0, "3": 0},
@@ -159,9 +159,10 @@ const Form = () => {
                     <button className={page === FormTitles.length - 1 ? "form-button-submit" : "form-button"}
                         onClick={() => {
                             if (page === FormTitles.length - 1) {
-                              alert("FORM SUBMITTED");
-                              handleSubmit();
-                              console.log(formData);
+                                alert("FORM SUBMITTED");
+                                console.log(formData);
+                                handleData();
+                                handleSubmit();
                             } else {
                               setPage((currPage) => currPage + 1);
                             }
