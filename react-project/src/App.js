@@ -1,4 +1,7 @@
-import {Routes, Route} from 'react-router-dom'
+
+import React from 'react';
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import { useEffect, useRef } from "react";
 
 import './App.css';
 
@@ -10,19 +13,53 @@ import FormEnd from './components/multi-step-form/form-messages/Form-end.compone
 import About from './components/about/about.component';
 import Resources from './components/resources/resources.component';
 
-const App = () => {
-  return (
-    <Routes>
-      <Route path='/Soros' element={<Home/>}/>
-      <Route path='/Soros/companies/:name' element={<Company/>}/>
-      <Route path='/Soros/form/:name' element={<Form/>}/>
-      <Route path='/Soros/form' element={<FormBeginning/>}/>
-      <Route path='/Soros/multi-form' element={<Form/>}/>
-      <Route path='/Soros/form-end' element={<FormEnd/>}/>
-      <Route path='/Soros/about' element={<About/>}/>
-      <Route path='/Soros/resources' element={<Resources/>}/>
+const App = () => {  
+  const effectRef = useRef(false);
 
-    </Routes>
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        autoDisplay: false,
+        includedLanguages: "en,es",
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+      },
+      "google_translate_element"
+    );
+  };
+
+  useEffect(() => {
+    const gTranslate = () => {
+      var addScript = document.createElement("script");
+      addScript.setAttribute(
+        "src",
+        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      );
+      document.body.appendChild(addScript);
+      window.googleTranslateElementInit = googleTranslateElementInit;
+    }
+    
+    if(effectRef.current) return
+    effectRef.current = true;
+    gTranslate();
+  }, []);
+
+  return (
+    
+        <div>
+          <div id="google_translate_element"></div>
+          <Routes>
+            <Route path='/Soros' element={<Home/>}/>
+            <Route path='/Soros/companies/:name' element={<Company/>}/>
+            <Route path='/Soros/form' element={<FormBeginning/>}/>
+            <Route path='/Soros/multi-form' element={<Form/>}/>
+            <Route path='/Soros/form-end' element={<FormEnd/>}/>
+            <Route path='/Soros/about' element={<About/>}/>
+            <Route path='/Soros/resources' element={<Resources/>}/>
+          </Routes>
+        </div>
+
+    
     
   );
 
