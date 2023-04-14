@@ -135,6 +135,15 @@ const Form = () => {
                 <h1 className='form-title'> Safety Report Form</h1>
                 {/*Progress Bar*/}
 
+                {/*Optional disclaimer*/}
+                {page===0 || page=== 1 ? 
+                    <p>The following questions are required. *</p> 
+                
+                : 
+                    <p>The following questions are optional, but can help other women get a better idea of the 
+                    <br/>safety of this workplace. Only answer questions you feel safe and comfortable answering. </p>
+                }
+                
                 {/*Form*/}
                 <div className='section-title'>
                     <p>{FormTitles[page]}</p>
@@ -163,7 +172,8 @@ const Form = () => {
                                 console.log(formData);
                                 handleData();
                                 handleSubmit();
-                            } else {
+                            } 
+                            else {
                               setPage((currPage) => currPage + 1);
                             }
                           }}
