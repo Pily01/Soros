@@ -19,7 +19,6 @@ const CompanyWitness = ({ formData, setFormData }) => {
           ].map(({ label, value }) => (
             <Form.Check
               key={value}
-              inline
               label={label}
               name="witnessed"
               type="radio"
@@ -45,7 +44,6 @@ const CompanyWitness = ({ formData, setFormData }) => {
           ].map(({ label, value }) => (
             <Form.Check
               key={value}
-              inline
               label={label}
               name="frequency"
               type="radio"
