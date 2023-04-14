@@ -146,7 +146,8 @@ const Form = () => {
                 {/* Buttons */}
                 <div className='footer'>
                     {/* Back button */}
-                    <button className='form-button'
+                    
+                    <button className={page === 0 ? 'disabled-button' : 'form-button'}
                         disabled= {page == 0}
                         onClick={()=>{
                             setPage((currentPage) => currentPage -1)
