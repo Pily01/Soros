@@ -7,7 +7,6 @@ import './about.styles.scss'
 function About() {
 return (
     <div className= "entire_page">
-    <NavbarComponent/>
     <Container>
         <div className="heading">
             About Us
@@ -47,7 +46,6 @@ return (
             </div>
             <div className="under_pic"> From left to right: Azamat Khan, María del Pilar Domínguez Molina, Hanna Hong, Tara Sarli </div>
             <br></br>
-        
     </Container>
 </div>
     );

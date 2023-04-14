@@ -35,7 +35,6 @@ const Home = () => {
   
   return (
     <div className='App-main-div'>
-      <NavbarComponent/>
       <Container className='home-jumbotron' fluid>
         <Row >
           <Col sm={8} className='home-jumbotron-col1'>

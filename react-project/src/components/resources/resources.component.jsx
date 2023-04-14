@@ -6,7 +6,6 @@ import './resources.styles.scss'
 function Resources() {
 return (
     <div className= "entire_page">
-    <NavbarComponent/>
     <Container>
         <div className="heading">
             Resources

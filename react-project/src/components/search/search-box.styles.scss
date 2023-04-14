@@ -1,11 +1,13 @@
-.search-wrapper{
+.search-box-wrapper{
     padding-top: 20px;
     padding-bottom: 20px;
-    width: 100%;
+    width: fit-content;
+    display: flex;
 }
 
 .search-search-bar{
-    border-radius: 10px;
+    margin-top: 20px;
     border-color: rgb(187, 187, 187);
-    outline: none;
+    max-width: 500px;
+    height: 40px;
 }

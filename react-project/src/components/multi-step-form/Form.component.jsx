@@ -129,7 +129,6 @@ const Form = () => {
 
     return (
         <div>
-        <NavbarComponent/>
         <div className='form-container'>
             <div className='form'>
                 <h1 className='form-title'> Safety Report Form</h1>

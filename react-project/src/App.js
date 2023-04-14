@@ -12,6 +12,7 @@ import FormBeginning from './components/multi-step-form/form-messages/Form-begin
 import FormEnd from './components/multi-step-form/form-messages/Form-end.component';
 import About from './components/about/about.component';
 import Resources from './components/resources/resources.component';
+import NavbarComponent from './components/navbar/navbar.component';
 
 const App = () => {  
   const effectRef = useRef(false);
@@ -49,6 +50,7 @@ const App = () => {
         <div>
           <div id="google_translate_element">
           </div>
+          <NavbarComponent/>
           <Routes>
             <Route path='/Soros' element={<Home/>}/>
             <Route path='/Soros/companies/:name' element={<Company/>}/>
