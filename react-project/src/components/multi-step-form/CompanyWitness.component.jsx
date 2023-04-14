@@ -43,6 +43,7 @@ const CompanyWitness = ({ formData, setFormData }) => {
             { label: "Always", value: "always" },
           ].map(({ label, value }) => (
             <Form.Check
+              disabled = {witnessedHarass == 'no'}
               key={value}
               label={label}
               name="frequency"

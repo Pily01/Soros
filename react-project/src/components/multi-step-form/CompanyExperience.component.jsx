@@ -43,6 +43,7 @@ const CompanyExperience = ({ formData, setFormData }) => {
             { label: "Always", value: "always" },
           ].map(({ label, value }) => (
             <Form.Check
+              disabled = {experiencedHarass == 'no'}
               key={value}
               label={label}
               name="frequency"

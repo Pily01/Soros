@@ -45,6 +45,7 @@ const CompanyReport = ({ formData, setFormData }) => {
             { label: "No, there was no action taken", value: "no-action" },
           ].map(({ label, value }) => (
             <Form.Check
+              disabled = {reportedHarass == 'no'}
               key={value}
               label={label}
               name="company-action"
