@@ -1,0 +1,39 @@
+.entire_page {
+    margin-bottom: 1000px;
+}
+
+.about_us {
+    font-weight: 800;
+    display:flex;
+    justify-content: flex-start;
+    margin-left: 90px;
+    margin-right: 10px;
+    margin-top: 100px;
+    font-size: 40px;
+    align-items: center;
+    color: #087990;
+}
+
+.main_writing {
+    display:flex;
+    flex-flow: column wrap;
+    margin-left: 90px;
+    align-items: center;
+    font-size: 15px;
+    color: grey;
+}
+
+.team_picture {
+    margin-top: 20px;
+    border-radius: 5px;
+    margin-left: 90px;
+    flex-direction:row;
+}
+
+.under_pic {
+    margin-top:-100px;
+    margin-left: 740px;
+    font-size: 13px;
+    display: flex;
+    color: grey;
+}
