@@ -40,3 +40,45 @@
     transform: rotate(360deg);
   }
 }
+
+/*hide google translate link | logo | banner-frame */
+.goog-logo-link,.gskiptranslate,.goog-te-banner-frame,#goog-gt-tt, .goog-te-balloon-frame,div#goog-gt-{
+  display: none!important;
+}
+
+.goog-te-gadget-icon{
+  background-image: none !important;
+}
+.goog-te-gadget span{
+  border-color: #fbc2c6 !important;
+}
+/*google translate Dropdown */
+
+#google_translate_element select{
+background:#f6edfd;
+color:#9f9f9f;
+border: none;
+border-radius:3px;
+padding:6px 8px
+}
+
+.goog-te-gadget-simple {
+  margin: 10px 5px;
+  background-color: #EA868F!important;
+  font-size: 10pt;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+  color: white !important;
+  border: none !important;
+}
+
+.goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed span{
+  color: white !important;
+  font-size: 14px;
+}
+
+.goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+  color: #EA868F !important;
+}

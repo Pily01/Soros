@@ -47,7 +47,8 @@ const App = () => {
   return (
     
         <div>
-          <div id="google_translate_element"></div>
+          <div id="google_translate_element">
+          </div>
           <Routes>
             <Route path='/Soros' element={<Home/>}/>
             <Route path='/Soros/companies/:name' element={<Company/>}/>
