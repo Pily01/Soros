@@ -137,10 +137,10 @@ const Form = () => {
 
                 {/*Optional disclaimer*/}
                 {page===0 || page=== 1 ? 
-                    <p>The following questions are required. *</p> 
+                    <p className='disclaimer'>The following questions are required. *</p> 
                 
                 : 
-                    <p>The following questions are optional, but can help other women get a better idea of the 
+                    <p className='disclaimer'>The following questions are optional, but can help other women get a better idea of the 
                     <br/>safety of this workplace. Only answer questions you feel safe and comfortable answering. </p>
                 }
                 
