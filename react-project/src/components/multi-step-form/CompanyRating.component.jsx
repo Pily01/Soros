@@ -32,7 +32,7 @@ const CompanyRating = ({formData, setFormData}) => {
             </Form.Group>
                 
             <Form.Group className='bottom-form-group'>
-                <Form.Label>How safe do you feel at this company?</Form.Label>
+                <Form.Label>How safe do you feel at this company? *</Form.Label>
                 <div>
                   {[
                     { label: "Safe", value: "safe" },
