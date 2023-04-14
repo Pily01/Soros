@@ -4,9 +4,9 @@ import './App.css';
 
 import Home from './routes/home/home.component';
 import Company from './components/company/company.component';
-import FormInput from './components/form-input/form-input.component'
 import Form from './components/multi-step-form/Form.component';
 import FormBeginning from './components/multi-step-form/form-messages/Form-beginning.component';
+import FormEnd from './components/multi-step-form/form-messages/Form-end.component';
 
 const App = () => {
   return (
@@ -16,6 +16,7 @@ const App = () => {
       <Route path='/Soros/form/:name' element={<Form/>}/>
       <Route path='/Soros/form' element={<FormBeginning/>}/>
       <Route path='/Soros/multi-form' element={<Form/>}/>
+      <Route path='/Soros/form-end' element={<FormEnd/>}/>
 
     </Routes>
     

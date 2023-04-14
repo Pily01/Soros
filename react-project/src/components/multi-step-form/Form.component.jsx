@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import CompanyDetails from './CompanyDetails.component';
 import CompanyRating from './CompanyRating.component';
 import CompanyExperience from './CompanyExperience.component';
@@ -14,6 +15,7 @@ import './Form.styles.scss'
 
 const Form = () => {
     const [page, setPage] = useState(0);
+    const navigate = useNavigate();
     const[formData, setFormData] = useState({
         companyName: "",
         companyAddress: "",
@@ -45,10 +47,11 @@ const Form = () => {
                 support: formData.support 
               });
             console.log("Document written with ID: ", docRef.id);
-
+            navigate("/Soros/form-end");
            // navigate('/Soros', {replace: true});
         }
         catch(e){
+            alert("Error: ", e);
             console.error("Error adding document: ", e);
         }
     }
@@ -156,6 +159,7 @@ const Form = () => {
                         onClick={() => {
                             if (page === FormTitles.length - 1) {
                               alert("FORM SUBMITTED");
+                              handleSubmit();
                               console.log(formData);
                             } else {
                               setPage((currPage) => currPage + 1);
