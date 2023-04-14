@@ -153,7 +153,7 @@ const Form = () => {
                             setPage((currentPage) => currentPage -1)
                         }}
                     >
-                        Back
+                        {page === 0 ? "" : "Back"}
                     </button>
                     {/* Next button */}
                     <button className={page === FormTitles.length - 1 ? "form-button-submit" : "form-button"}
