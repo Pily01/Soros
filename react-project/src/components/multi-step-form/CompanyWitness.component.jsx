@@ -1,81 +1,66 @@
-import React from 'react';
+import React from "react";
+import { Form } from "react-bootstrap";
 
-const CompanyWitness = ({formData, setFormData}) => {
-    const {witnessedHarass, witnessedFrequency} = formData;
+import "./Form-steps.styles.scss"
 
-    return (
+const CompanyWitness = ({ formData, setFormData }) => {
+  const { witnessedHarass, witnessedFrequency } = formData;
+
+  return (
+    <div>
+      <Form.Group>
+        <Form.Label>
+          Have you witnessed any form of sexual harassment at this company?
+        </Form.Label>
         <div>
-            <label htmlFor="witnessed">Have you experienced any form of sexual harassment at this company?</label><br/>
-            <input 
-            type="radio" 
-            id="witnessed-yes" 
-            name="witnessed" 
-            value="yes" 
-            onChange={(event) =>
+          {[
+            { label: "Yes", value: "yes" },
+            { label: "No", value: "no" },
+          ].map(({ label, value }) => (
+            <Form.Check
+              key={value}
+              inline
+              label={label}
+              name="witnessed"
+              type="radio"
+              id={`witnessed-${value}`}
+              value={value}
+              checked={witnessedHarass == value}
+              onChange={(event) =>
                 setFormData({ ...formData, witnessedHarass: event.target.value })
-            }
-            checked = {witnessedHarass == "yes"}
+              }
             />
-            <label htmlFor="witnessed-yes">Yes</label><br/>
-            <input 
-            type="radio" 
-            id="witnessed-no" 
-            name="witnessed" 
-            value="no"
-            onChange={(event) =>
-                setFormData({ ...formData, witnessedHarass: event.target.value })
-            }
-            checked = {witnessedHarass == "no"}
-            />
-            <label htmlFor="witnessed-no">No</label><br/>
-
-
-            <label>If yes, how frequent was the harassment?</label><br/>
-            <input type="radio" 
-            name="frequency" 
-            id="rare-witnessed" 
-            value="rare" 
-            onChange={(event) =>
-                setFormData({ ...formData, witnessedFrequency: event.target.value })
-            }
-            checked = {witnessedFrequency == "rare"}
-            />
-            <label htmlFor="rare-witnessed">Rare</label><br/>
-
-            <input type="radio" 
-            name="frequency" 
-            id="sometimes-witnessed" 
-            value="sometimes" 
-            onChange={(event) =>
-                setFormData({ ...formData, witnessedFrequency: event.target.value })
-            }
-            checked = {witnessedFrequency == "sometimes"}
-            />
-            <label htmlFor="sometimes-witnessed">Sometimes</label><br/>
-
-            <input type="radio" 
-            name="frequency" 
-            id="often-witnessed" 
-            value="often" 
-            onChange={(event) =>
-                setFormData({ ...formData, witnessedFrequency: event.target.value })
-            }
-            checked = {witnessedFrequency == "often"}
-            />
-            <label for="often-witnessed">Often</label><br/>
-
-            <input type="radio" 
-            name="frequency" 
-            id="always-witnessed" 
-            value="always" 
-            onChange={(event) =>
-                setFormData({ ...formData, witnessedFrequency: event.target.value })
-            }
-            checked = {witnessedFrequency == "always"}
-            />
-            <label for="always-witnessed">Always</label><br/>
+          ))}
         </div>
-    )
-}
+      </Form.Group>
+
+      <Form.Group className="bottom-form-group">
+        <Form.Label>If yes, how frequent was the harassment?</Form.Label>
+        <div>
+          {[
+            { label: "Rare", value: "rare" },
+            { label: "Sometimes", value: "sometimes" },
+            { label: "Often", value: "often" },
+            { label: "Always", value: "always" },
+          ].map(({ label, value }) => (
+            <Form.Check
+              key={value}
+              inline
+              label={label}
+              name="frequency"
+              type="radio"
+              id={`${value}-witnessed`}
+              value={value}
+              checked={witnessedFrequency == value}
+              onChange={(event) =>
+                setFormData({ ...formData, witnessedFrequency: event.target.value })
+              }
+            />
+          ))}
+        </div>
+      </Form.Group>
+    </div>
+  );
+};
 
 export default CompanyWitness;
