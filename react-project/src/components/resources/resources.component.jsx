@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import './resources.styles.scss'
 
 
-function About() {
+function Resources() {
 return (
     <div className= "entire_page">
     <NavbarComponent/>
@@ -53,4 +53,4 @@ return (
     );
 }
 
-export default About;
+export default Resources;

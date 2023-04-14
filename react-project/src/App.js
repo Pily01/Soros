@@ -7,6 +7,8 @@ import Company from './components/company/company.component';
 import Form from './components/multi-step-form/Form.component';
 import FormBeginning from './components/multi-step-form/form-messages/Form-beginning.component';
 import FormEnd from './components/multi-step-form/form-messages/Form-end.component';
+import About from './components/about/about.component';
+import Resources from './components/resources/resources.component';
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
       <Route path='/Soros/form' element={<FormBeginning/>}/>
       <Route path='/Soros/multi-form' element={<Form/>}/>
       <Route path='/Soros/form-end' element={<FormEnd/>}/>
+      <Route path='/Soros/about' element={<About/>}/>
+      <Route path='/Soros/resources' element={<Resources/>}/>
 
     </Routes>
     
