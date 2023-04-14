@@ -14,7 +14,9 @@ const App = () => {
     new window.google.translate.TranslateElement(
       {
         pageLanguage: "en",
-        autoDisplay: false
+        autoDisplay: false,
+        includedLanguages: "en,es",
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
       },
       "google_translate_element"
     );
@@ -39,7 +41,8 @@ const App = () => {
   return (
     <>
      
-      <div id="google_translate_element"></div>
+      <div id="google_translate_element">
+      </div>
       <BrowserRouter>
         <Routes>
           <Route path='/Soros' element={<Home/>}/>
