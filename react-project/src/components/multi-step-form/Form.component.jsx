@@ -34,7 +34,7 @@ const Form = () => {
     const handleSubmit = async () => {
 
         try{
-            const docRef = await addDoc(collection(db, "responses"), {
+            const docRef = await addDoc(collection(db, "responses_fake"), {
                 address: formData.companyAddress,
                 companyName: formData.companyName,
                 rating: formData.rating,   
