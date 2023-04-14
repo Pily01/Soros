@@ -19,8 +19,8 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="/Soros">Home</Nav.Link>
-            <Nav.Link href="/Soros">About</Nav.Link>
+            <Nav.Link href="/Soros/about">About</Nav.Link>
+            <Nav.Link href="/Soros/resources">Resources</Nav.Link>
             <Nav.Link className='safety-report-link' href="/Soros/form">Submit Safety Report</Nav.Link>
           </Nav>
         </Navbar.Collapse>
