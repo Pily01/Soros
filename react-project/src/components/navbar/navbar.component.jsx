@@ -8,7 +8,7 @@ function NavbarComponent() {
 
     <Navbar bg="light" expand="lg" sticky="top">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/Soros">
           <img 
           width="70"
           height="40"
