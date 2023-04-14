@@ -168,7 +168,6 @@ const Form = () => {
                     <button className={page === FormTitles.length - 1 ? "form-button-submit" : "form-button"}
                         onClick={() => {
                             if (page === FormTitles.length - 1) {
-                                alert("FORM SUBMITTED");
                                 console.log(formData);
                                 handleData();
                                 handleSubmit();
