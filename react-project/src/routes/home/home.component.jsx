@@ -4,16 +4,16 @@ import homeimg from '../../soros-home.png'
 
 import SearchBox from '../../components/search/search-box';
 import CardList from '../../components/cardlist/cardlist';
-import NavbarComponent from '../../components/navbar/navbar.component';
 import {useState, useEffect} from 'react';
 
 import {Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 import companies_list from '../../data/companies';
+//import companies_list from '../../data/companies';
 
 const Home = () => {
+  //const companies = companies_list;
   const companies = companies_list;
   const [searchStr, updateSearchStr] = useState("");
   const [filtList, updateFiltList] = useState(companies);

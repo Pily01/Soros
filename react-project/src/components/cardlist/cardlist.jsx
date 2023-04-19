@@ -4,6 +4,7 @@ import companyimg from '../../company.png'
 
 import { Card, Button, Container } from 'react-bootstrap'
 
+
 //cardlist componenet that will display all relevent search results
 const CardList = props => {
 

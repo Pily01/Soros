@@ -8,7 +8,6 @@ import './Form-beginnig.styles.scss'
 const FormBeginning = () => {
     return (
         <div>
-            <NavbarComponent/>
             <div className='beginning-container'>
                 <img className='form-img' src={begginingImg} alt="img" />
                 <h1>Your privacy is our priority.</h1>
