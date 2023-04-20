@@ -20,31 +20,56 @@ const Company = () => {
     const [companyData, setCompanyData] = useState([]);
     const effectRef = useRef(false);
     const tempCompanyData = []
+    const [myMap, setMyMap] = useState(new Map());
+
+    const updateMap = (k, v) => {
+        setMyMap(new Map(myMap.set(k, v)));
+    }
+
+    // useEffect(() => {
+    //     const queryGet = async () => {
+    //         const reviewsRef = collection(db, "companies");
+    //         const q = query(reviewsRef, where("companyName", "==", `${name}`));
+
+    //         const querySnapshot = await getDocs(q);
+    //         querySnapshot.forEach((doc) => {
+    //             // doc.data() is never undefined for query doc snapshots
+    //             //console.log(doc.id, " => ", doc.data())
+    //             tempCompanyData.push(doc.data());
+    //         });
+    //         setCompanyData(tempCompanyData)
+    //     }
+    //     if(effectRef.current) return
+    //     effectRef.current = true;
+    //     queryGet();
+    // }, [])
 
     useEffect(() => {
         const queryGet = async () => {
-            const reviewsRef = collection(db, "responses");
-            const q = query(reviewsRef, where("companyName", "==", `${name}`));
-
+            const q = query(collection(db, "companies"), where("companyName", "==", `${name}`));
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
                 // doc.data() is never undefined for query doc snapshots
-                //console.log(doc.id, " => ", doc.data())
-                tempCompanyData.push(doc.data());
-            });
-            setCompanyData(tempCompanyData)
-            console.log(tempCompanyData)
+                const data = doc.data()
+                for (const key in data) {
+                    if (key !== "address" && key !== "companyName") {
+                        updateMap(key, data[key])
+                    }
+                }
+            }
+            )
         }
-        if(effectRef.current) return
+
+        if (effectRef.current) return;
         effectRef.current = true;
         queryGet();
     }, [])
 
-    console.log(companyData)
+    console.log(myMap)
 
     return (
         <div>
-            
+
             {companyData.map(company => {
                 return (
                     <Container className="company-container">
@@ -61,8 +86,8 @@ const Company = () => {
                                 <Table borderless>
                                     <tbody>
                                         <tr>
-                                          <td><b>Address:</b></td>
-                                          <td>{company.address}</td>
+                                            <td><b>Address:</b></td>
+                                            <td>{company.address}</td>
                                         </tr>
                                         <tr>
                                             <td><b>Website:</b></td>
@@ -73,13 +98,13 @@ const Company = () => {
                             </Col>
                         </Row>
                         <Row>
-                            <Col className="harassment-cases"> 
+                            <Col className="harassment-cases">
                                 <p><b>100%</b> of users experienced hasrrassment</p>
                                 <p><b>0%</b> of reported cases were resolved</p>
                             </Col>
                             <Col>
                                 <h4>Overall Safety</h4>
-                                <Example/> 
+                                <Example />
                             </Col>
                         </Row>
                     </Container>
@@ -93,9 +118,23 @@ const Company = () => {
                     //     <p>Witnessed Harassment: {company.witnessedHarassment}</p>
                     //     <p>Safe: {company.safe}</p>
                     // </div>
-
                 )
             })}
+
+            <div>
+                {
+                    Array.from(myMap, ([key1, innerMap]) => (
+                        <div key={key1}>
+                            <h2>{key1}</h2>
+                            {Array.from(Object.entries(innerMap), ([key2, value2]) => (
+                                <p key={key2}>
+                                    {key2}: {value2}
+                                </p>
+                            ))}
+                        </div>
+                    ))
+                }
+            </div>
 
         </div>
     )
