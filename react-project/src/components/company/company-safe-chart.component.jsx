@@ -16,10 +16,10 @@ const data = [
   }
 ];
 
-export default class Example extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/simple-bar-chart-tpz8r';
+const SafeChart = (chartData) => {
+    console.log(chartData)
+    
 
-  render() {
     return (
       <ResponsiveContainer width="80%" height="80%" aspect={1}>
         <BarChart
@@ -42,5 +42,7 @@ export default class Example extends PureComponent {
         </BarChart>
       </ResponsiveContainer>
     );
-  }
+  
 }
+
+export default SafeChart
