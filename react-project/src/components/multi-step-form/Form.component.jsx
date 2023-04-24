@@ -6,11 +6,11 @@ import CompanyExperience from './CompanyExperience.component';
 import CompanyWitness from './CompanyWitness.component';
 import CompanyReport from './CompanyReport.component';
 
-import NavbarComponent from '../navbar/navbar.component';
 
 import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, getDocs, addDoc} from "firebase/firestore";
 import {db} from '../../utils/firebase/firebase.utils';
 
+import { ProgressBar } from 'react-bootstrap';
 import './Form.styles.scss'
 
 const Form = () => {
@@ -133,7 +133,7 @@ const Form = () => {
             <div className='form'>
                 <h1 className='form-title'> Safety Report Form</h1>
                 {/*Progress Bar*/}
-
+                <ProgressBar variant="warning" now={60}/>
                 {/*Optional disclaimer*/}
                 {page===0 || page=== 1 ? 
                     <p className='disclaimer'>The following questions are required. *</p> 
