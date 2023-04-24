@@ -5,12 +5,30 @@ import './resources.styles.scss'
 
 import logo_PROFEDET from '../../Logo_PROFEDET.svg.png'
 import logo_INMUJERES from '../../Logo_INMUJERES_Mujeres_Transformando_México.png'
+import cdmx_logo from '../../cdmx.png'
 
 function Resources() {
 return (
     <Container>
         <h1>Resources</h1>
         <p>You are supported. Please refer to these sources to speak to someone, or learn more. </p>
+        <Row className='row-2'>
+            <Col sm={4}>
+                <img
+                    width="180px"
+                    src={cdmx_logo}
+                />
+            </Col>
+            <Col sm={8}>
+                <p className='subtitle'>Instituto De Las Mujeres De La Ciudad de Mexico</p>
+                <p>A través de las 16 unidades delegacionales, brinda atención personalizada,Psicológica y jurídica.
+                </p>
+                <p>Moday to Friday 9:00 - 17:00</p>
+                <p>01 55 55 12 28 36 or Linea Mujeres 56 58 11 11 (24hrs)</p>
+                <p>José María Izazaga 148, Centro, 06090 Cuauhtémoc, CDMX</p>
+                <a className='link' href='https://www.gob.mx/cms/uploads/attachment/file/394591/Directorio_Institutos_Estatales_y_Lineas_2018.pdf'> Learn More</a>
+            </Col>
+        </Row>
         <Row className='row-1'>
             <Col sm={4}>
                 <img 
@@ -38,10 +56,13 @@ return (
                 <a className='link' href='https://www.gob.mx/inmujeres/articulos/redes-de-apoyo'> Learn More</a>
             </Col>
         </Row>
+        <div>
+            <h3>What is the safety report form?</h3>
+            <p>The Safety Report Form is a user-friendly tool designed to collect user-generated data and provide scores on the safety performance of companies. Users can rate companies on a scale of 1 to 5, with 1 indicating "unsafe" and 5 indicating "safe."</p>
+            <p>The form allows users to provide feedback on various aspects of a company's safety, such as reports of harassment, type of harassment experienced, frequency of harassment, and company response. The data collected from the form is compiled to generate scores that reflect the overall safety from sexual harassment of companies, helping users make informed decisions about which companies to apply to.</p>
+            <a href='/Soros/form'><button className='form-link-button'>Submit form</button></a>
+        </div>
 
-        <h3>What is the safety report form?</h3>
-        <p>The Safety Report Form is a user-friendly tool designed to collect user-generated data and provide scores on the safety performance of companies. Users can rate companies on a scale of 1 to 5, with 1 indicating "unsafe" and 5 indicating "safe."</p>
-        <p>The form allows users to provide feedback on various aspects of a company's safety, such as reports of harassment, type of harassment experienced, frequency of harassment, and company response. The data collected from the form is compiled to generate scores that reflect the overall safety from sexual harassment of companies, helping users make informed decisions about which companies to apply to.</p>
     </Container>
     );
 }

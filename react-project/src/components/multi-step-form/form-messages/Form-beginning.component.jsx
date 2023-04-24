@@ -25,7 +25,6 @@ const FormBeginning = () => {
                 </div>
             </div>
         </div>
-        
     );
 }
 
