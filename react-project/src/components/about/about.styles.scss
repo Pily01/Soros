@@ -1,39 +1,45 @@
 .entire_page {
-    margin-bottom: 1000px;
+    display:flex;
+    flex-wrap:wrap;
+    padding-bottom: 1000px;
+    position:relative;
+    overflow: auto;  
 }
 
-.about_us {
+.heading {
     font-weight: 800;
-    display:flex;
     justify-content: flex-start;
     margin-left: 90px;
-    margin-right: 10px;
     margin-top: 100px;
     font-size: 40px;
-    align-items: center;
     color: #087990;
 }
 
 .main_writing {
     display:flex;
-    flex-flow: column wrap;
     margin-left: 90px;
-    align-items: center;
     font-size: 15px;
-    color: grey;
+    color: rgb(26, 25, 25);
+    flex-wrap:wrap;
+    min-width: 600px;
+    width:100%;
 }
 
+.section2 {
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+
+   
+}
 .team_picture {
+    width: 90%;
+    height:auto;
     margin-top: 20px;
     border-radius: 5px;
     margin-left: 90px;
-    flex-direction:row;
+    flex-direction:column;
+    overflow: auto;
+      
 }
 
-.under_pic {
-    margin-top:-100px;
-    margin-left: 740px;
-    font-size: 13px;
-    display: flex;
-    color: grey;
-}
