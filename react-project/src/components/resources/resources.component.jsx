@@ -9,7 +9,7 @@ import cdmx_logo from '../../cdmx.png'
 
 function Resources() {
 return (
-    <Container>
+    <Container className='resources-container'>
         <h1>Resources</h1>
         <p>You are supported. Please refer to these sources to speak to someone, or learn more. </p>
         <Row className='row-2'>
