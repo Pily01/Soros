@@ -13,7 +13,6 @@
 
     p{
         color: #6C757D;
-        margin-top: 20px;
     }
     button{
         background-color: #EA868F;
@@ -34,5 +33,20 @@
 
     .form-img{
         width: 110px;
+    }
+
+    .icon-section{
+        display: flex;
+        justify-content: space-between;
+        width: 400px;
+    }
+
+    .disclaimer-section{
+        margin-top: 40px;
+        background-color: #F8F9FA;
+        max-width: 80%;
+        text-align: center;
+        padding: 5px;
+        border-radius: 7px;
     }
 }
