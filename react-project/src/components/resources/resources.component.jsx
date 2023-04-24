@@ -62,7 +62,6 @@ return (
             <p>The form allows users to provide feedback on various aspects of a company's safety, such as reports of harassment, type of harassment experienced, frequency of harassment, and company response. The data collected from the form is compiled to generate scores that reflect the overall safety from sexual harassment of companies, helping users make informed decisions about which companies to apply to.</p>
             <a href='/Soros/form'><button className='form-link-button'>Submit form</button></a>
         </div>
-
     </Container>
     );
 }
