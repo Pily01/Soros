@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CompanyDetails from './CompanyDetails.component';
 import CompanyRating from './CompanyRating.component';
 import CompanyExperience from './CompanyExperience.component';
@@ -8,8 +8,8 @@ import CompanyReport from './CompanyReport.component';
 import { useLocation } from 'react-router-dom'
 
 
-import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, getDocs, addDoc} from "firebase/firestore";
-import {db} from '../../utils/firebase/firebase.utils';
+import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, getDocs, addDoc } from "firebase/firestore";
+import { db } from '../../utils/firebase/firebase.utils';
 
 import { ProgressBar } from 'react-bootstrap';
 import './Form.styles.scss'
@@ -17,7 +17,7 @@ import './Form.styles.scss'
 const Form = () => {
     const [page, setPage] = useState(0);
     const navigate = useNavigate();
-    const[formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         companyName: "",
         companyAddress: "",
         rating: "",
@@ -30,13 +30,15 @@ const Form = () => {
         support: ""
     })
 
+    const [displayMessage, setDisplayMessage] = useState()
+
     const location = useLocation()
     const prop = location.state;
 
     useEffect(() => {
-        if(prop){
-            const {name, address} = location.state
-            setFormData({...formData, companyName: name, companyAddress: address})
+        if (prop) {
+            const { name, address } = location.state
+            setFormData({ ...formData, companyName: name, companyAddress: address })
         }
     }, [])
 
@@ -44,24 +46,24 @@ const Form = () => {
 
     const handleSubmit = async () => {
 
-        try{
+        try {
             const docRef = await addDoc(collection(db, "responses_fake"), {
                 address: formData.companyAddress,
                 companyName: formData.companyName,
-                rating: formData.rating,   
+                rating: formData.rating,
                 safe: formData.safety,
                 experiencedHarassment: formData.experiencedHarass,
                 experiencedFrequency: formData.experiencedFrequency,
                 witnessedHarass: formData.witnessedHarass,
                 witnessedFrequency: formData.witnessedFrequency,
                 reportedHarass: formData.reportedHarass,
-                support: formData.support 
-              });
+                support: formData.support
+            });
             console.log("Document written with ID: ", docRef.id);
             navigate("/Soros/form-end");
-           // navigate('/Soros', {replace: true});
+            // navigate('/Soros', {replace: true});
         }
-        catch(e){
+        catch (e) {
             alert("Error: ", e);
             console.error("Error adding document: ", e);
         }
@@ -71,23 +73,23 @@ const Form = () => {
         const q = query(collection(db, "companies_fake"), where("companyName", "==", formData.companyName));
         const querySnapshot = await getDocs(q);
 
-        if(querySnapshot.docs.length > 0){
+        if (querySnapshot.docs.length > 0) {
             console.log("Exists");
             const docRef = querySnapshot.docs[0].ref;
             await updateData(docRef);
         }
-        else{
+        else {
             const docRef = await addDoc(collection(db, "companies_fake"), {
                 companyName: formData.companyName,
                 address: formData.companyAddress,
-                rating: {"1": 0, "2": 0, "3": 0},
-                experiencedHarass: {"yes": 0, "no": 0},
-                experiencedFrequency: {"rare": 0, "sometimes": 0, "often": 0, "always": 0},
-                safety: {"safe": 0, "moderately safe": 0, "unsafe": 0},
-                witnessedHarass: {"yes": 0, "no": 0},
-                witnessedFrequency: {"rare": 0, "sometimes": 0, "often": 0, "always": 0},
-                reportedHarass: {"yes": 0, "no": 0},
-                support: {"fully-resolved": 0, "partially-resolved": 0, "no-action": 0}
+                rating: { "1": 0, "2": 0, "3": 0 },
+                experiencedHarass: { "yes": 0, "no": 0 },
+                experiencedFrequency: { "rare": 0, "sometimes": 0, "often": 0, "always": 0 },
+                safety: { "safe": 0, "moderately safe": 0, "unsafe": 0 },
+                witnessedHarass: { "yes": 0, "no": 0 },
+                witnessedFrequency: { "rare": 0, "sometimes": 0, "often": 0, "always": 0 },
+                reportedHarass: { "yes": 0, "no": 0 },
+                support: { "fully-resolved": 0, "partially-resolved": 0, "no-action": 0 }
             });
             console.log("Doesn't exist")
             await updateData(docRef);
@@ -120,78 +122,88 @@ const Form = () => {
         if (formData.support) {
             updates[`support.${formData.support}`] = increment(1);
         }
-        
+
         await updateDoc(docRef, updates);
     }
 
     const pageDisplay = () => {
-        if(page === 0){
-            return <CompanyDetails formData={formData} setFormData={setFormData}/>
-        }else if (page === 1) {
-            return <CompanyRating formData={formData} setFormData={setFormData}/>
-        }else if (page === 2) {
-            return <CompanyExperience formData={formData} setFormData={setFormData}/>
-        }else if(page === 3) {
-            return <CompanyWitness formData={formData} setFormData={setFormData}/>
-        }else if(page === 4) {
-            return <CompanyReport formData={formData} setFormData={setFormData}/>
+        if (page === 0) {
+            return <CompanyDetails formData={formData} setFormData={setFormData} />
+        } else if (page === 1) {
+            return <CompanyRating formData={formData} setFormData={setFormData} />
+        } else if (page === 2) {
+            return <CompanyExperience formData={formData} setFormData={setFormData} />
+        } else if (page === 3) {
+            return <CompanyWitness formData={formData} setFormData={setFormData} />
+        } else if (page === 4) {
+            return <CompanyReport formData={formData} setFormData={setFormData} />
         }
     }
 
     return (
         <div>
-        <div className='form-container'>
-            <div className='form'>
-                <h1 className='form-title'> Safety Report Form</h1>
-                {/*Progress Bar*/}
-                <ProgressBar variant="warning" now={60}/>
-                {/*Optional disclaimer*/}
-                {page===0 || page=== 1 ? 
-                    <p className='disclaimer'>The following questions are required. *</p> 
-                
-                : 
-                    <p className='disclaimer'>The following questions are optional, but can help other women get a better idea of the 
-                    <br/>safety of this workplace. Only answer questions you feel safe and comfortable answering. </p>
-                }
-                
-                {/*Form*/}
-                <div className='section-title'>
-                    <p>{FormTitles[page]}</p>
-                </div>
-                {/* Page Display */}
-                <div>
-                    {pageDisplay()}
-                </div>
-                {/* Buttons */}
-                <div className='footer'>
-                    {/* Back button */}
-                    
-                    <button className={page === 0 ? 'disabled-button' : 'form-button'}
-                        disabled= {page == 0}
-                        onClick={()=>{
-                            setPage((currentPage) => currentPage -1)
-                        }}
-                    >
-                        {page === 0 ? "" : "Back"}
-                    </button>
-                    {/* Next button */}
-                    <button className={page === FormTitles.length - 1 ? "form-button-submit" : "form-button"}
-                        onClick={() => {
-                            if (page === FormTitles.length - 1) {
-                                console.log(formData);
-                                handleData();
-                                handleSubmit();
-                            } 
-                            else {
-                              setPage((currPage) => currPage + 1);
-                            }
-                          }}
-                    >
-                        {page === FormTitles.length - 1 ? "Submit" : "Next"}
-                    </button>
+            <div className='form-container'>
+                <div className='form'>
+                    <h1 className='form-title'> Safety Report Form</h1>
+                    {/*Progress Bar*/}
+                    <ProgressBar variant="warning" now={60} />
+                    {/*Optional disclaimer*/}
+                    {page === 0 || page === 1 ?
+                        <p className='disclaimer'>The following questions are required. *</p>
+
+                        :
+                        <p className='disclaimer'>The following questions are optional, but can help other women get a better idea of the
+                            <br />safety of this workplace. Only answer questions you feel safe and comfortable answering. </p>
+                    }
+
+                    {/*Form*/}
+                    <div className='section-title'>
+                        <p>{FormTitles[page]}</p>
+                    </div>
+                    {/* Page Display */}
+                    <div>
+                        {pageDisplay()}
+                    </div>
+                    <div>
+                        <h4>{displayMessage}</h4>
+                    </div>
+                    {/* Buttons */}
+                    <div className='footer'>
+                        {/* Back button */}
+
+                        <button className={page === 0 ? 'disabled-button' : 'form-button'}
+                            disabled={page == 0}
+                            onClick={() => {
+                                setPage((currentPage) => currentPage - 1)
+                            }}
+                        >
+                            {page === 0 ? "" : "Back"}
+                        </button>
+                        {/* Next button */}
+                        <button className={page === FormTitles.length - 1 ? "form-button-submit" : "form-button"}
+                            onClick={() => {
+                                if (page === 0 && (formData.companyName === "" || formData.companyAddress ==="")){
+                                    setDisplayMessage("Please fill out the required fields")
+                                } 
+                                else if (page === 1 && (formData.rating === "" || formData.safety ==="") ) {
+                                    setDisplayMessage("Please fill out the required fields")
+                                }
+                                else if (page === FormTitles.length - 1) {
+                                    console.log(formData);
+                                    handleData();
+                                    handleSubmit();
+                                }
+                                else {
+                                    setDisplayMessage("")
+                                    setPage((currPage) => currPage + 1);
+                                }
+                            }}
+                        >
+                            {page === FormTitles.length - 1 ? "Submit" : "Next"}
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
 
     )

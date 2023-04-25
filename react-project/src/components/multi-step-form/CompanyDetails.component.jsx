@@ -25,7 +25,7 @@ const CompanyDetails = ({ formData, setFormData}) => {
                 <AutoComplete handleCallback={callBack}/>
 
                 <Form.Group className="mb-3">
-                    <Form.Label>Company Name</Form.Label>
+                    <Form.Label>Company Name *</Form.Label>
                 <Form.Control
                     required
                     type = "text"
@@ -38,7 +38,7 @@ const CompanyDetails = ({ formData, setFormData}) => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Form.Label>Company Address</Form.Label>
+                    <Form.Label>Company Address *</Form.Label>
                     <Form.Control
                     required
                     type = "text"
