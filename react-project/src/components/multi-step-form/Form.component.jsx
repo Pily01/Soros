@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import CompanyDetails from './CompanyDetails.component';
 import CompanyRating from './CompanyRating.component';
 import CompanyExperience from './CompanyExperience.component';
 import CompanyWitness from './CompanyWitness.component';
 import CompanyReport from './CompanyReport.component';
+import { useLocation } from 'react-router-dom'
 
 
 import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, getDocs, addDoc} from "firebase/firestore";
@@ -28,6 +29,16 @@ const Form = () => {
         reportedHarass: "",
         support: ""
     })
+
+    const location = useLocation()
+    const prop = location.state;
+
+    useEffect(() => {
+        if(prop){
+            const {name, address} = location.state
+            setFormData({...formData, companyName: name, companyAddress: address})
+        }
+    }, [])
 
     const FormTitles = ["COMPANY INFORMATION", "COMPANY SAFETY", "EXPERIENCE", "WITNESSED EXPERIENCE", "COMPANY SUPPORT"];
 

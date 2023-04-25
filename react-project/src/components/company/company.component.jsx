@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
 import RatingChart from "./company-rating-chart.component";
+import { Link } from "react-router-dom";
 
 import { Container, Row, Col, Table } from 'react-bootstrap';
 
@@ -79,6 +80,10 @@ const Company = () => {
         return votes
     }
 
+    const routeChange = () => {
+
+    }
+
     return (
         <Container className="company-container">
             <Row className="company-main-row">
@@ -97,6 +102,11 @@ const Company = () => {
                             <tr>
                                 <td><b>Website:</b></td>
                                 <td>https://www.example.com</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <Link to="/Soros/multi-form" state={{ name: name, address: address }} className="btn btn-primary">Leave Review</Link>
+                                </td>
                             </tr>
                         </tbody>
                     </Table>
@@ -121,9 +131,9 @@ const Company = () => {
 
             </Row>
             <div className="pie-chart-div">
-                <SupportChart support={support}/>
+                <SupportChart support={support} />
             </div>
-            
+
         </Container>
     )
 }
