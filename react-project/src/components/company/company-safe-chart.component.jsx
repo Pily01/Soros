@@ -4,29 +4,27 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 
 const SafeChart = ({ safety }) => {
     console.log(safety["safe"]);
-    const total = safety["safe"] + safety["unsafe"] + safety["moderately safe"];
+    const total_safety = safety["safe"] + safety["unsafe"] + safety["moderately safe"];
 
 
     const data = [
       {
         name: 'Completely safe',
-        uv: ((safety["safe"] / total) * 100),
+        uv: ((safety["safe"] / total_safety) * 100),
       },
       {
         name: 'Moderately Safe',
-        uv: ((safety["moderately safe"] / total) * 100),
+        uv: ((safety["moderately safe"] / total_safety) * 100),
       },
       {
         name: 'Not safe',
-        uv: ((safety["unsafe"] / total) * 100),
+        uv: ((safety["unsafe"] / total_safety) * 100),
       }
     ];
 
     return (
-      <ResponsiveContainer width="80%" height="80%" aspect={1}>
+      <ResponsiveContainer width="100%" height={400}>
         <BarChart
-          width={500}
-          height={300}
           data={data}
           margin={{
             top: 5,
