@@ -9,6 +9,7 @@ import { Container, Row, Col, Table } from 'react-bootstrap';
 import "./company.styles.scss"
 
 import SafeChart from "./company-safe-chart.component";
+import SupportChart from "./company-support-chart.component";
 
 const Company = () => {
     const { name } = useParams();
@@ -58,7 +59,7 @@ const Company = () => {
     //console.log(experiencedFrequency);
     //console.log(witnessedHarass);
     //console.log(witnessedFrequency);
-    //console.log(support);
+    console.log(support);
 
     const getRating = () => {
         let totalRating = 0;
@@ -119,6 +120,10 @@ const Company = () => {
                 </Col>
 
             </Row>
+            <div className="pie-chart-div">
+                <SupportChart support={support}/>
+            </div>
+            
         </Container>
     )
 }

@@ -9,7 +9,7 @@ import cdmx_logo from '../../cdmx.png'
 
 function Resources() {
 return (
-    <Container>
+    <Container className='resources-container'>
         <h1>Resources</h1>
         <p>You are supported. Please refer to these sources to speak to someone, or learn more. </p>
         <Row className='row-2'>
@@ -62,7 +62,6 @@ return (
             <p>The form allows users to provide feedback on various aspects of a company's safety, such as reports of harassment, type of harassment experienced, frequency of harassment, and company response. The data collected from the form is compiled to generate scores that reflect the overall safety from sexual harassment of companies, helping users make informed decisions about which companies to apply to.</p>
             <a href='/Soros/form'><button className='form-link-button'>Submit form</button></a>
         </div>
-
     </Container>
     );
 }
