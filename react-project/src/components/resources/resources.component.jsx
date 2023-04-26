@@ -1,6 +1,6 @@
 
 import NavbarComponent from '../navbar/navbar.component';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import './resources.styles.scss'
 
 import logo_PROFEDET from '../../Logo_PROFEDET.svg.png'
@@ -62,6 +62,106 @@ return (
             <p>The form allows users to provide feedback on various aspects of a company's safety, such as reports of harassment, type of harassment experienced, frequency of harassment, and company response. The data collected from the form is compiled to generate scores that reflect the overall safety from sexual harassment of companies, helping users make informed decisions about which companies to apply to.</p>
             <a href='/Soros/form'><button className='form-link-button'>Submit form</button></a>
         </div>
+        <h3>Types of sexual harassment and violence</h3>
+        <Row xs={1} md={2} className="g-4 types-row">
+            <Col>
+              <Card className='type-card'>
+                <Card.Body>
+                  <Card.Title className='type-title'>Verbal Harassment</Card.Title>
+                  <Card.Text>
+                    Unwanted and offensive sexual comments, jokes, 
+                    or remarks made by someone that are directed at 
+                    another person, either in person or through 
+                    communication such as phone calls, texts, or emails.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col>
+              <Card className='type-card'>
+                <Card.Body>
+                  <Card.Title className='type-title'>Physical Harassment </Card.Title>
+                  <Card.Text>
+                    Unwanted and non-consensual physical contact 
+                    of a sexual nature, such as touching, groping, 
+                    or hugging, that is directed at another person 
+                    without their consent.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col>
+              <Card className='type-card'>
+                <Card.Body>
+                  <Card.Title className='type-title'>Sexual Coercion</Card.Title>
+                  <Card.Text>
+                    Pressuring or forcing someone into sexual activity 
+                    or behavior through threats, manipulation, or abuse 
+                    of power, where the victim may feel they have no choice 
+                    but to comply.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col>
+              <Card className='type-card'>
+                <Card.Body>
+                  <Card.Title className='type-title'>Indecent Exposure</Card.Title>
+                  <Card.Text>
+                    Displaying one's private parts or engaging in 
+                    exhibitionism in a sexual manner, either in person 
+                    or through electronic means, without the consent of 
+                    another person.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col>
+              <Card className='type-card'>
+                <Card.Body>
+                  <Card.Title className='type-title'>Spiking</Card.Title>
+                  <Card.Text>
+                  Adding drugs or substances to someone's drink 
+                  or food without their knowledge or consent with the 
+                  intent to impair their judgment or ability to resist,
+                  often for the purpose of facilitating sexual assault.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col>
+              <Card className='type-card'>
+                <Card.Body>
+                  <Card.Title className='type-title'>Rape</Card.Title>
+                  <Card.Text>
+                    Non-consensual sexual intercourse or penetration, 
+                    including vaginal, anal, or oral sex, that occurs 
+                    without the explicit and informed consent of the 
+                    victim.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col>
+              <Card className='type-card'>
+                <Card.Body>
+                  <Card.Title className='type-title'>Online Harassment</Card.Title>
+                  <Card.Text>
+                  Unwanted and offensive sexual behavior that occurs 
+                  online or through digital communication, such as 
+                  sending explicit messages, images, or videos, making 
+                  sexual comments, or engaging in cyber stalking or bullying.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+        </Row>
     </Container>
     );
 }
