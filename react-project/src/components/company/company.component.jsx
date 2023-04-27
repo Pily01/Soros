@@ -79,6 +79,19 @@ const Company = () => {
         return votes
     }
 
+    const getHarassmentPercent = () => {
+        let votes = experiencedHarass["yes"];
+        let total = experiencedHarass["yes"] + experiencedHarass["no"]
+        let percentage = (votes / total).toFixed(1) * 100 
+        return percentage;
+    }
+
+    const getWitnessedPercent = () => {
+        let votes = witnessedHarass["yes"];
+        let total = witnessedHarass["yes"] + witnessedHarass["no"]
+        let percentage = (votes / total).toFixed(1) * 100 
+        return percentage;
+    }
 
     return (
         <div>
@@ -115,13 +128,18 @@ const Company = () => {
                         <RatingChart rating={rating} />
                     </Col>
                 </Row>
-                <p className="data-disclaimer">Please be advised that the following data is unverified and 
+                <p className="data-disclaimer"> <i class="fa-solid fa-triangle-exclamation"></i> Please be advised that the following data is unverified and 
                     only comes from safety report forms submitted on this site by users. 
                 </p>
                 <Row>
                     <Col sm={6}>
-                        <h5 className="section-title">Safety according to users</h5>
+                        <h5 className="section-title">Safety Reports</h5>
                         <SafeChart safety={safety} />
+                    </Col>
+                    <Col>
+                        <h5 className="section-title">Harassment Reports</h5>
+                        <p>{getHarassmentPercent()}% of users have experienced some sort of harassment</p>
+                        <p>{getWitnessedPercent()}% of users have witnessed some sort of harassment</p>
                     </Col>
                 </Row>
                 <div className="pie-chart-div">
