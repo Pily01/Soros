@@ -4,23 +4,23 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 const RatingChart = ({ rating }) => {
     const data = [
         {
-            name: 'Awful 1',
+            name: 'Awful',
             responses: (rating["1"]),
         },
         {
-            name: 'OK 2',
+            name: 'Ok',
             responses: (rating["2"]),
         },
         {
-            name: 'Good 3',
+            name: 'Good',
             responses: (rating["3"]),
         },
         {
-            name: 'Great 4',
+            name: 'Great',
             responses: (rating["4"]),
         },
         {
-            name: 'Awesome 5',
+            name: 'Awesome',
             responses: (rating["5"]),
         }
 
@@ -33,16 +33,15 @@ const RatingChart = ({ rating }) => {
                 data={data}
                 margin={{
                     top: 5,
-                    right: 30,
-                    left: 30,
+                    right: 0,
+                    left: 0,
                     bottom: 5,
                 }}
             >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
-                <YAxis />
                 <Tooltip />
-                <Bar dataKey="responses" fill="#9381FF" />
+                <Bar dataKey="responses" fill="#087990" />
             </BarChart>
         </ResponsiveContainer>
     );
