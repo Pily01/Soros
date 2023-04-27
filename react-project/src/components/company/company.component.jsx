@@ -12,6 +12,7 @@ import jumbotron_logo from "../../Teatro_de_los_Insurgentes.jpg"
 import RatingChart from "./graphs/company-rating-chart.component";
 import SafeChart from "./graphs/company-safe-chart.component";
 import SupportChart from "./graphs/company-support-chart.component";
+import HarassmentChart from "./graphs/company-harassment-chart.component";
 
 const Company = () => {
     const { name } = useParams();
@@ -56,9 +57,9 @@ const Company = () => {
     //console.log(rating);  // USED
     //console.log(safety); // USED
     //console.log(experiencedHarass);
-    //console.log(experiencedFrequency);
+    console.log(experiencedFrequency);
     //console.log(witnessedHarass);
-    //console.log(witnessedFrequency);
+    console.log(witnessedFrequency);
     //console.log(support);
 
     const getRating = () => {
@@ -133,18 +134,20 @@ const Company = () => {
                 </p>
                 <Row>
                     <Col sm={6}>
-                        <h5 className="section-title">Safety Reports</h5>
-                        <SafeChart safety={safety} />
+                        <h5 className="section-title">Harassment Frequency</h5>
+                        <HarassmentChart experiencedFrequency={experiencedFrequency} witnessedFrequency={witnessedFrequency}/>
                     </Col>
                     <Col>
-                        <h5 className="section-title">Harassment Reports</h5>
                         <p>{getHarassmentPercent()}% of users have experienced some sort of harassment</p>
                         <p>{getWitnessedPercent()}% of users have witnessed some sort of harassment</p>
                     </Col>
                 </Row>
-                <div className="pie-chart-div">
-                    <SupportChart support={support} />
-                </div>
+                <hr></hr>
+                <Row>
+                    <Col sm={6}>
+                        <SupportChart support={support} />
+                    </Col>
+                </Row>
             </Container>  
         </div>
 
