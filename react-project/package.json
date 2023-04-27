@@ -1,7 +1,7 @@
 {
   "name": "react-project",
   "version": "0.1.0",
-  "homepage": "http://Pily01.github.io/Soros",
+  "homepage": "http://Pily01.github.io",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -12,11 +12,14 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.3",
     "firebase": "^9.17.1",
+    "firebase-admin": "^11.6.0",
+    "firebase-functions": "^4.2.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
+    "recharts": "^2.5.0",
     "sass": "^1.58.3",
     "web-vitals": "^2.1.4"
   },
@@ -30,8 +33,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {

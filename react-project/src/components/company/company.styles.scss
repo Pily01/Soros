@@ -1,0 +1,96 @@
+.company-jumbotron{
+    width: 100%;
+    background-color: #e4e4e4;
+    height: 300px;
+}
+
+.company-main-row{
+    padding: 50px 0px;
+
+    .company-secondary-info{
+        border: 1px solid #DEE2E6;
+        border-radius: 12px;
+
+        h1{
+         font-size: 42px;
+         margin-bottom: 20px;
+        }
+
+        .form-link{
+            background-color: #EA868F;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            padding: 5px 20px;
+            box-shadow: none;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            text-decoration: none;
+            width: 1000px;
+        }
+    }
+
+    .company-main-info{
+        margin-left: 10px;
+        border: 1px solid #DEE2E6;
+        border-radius: 12px;
+
+        .disclaimer{
+            color:#818182;
+            margin-bottom: none !important;
+        }
+
+    }
+
+    .company-name{
+        font-size: 40px;
+        margin-bottom: 0px;
+    }
+    .rating{
+        font-size: 96px;
+        display: inline;
+    }
+    .cardlist-button{
+        width: 185px;
+    }
+
+    .rating-5{
+        display: inline;
+    }
+
+    .gray-font{
+        color: #818182;
+    }
+}
+
+
+.data-disclaimer{
+    font-weight: 400;
+    font-size: 15px;
+    background-color: #F8F9FA;
+    color: #343A40;
+    max-width: max-content;
+    padding: 0px 8px;
+    border-radius: 16px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+.section-title{
+    color: #EA868F;
+
+}
+
+.harassment-cases{
+    font-size: larger;
+}
+
+.pie-chart-div{
+    height: 500px;
+}
+
+.report-company-button{
+    background-color: #087990;
+    color: white !important;
+    border-radius: 6px;
+}

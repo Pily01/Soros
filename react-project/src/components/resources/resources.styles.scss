@@ -1,0 +1,60 @@
+.resources-container{
+    
+    h1, h3{
+        color: #087990; 
+        margin-top: 30px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .subtitle{
+        font-weight: 650;
+        color: #6C757D;
+    }
+
+    .row-1, .row-2{
+        color: #6C757D;
+        margin-top: 40px !important;
+    }
+
+    .link{
+        color: #EA868F;
+    }
+
+    .link:hover{
+        color: #EA868F;
+    }
+
+    .form-link-button{
+        background-color: #EA868F;
+        border: none;
+        color: white;
+        border-radius: 6px;
+        padding: 5px 20px;
+        box-shadow: none;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .form-resource{
+        margin-bottom: 50px;
+    }
+
+    .types-row{
+        padding-bottom: 40px !important;
+        .type-card{
+            background-color: #E6F2F4;
+            border: none;
+            transition: ease all 0.5s;
+        }
+
+        .type-card:hover{
+            box-shadow: rgba(194, 194, 194, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+        }
+
+        .type-title{
+            color: #087990;
+        }
+    }
+}
+
