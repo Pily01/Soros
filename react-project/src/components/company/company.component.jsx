@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect, useRef } from 'react';
 import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
-import RatingChart from "./company-rating-chart.component";
 import { Link } from "react-router-dom";
 
 import { Container, Row, Col, Table } from 'react-bootstrap';
@@ -10,8 +9,9 @@ import { Container, Row, Col, Table } from 'react-bootstrap';
 import "./company.styles.scss"
 import jumbotron_logo from "../../Teatro_de_los_Insurgentes.jpg"
 
-import SafeChart from "./company-safe-chart.component";
-import SupportChart from "./company-support-chart.component";
+import RatingChart from "./graphs/company-rating-chart.component";
+import SafeChart from "./graphs/company-safe-chart.component";
+import SupportChart from "./graphs/company-support-chart.component";
 
 const Company = () => {
     const { name } = useParams();

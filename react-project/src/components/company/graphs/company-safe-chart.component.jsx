@@ -3,9 +3,6 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 
 
 const SafeChart = ({ safety }) => {
-    console.log(safety["safe"]);
-    const total_safety = safety["safe"] + safety["unsafe"] + safety["moderately safe"];
-
 
     const data = [
       {
