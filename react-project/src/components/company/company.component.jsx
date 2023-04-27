@@ -115,10 +115,12 @@ const Company = () => {
                         <RatingChart rating={rating} />
                     </Col>
                 </Row>
-
+                <p className="data-disclaimer">Please be advised that the following data is unverified and 
+                    only comes from safety report forms submitted on this site by users. 
+                </p>
                 <Row>
                     <Col sm={6}>
-                        <h4>Safety according to users</h4>
+                        <h5 className="section-title">Safety according to users</h5>
                         <SafeChart safety={safety} />
                     </Col>
                 </Row>
