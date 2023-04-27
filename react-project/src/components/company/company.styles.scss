@@ -1,21 +1,41 @@
 .company-main-row{
     padding: 50px 0px;
 
+    .company-secondary-info{
+        border: 1px solid #DEE2E6;
+        border-radius: 12px;
+    }
+
+    .company-main-info{
+        margin-left: 10px;
+        border: 1px solid #DEE2E6;
+        border-radius: 12px;
+
+        .disclaimer{
+            color:#818182;
+            margin-bottom: none !important;
+        }
+
+    }
+
     .company-name{
         font-size: 40px;
         margin-bottom: 0px;
     }
     .rating{
-        font-size: 96px
+        font-size: 96px;
+        display: inline;
     }
     .cardlist-button{
         width: 185px;
     }
+
+    .rating-5{
+        display: inline;
+    }
 }
 
-.company-secondary-info{
-    background-color: #F8F8F8;
-}
+
 
 .harassment-cases{
     font-size: larger;
