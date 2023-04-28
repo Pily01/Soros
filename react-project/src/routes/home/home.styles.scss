@@ -7,7 +7,27 @@
     text-align: left;
     color: black;
     padding-left: 10% !important;
+    
+    .slogan{
+        font-size: 20px;
+        
+    }
 }
+
+.text-container{
+    display: flex;
+    font-size: 40px;
+    color: black;
+    font-weight: 500;
+    p{
+        display: inline;
+        margin-right: 8px;
+    }
+}
+.typewriter{
+    color: #087990 !important;
+}
+
 .home-jumbotron-col2{
     display: flex;
     justify-content: center;
