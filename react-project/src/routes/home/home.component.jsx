@@ -7,10 +7,10 @@ import CardList from '../../components/cardlist/cardlist';
 import {useState, useEffect} from 'react';
 
 import {Container, Row, Col} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Typewriter from 'typewriter-effect'
 
 import companies_list from '../../data/companies';
-//import companies_list from '../../data/companies';
+
 
 const Home = () => {
   //const companies = companies_list;
@@ -32,14 +32,27 @@ const Home = () => {
     updateFiltList(newFiltList);
   }, [searchStr]);
 
-  
   return (
     <div className='App-main-div'>
       <Container className='home-jumbotron' fluid>
         <Row >
           <Col sm={8} className='home-jumbotron-col1'>
-            <p>Together, we can make workplaces in Mexico City safer.</p>
-            <h1> Prevent, report, and check <br/>anonymously</h1>
+            {/* <p>Together, we can make workplaces in Mexico City safer.</p>
+            <h1> Prevent, report, and check <br/>anonymously</h1> */}
+            <div className='text-container'>
+              <p>Anonymously </p>
+              <div className="typewriter">
+                <Typewriter
+                style="display: inline"
+                options={{
+                  strings: ["Report", "Review", "Rate"],
+                  autoStart: true,
+                  loop: true,
+                }}
+                />
+              </div>
+            </div>
+            <p className='slogan'>Creating Safer Workspaces, One Review at a Time</p>
             <SearchBox onChangeHandler={onSearch}/>
           </Col>
           <Col sm={4} className='home-jumbotron-col2'>
