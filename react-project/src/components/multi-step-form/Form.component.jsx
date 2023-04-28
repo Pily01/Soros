@@ -11,8 +11,8 @@ import { useLocation } from 'react-router-dom'
 import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
 
-import { ProgressBar } from 'react-bootstrap';
-import './Form.styles.scss'
+import { Alert, ProgressBar } from 'react-bootstrap';
+import './Form.styles.scss';
 
 const Form = () => {
     const [page, setPage] = useState(0);
@@ -30,7 +30,7 @@ const Form = () => {
         support: ""
     })
 
-    const [displayMessage, setDisplayMessage] = useState()
+    const [displayMessage, setDisplayMessage] = useState("");
 
     const location = useLocation()
     const prop = location.state;
@@ -146,7 +146,7 @@ const Form = () => {
                 <div className='form'>
                     <h1 className='form-title'> Safety Report Form</h1>
                     {/*Progress Bar*/}
-                    <ProgressBar variant="warning" now={60} />
+                    <ProgressBar id="progress" variant="warning" now={60} />
                     {/*Optional disclaimer*/}
                     {page === 0 || page === 1 ?
                         <p className='disclaimer'>The following questions are required. *</p>
@@ -164,9 +164,13 @@ const Form = () => {
                     <div>
                         {pageDisplay()}
                     </div>
-                    <div>
-                        <h4>{displayMessage}</h4>
-                    </div>
+                    
+                    {displayMessage == "" ? <></> : 
+                         <Alert variant='danger'>
+                         {displayMessage}
+                        </Alert>
+                    }
+                    
                     {/* Buttons */}
                     <div className='footer'>
                         {/* Back button */}
@@ -182,11 +186,17 @@ const Form = () => {
                         {/* Next button */}
                         <button className={page === FormTitles.length - 1 ? "form-button-submit" : "form-button"}
                             onClick={() => {
-                                if (page === 0 && (formData.companyName === "" || formData.companyAddress ==="")){
-                                    setDisplayMessage("Please fill out the required fields")
+                                if (page === 0 && formData.companyName === ""){
+                                    setDisplayMessage("Please fill out the Company Name!")
                                 } 
-                                else if (page === 1 && (formData.rating === "" || formData.safety ==="") ) {
-                                    setDisplayMessage("Please fill out the required fields")
+                                else if (page === 0 && formData.companyAddress ===""){
+                                    setDisplayMessage("Please fill out the Company Address!")
+                                }
+                                else if (page === 1 && formData.rating === "" ) {
+                                    setDisplayMessage("Please select a rating!")
+                                }
+                                else if (page === 1 && formData.safety ===""){
+                                    setDisplayMessage("Please select a safety level!")
                                 }
                                 else if (page === FormTitles.length - 1) {
                                     console.log(formData);
