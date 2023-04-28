@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 import CompanyDetails from './CompanyDetails.component';
 import CompanyRating from './CompanyRating.component';
 import CompanyExperience from './CompanyExperience.component';
 import CompanyWitness from './CompanyWitness.component';
 import CompanyReport from './CompanyReport.component';
-import { useLocation } from 'react-router-dom'
-
+import CustomProgressBar from './progress-bar/ProgressBar.component';
 
 import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
@@ -146,7 +147,7 @@ const Form = () => {
                 <div className='form'>
                     <h1 className='form-title'> Safety Report Form</h1>
                     {/*Progress Bar*/}
-                    <ProgressBar id="progress" variant="warning" now={60} />
+                    <CustomProgressBar progress={(page * 18.5) + 10}  height={10} />
                     {/*Optional disclaimer*/}
                     {page === 0 || page === 1 ?
                         <p className='disclaimer'>The following questions are required. *</p>
@@ -166,7 +167,7 @@ const Form = () => {
                     </div>
                     
                     {displayMessage == "" ? <></> : 
-                         <Alert variant='danger'>
+                         <Alert variant='warning'>
                          {displayMessage}
                         </Alert>
                     }
