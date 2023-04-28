@@ -4,6 +4,8 @@ import homeimg from '../../soros-home.png'
 
 import SearchBox from '../../components/search/search-box';
 import CardList from '../../components/cardlist/cardlist';
+import EmptyCardlist from './EmptyCardlist.component';
+
 import {useState, useEffect} from 'react';
 
 import {Container, Row, Col} from 'react-bootstrap';
@@ -60,7 +62,13 @@ const Home = () => {
           </Col>
         </Row>
         <Row className='home-search-bar'>
-          <CardList filteredList={filtList}/>
+          {
+            filtList.length === 0 ? 
+            <EmptyCardlist/>
+            :
+            <CardList filteredList={filtList}/>
+          }
+          
         </Row>
       </Container>
     </div>
