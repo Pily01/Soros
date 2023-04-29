@@ -3,8 +3,6 @@ import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import { useEffect, useRef } from "react";
 
 import './App.css';
-import SearchBox from './components/search/search-box.jsx';
-import CardList from './components/cardlist/cardlist.jsx';
 
 import Home from './routes/home/home.component';
 import Company from './components/company/company.component';

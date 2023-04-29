@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CompanyDetails from './CompanyDetails.component';
 import CompanyRating from './CompanyRating.component';
@@ -16,6 +16,7 @@ import './Form.styles.scss'
 
 const Form = () => {
     const [page, setPage] = useState(0);
+    const cookieChecker = useRef(false)
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         companyName: "",
@@ -44,7 +45,34 @@ const Form = () => {
 
     const FormTitles = ["COMPANY INFORMATION", "COMPANY SAFETY", "EXPERIENCE", "WITNESSED EXPERIENCE", "COMPANY SUPPORT"];
 
+    const setCookie = (name, value) => {
+        const date = new Date();
+        date.setTime(date.getTime() + (24 * 7 * 60 * 60 * 1000));
+        const expires = `expires=${date.toUTCString()}`;
+        document.cookie = `${name}=${value}; ${expires}; path=/`;
+    };
+
+    const cookieExists = () => { 
+        const cookieValues = document.cookie.split('; ');
+        console.log(cookieValues)
+        for (const cookie of cookieValues) {
+            const str = cookie.split("=")
+
+            if(formData.companyName === str[0] && formData.companyAddress.includes(str[1])){
+                cookieChecker.current = true;    
+                console.log(cookieChecker.current)
+                return true;
+            }
+        }
+        console.log(cookieChecker.current)
+
+        console.log("reached")
+        cookieChecker.current = false;
+    }
+
     const handleSubmit = async () => {
+
+        setCookie(formData.companyName, formData.companyAddress);
 
         try {
             const docRef = await addDoc(collection(db, "responses_fake"), {
@@ -182,10 +210,14 @@ const Form = () => {
                         {/* Next button */}
                         <button className={page === FormTitles.length - 1 ? "form-button-submit" : "form-button"}
                             onClick={() => {
-                                if (page === 0 && (formData.companyName === "" || formData.companyAddress ==="")){
+                                cookieExists();
+                                if (page === 0 && (formData.companyName === "" || formData.companyAddress === "")) {
                                     setDisplayMessage("Please fill out the required fields")
-                                } 
-                                else if (page === 1 && (formData.rating === "" || formData.safety ==="") ) {
+                                }
+                                else if (page === 0 && cookieChecker.current) {
+                                    setDisplayMessage("You already filled out report for this company")
+                                }
+                                else if (page === 1 && (formData.rating === "" || formData.safety === "")) {
                                     setDisplayMessage("Please fill out the required fields")
                                 }
                                 else if (page === FormTitles.length - 1) {

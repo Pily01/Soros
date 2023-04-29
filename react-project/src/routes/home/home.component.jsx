@@ -10,11 +10,13 @@ import {Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import companies_list from '../../data/companies';
+import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
+import {db} from "../../utils/firebase/firebase.utils"
 //import companies_list from '../../data/companies';
 
 const Home = () => {
   //const companies = companies_list;
-  const companies = companies_list;
+  const [companies, setCompanies] = useState([]);
   const [searchStr, updateSearchStr] = useState("");
   const [filtList, updateFiltList] = useState(companies);
  
@@ -27,10 +29,28 @@ const Home = () => {
 //function to create a filtered list based on original one and search string
 
   useEffect(() => {
-    const newFiltList = companies.filter(company => company.name.toLocaleLowerCase().includes(searchStr));
+    const newFiltList = companies.filter(company => company.companyName.toLocaleLowerCase().includes(searchStr));
     console.log(newFiltList);
     updateFiltList(newFiltList);
   }, [searchStr]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let temp = [];
+      const q = query(collection(db, "companies"));
+      const querySnapshot = await getDocs(q);
+
+      querySnapshot.forEach((doc) => {
+        temp.push(doc.data());
+      });
+
+      console.log(temp)
+      setCompanies(temp)
+      updateFiltList(temp)
+    }
+
+    fetchData()
+  }, [])
 
   
   return (

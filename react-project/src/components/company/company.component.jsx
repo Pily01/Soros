@@ -30,7 +30,7 @@ const Company = () => {
     useEffect(() => {
         const queryGet = async () => {
             const q = query(
-                collection(db, "companies_fake"),
+                collection(db, "companies"),
                 where("companyName", "==", `${name}`)
             );
             const querySnapshot = await getDocs(q);
