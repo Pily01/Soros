@@ -132,6 +132,7 @@ const Company = () => {
                 <p className="data-disclaimer"> <i class="fa-solid fa-triangle-exclamation"></i> Please be advised that the following data is unverified and 
                     only comes from safety report forms submitted on this site by users. 
                 </p>
+                <hr></hr>
                 <Row>
                     <Col sm={6}>
                         <h5 className="section-title">Harassment Frequency</h5>
@@ -145,7 +146,17 @@ const Company = () => {
                 <hr></hr>
                 <Row>
                     <Col sm={6}>
+                    <h5 className="section-title">Company's Response</h5>
                         <SupportChart support={support} />
+                    </Col>
+                    <Col>
+                        <p>
+                        This chart shows how the company handled the user's complaints regarding sexual harassment.
+                        </p>
+                        <p>
+                            If your complaint was not resolved and you want to follow up, check the resources you have avaliable here
+                        </p>
+                        <Link to="/Soros/resources" className="form-link">Check resources</Link>
                     </Col>
                 </Row>
             </Container>  

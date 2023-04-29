@@ -1,18 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 import CompanyDetails from './CompanyDetails.component';
 import CompanyRating from './CompanyRating.component';
 import CompanyExperience from './CompanyExperience.component';
 import CompanyWitness from './CompanyWitness.component';
 import CompanyReport from './CompanyReport.component';
-import { useLocation } from 'react-router-dom'
-
+import CustomProgressBar from './progress-bar/ProgressBar.component';
 
 import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
 
-import { ProgressBar } from 'react-bootstrap';
-import './Form.styles.scss'
+import { Alert, ProgressBar } from 'react-bootstrap';
+import './Form.styles.scss';
 
 const Form = () => {
     const [page, setPage] = useState(0);
@@ -31,7 +32,7 @@ const Form = () => {
         support: ""
     })
 
-    const [displayMessage, setDisplayMessage] = useState()
+    const [displayMessage, setDisplayMessage] = useState("");
 
     const location = useLocation()
     const prop = location.state;
@@ -174,7 +175,7 @@ const Form = () => {
                 <div className='form'>
                     <h1 className='form-title'> Safety Report Form</h1>
                     {/*Progress Bar*/}
-                    <ProgressBar variant="warning" now={60} />
+                    <CustomProgressBar progress={(page * 18.5) + 10}  height={10} />
                     {/*Optional disclaimer*/}
                     {page === 0 || page === 1 ?
                         <p className='disclaimer'>The following questions are required. *</p>
@@ -192,9 +193,13 @@ const Form = () => {
                     <div>
                         {pageDisplay()}
                     </div>
-                    <div>
-                        <h4>{displayMessage}</h4>
-                    </div>
+                    
+                    {displayMessage == "" ? <></> : 
+                         <Alert variant='warning'>
+                         {displayMessage}
+                        </Alert>
+                    }
+                    
                     {/* Buttons */}
                     <div className='footer'>
                         {/* Back button */}

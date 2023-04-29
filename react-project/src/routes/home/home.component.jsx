@@ -4,10 +4,12 @@ import homeimg from '../../soros-home.png'
 
 import SearchBox from '../../components/search/search-box';
 import CardList from '../../components/cardlist/cardlist';
+import EmptyCardlist from './EmptyCardlist.component';
+
 import {useState, useEffect} from 'react';
 
 import {Container, Row, Col} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Typewriter from 'typewriter-effect'
 
 import companies_list from '../../data/companies';
 import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
@@ -52,14 +54,27 @@ const Home = () => {
     fetchData()
   }, [])
 
-  
   return (
     <div className='App-main-div'>
       <Container className='home-jumbotron' fluid>
         <Row >
           <Col sm={8} className='home-jumbotron-col1'>
-            <p>Together, we can make workplaces in Mexico City safer.</p>
-            <h1> Prevent, report, and check <br/>anonymously</h1>
+            {/* <p>Together, we can make workplaces in Mexico City safer.</p>
+            <h1> Prevent, report, and check <br/>anonymously</h1> */}
+            <div className='text-container'>
+              <p>Anonymously </p>
+              <div className="typewriter">
+                <Typewriter
+                style="display: inline"
+                options={{
+                  strings: ["Report", "Review", "Rate"],
+                  autoStart: true,
+                  loop: true,
+                }}
+                />
+              </div>
+            </div>
+            <p className='slogan'>Creating Safer Workspaces, One Review at a Time</p>
             <SearchBox onChangeHandler={onSearch}/>
           </Col>
           <Col sm={4} className='home-jumbotron-col2'>
@@ -67,7 +82,13 @@ const Home = () => {
           </Col>
         </Row>
         <Row className='home-search-bar'>
-          <CardList filteredList={filtList}/>
+          {
+            filtList.length === 0 ? 
+            <EmptyCardlist/>
+            :
+            <CardList filteredList={filtList}/>
+          }
+          
         </Row>
       </Container>
     </div>

@@ -15,19 +15,6 @@
          font-size: 42px;
          margin-bottom: 20px;
         }
-
-        .form-link{
-            background-color: #EA868F;
-            border: none;
-            color: white;
-            border-radius: 6px;
-            padding: 5px 20px;
-            box-shadow: none;
-            margin-top: 20px;
-            margin-bottom: 40px;
-            text-decoration: none;
-            width: 1000px;
-        }
     }
 
     .company-main-info{
@@ -93,4 +80,22 @@
     background-color: #087990;
     color: white !important;
     border-radius: 6px;
+}
+
+.form-link{
+    background-color: #EA868F;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 5px 20px;
+    box-shadow: none;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-decoration: none;
+    width: 1000px;
+}
+
+.form-link:hover{
+    text-decoration: none;
+    color: white;
 }

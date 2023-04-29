@@ -23,7 +23,7 @@ const SupportChart = ({support}) => {
       };
 
     return(
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height={400}>
             <PieChart width={700} height={700}>
               <Pie
                 data={data}
