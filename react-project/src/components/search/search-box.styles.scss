@@ -1,13 +1,15 @@
-.search-box-wrapper{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: fit-content;
-    display: flex;
-}
-
 .search-search-bar{
-    margin-top: 20px;
     border-color: rgb(187, 187, 187);
     max-width: 500px;
     height: 40px;
+}
+
+.search-search-bar:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ced4da !important;
+}
+
+.input-group-search{
+    margin-top: 10px;
 }
