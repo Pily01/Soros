@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import './cardlist.styles.scss'
 import companyimg from '../../company.png'
 
-import { Card, Button, Container } from 'react-bootstrap'
+import { Card, Button, Container, Badge, CardGroup } from 'react-bootstrap'
 import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
 import { db } from '../.././utils/firebase/firebase.utils';
 import { useState, useEffect } from "react";
@@ -52,25 +52,55 @@ const CardList = props => {
         props.filteredList.forEach((company) => fetchResponses(company.companyName));
     }, [])
 
+    function cleanAddress(address) {
+        const regex = /(?:México|Mexico|Ciudad de México)(, )?/gi;
+        let cleanedAddress = address.replace(regex, '');
+        // Remove any empty spaces between commas
+        cleanedAddress = cleanedAddress.replace(/,(?=\s*,)/g, '');
+        // Remove trailing comma, if present
+        cleanedAddress = cleanedAddress.slice(0, -2) + ".";
+      
+        return cleanedAddress;
+    }
+
+    const getRating = (rating) => {
+        let totalRating = 0;
+        let totalVotes = 0;
+        for (const [key, value] of Object.entries(rating)) {
+            totalRating += parseInt(key) * parseInt(value);
+            totalVotes += parseInt(value);
+        }
+        return totalVotes === 0 ? 0 : (totalRating / totalVotes).toFixed(1);
+    }
+
     return (
         <div>
             <Container className="search-wrapper">
-                {props.filteredList.map(company => {
-                    return (
-                        <Card className="cardlist-card" style={{ width: '18rem' }}>
-                            <Card.Img className="card-image" variant="top" src={imageUrls[company.companyName]} />
-                            <Card.Body>
-                                <Card.Title>{company.companyName}</Card.Title>
-                                <Card.Text>
-                                    {responses[company.companyName]} Reviews
-                                </Card.Text>
-                                <Link className="cardlist-link" to={`companies/${company.companyName}`}>
-                                    <Button className='cardlist-button'>See Company</Button>
-                                </Link>
-                            </Card.Body>
-                        </Card>
-                    )
-                })}
+                    {props.filteredList.map(company => {
+                        return (
+                            <Card className="cardlist-card" style={{ width: '20rem' }}>
+                                <Card.Img className="card-image" variant="top" src={imageUrls[company.companyName]} />
+                                <Card.ImgOverlay style={{height: 20}}>
+                                    <div style={{width: 40}}>
+                                        <span className='rating-badge'>
+                                        {getRating(company.rating)}
+                                        </span>
+                                    </div>
+                                </Card.ImgOverlay>
+                                <Card.Body>
+                                    <Card.Title>
+                                        {company.companyName} 
+                                    </Card.Title>
+                                    <Card.Text>
+                                        {cleanAddress(company.address)}
+                                    </Card.Text>
+                                    <Link className="cardlist-link" to={`companies/${company.companyName}`}>
+                                        <Button className='cardlist-button'>See Company</Button>
+                                    </Link>
+                                </Card.Body>
+                            </Card>
+                        )
+                    })}
             </Container>
         </div>
     )
