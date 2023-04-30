@@ -76,7 +76,7 @@ const Form = () => {
         setCookie(formData.companyName, formData.companyAddress);
 
         try {
-            const docRef = await addDoc(collection(db, "responses_fake"), {
+            const docRef = await addDoc(collection(db, "responses"), {
                 address: formData.companyAddress,
                 companyName: formData.companyName,
                 rating: formData.rating,
@@ -99,7 +99,7 @@ const Form = () => {
     }
 
     const handleData = async () => {
-        const q = query(collection(db, "companies_fake"), where("companyName", "==", formData.companyName));
+        const q = query(collection(db, "companies"), where("companyName", "==", formData.companyName));
         const querySnapshot = await getDocs(q);
 
         if (querySnapshot.docs.length > 0) {
@@ -108,7 +108,7 @@ const Form = () => {
             await updateData(docRef);
         }
         else {
-            const docRef = await addDoc(collection(db, "companies_fake"), {
+            const docRef = await addDoc(collection(db, "companies"), {
                 companyName: formData.companyName,
                 address: formData.companyAddress,
                 rating: { "1": 0, "2": 0, "3": 0 },
