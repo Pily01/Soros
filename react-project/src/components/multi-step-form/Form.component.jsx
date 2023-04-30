@@ -9,10 +9,10 @@ import CompanyWitness from './CompanyWitness.component';
 import CompanyReport from './CompanyReport.component';
 import CustomProgressBar from './progress-bar/ProgressBar.component';
 
-import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, getDocs, addDoc } from "firebase/firestore";
+import { updateDoc, increment, collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
 
-import { Alert, ProgressBar } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import './Form.styles.scss';
 
 const Form = () => {
