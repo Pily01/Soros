@@ -216,14 +216,20 @@ const Form = () => {
                         <button className={page === FormTitles.length - 1 ? "form-button-submit" : "form-button"}
                             onClick={() => {
                                 cookieExists();
-                                if (page === 0 && (formData.companyName === "" || formData.companyAddress === "")) {
-                                    setDisplayMessage("Please fill out the required fields")
-                                }
-                                else if (page === 0 && cookieChecker.current) {
+                                if (page === 0 && cookieChecker.current) {
                                     setDisplayMessage("You already filled out report for this company")
                                 }
-                                else if (page === 1 && (formData.rating === "" || formData.safety === "")) {
-                                    setDisplayMessage("Please fill out the required fields")
+                                else if (page === 0 && formData.companyName === ""){
+                                    setDisplayMessage("Please fill out the Company Name!")
+                                }
+                                else if (page === 0 && formData.companyAddress ===""){
+                                    setDisplayMessage("Please fill out the Company Address!")
+                                }
+                                else if (page === 1 && formData.rating === "" ) {
+                                    setDisplayMessage("Please select a rating!")
+                                }
+                                else if (page === 1 && formData.safety ===""){
+                                    setDisplayMessage("Please select a safety level!")
                                 }
                                 else if (page === FormTitles.length - 1) {
                                     console.log(formData);
