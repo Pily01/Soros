@@ -1,6 +1,6 @@
 import '../../App.css';
 import './home.styles.scss'
-import homeimg from '../../soros-home.png'
+import homeimg from '../../soros-about.png'
 
 import SearchBox from '../../components/search/search-box';
 import CardList from '../../components/cardlist/cardlist';
