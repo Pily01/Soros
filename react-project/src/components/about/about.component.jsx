@@ -1,53 +1,44 @@
 import NavbarComponent from '../navbar/navbar.component';
 import teampic from './team-pic.JPG' 
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import './about.styles.scss'
+import sorosAboutImg from '../../soros-about.png'
 
 
 function About() {
 return (
-    <div className= "entire_page">
-    <Container>
-        <div className="heading">
-            About Us
-        </div>
-        <div class="d-flex flex-row">
-            <div class="p-2" className="main_writing">
-                <br></br>
-                Hello there! 
-                <br></br>
-                <br></br>
+        <Container className='about-container'>
+            <Row>
+            <Col  className="image-col" sm={5}>
+                <img
+                    width="380px"
+                    src={sorosAboutImg}
+                />
+            </Col>
+            <Col sm={7}>
+                <h1>About Us</h1>
+                <p>
                 We are the SafeCrew team, and we are thrilled to have created this web app - Soros. Our team leader, 
                 María del Pilar Domínguez Molina, is from Mexico City and came up with the idea for the app. After witnessing the 
                 prevalence of sexual harassment and assault in Mexican workplaces through her family, friends, and acquaintances,
                 she knew that something had to be done.
-                <br></br>
-                <br></br>
+                </p>
+                <p>
                 After an extended period of brainstorming and conceptual development, and numerous meetings with professionals in
                 product development, cybersecurity, and UI/UX, our team was able to perfect the final product. The Soros platform
                 is designed to empower women by providing them with crucial knowledge about the frequency of sexual harassment and 
                 assault in workplaces in Maxico City. By doing so, we aim to hold companies accountable for allowing such behavior to persist.
-                <br></br>
-                <br></br>
+                </p>
+                <p>
                 With Soros, women can now compare workplaces before applying for a job, and those who have experienced sexual harassment or 
                 assault can share their truth without fear of exposure. Our app is completely anonymous, and we do not store any user data.
-                <br></br>
-                <br></br>
+                </p>
+                <p>
                 Thank you for choosing Soros, the platform that empowers women and holds companies accountable.
-            </div> 
-            <br></br>
-            <div class="p-2">
-                <img className="team_picture"
-                width="550"
-                height="400"
-                alt="React Bootstrap logo"
-                src={teampic}/> 
-            </div>
-            </div>
-            <div className="under_pic"> From left to right: Azamat Khan, María del Pilar Domínguez Molina, Hanna Hong, Tara Sarli </div>
-            <br></br>
-    </Container>
-</div>
+                </p>
+            </Col>
+        </Row>
+        </Container>
     );
 }
 
