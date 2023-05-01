@@ -12,6 +12,7 @@ import FormEnd from './components/multi-step-form/form-messages/Form-end.compone
 import About from './components/about/about.component';
 import Resources from './components/resources/resources.component';
 import NavbarComponent from './components/navbar/navbar.component';
+import NotFound from './components/error-page/NotFound.component';
 
 const App = () => {  
   const effectRef = useRef(false);
@@ -57,6 +58,7 @@ const App = () => {
             <Route path='/Soros/form-end' element={<FormEnd/>}/>
             <Route path='/Soros/about' element={<About/>}/>
             <Route path='/Soros/resources' element={<Resources/>}/>
+            <Route path='/*' element={<NotFound/>}/>
           </Routes>
         </div>
     
