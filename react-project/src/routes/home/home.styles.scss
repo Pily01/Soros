@@ -1,5 +1,5 @@
 .home-jumbotron-col1{
-    height: 600px;
+    height: 550px;
     display: flex;
     padding-left: 300px;
     flex-direction: column;
@@ -11,6 +11,10 @@
     .slogan{
         font-size: 20px;
     }
+}
+
+.card-title{
+    flex-direction: column;
 }
 
 .text-container{
