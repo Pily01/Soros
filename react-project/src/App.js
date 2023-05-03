@@ -13,6 +13,7 @@ import About from './components/about/about.component';
 import Resources from './components/resources/resources.component';
 import NavbarComponent from './components/navbar/navbar.component';
 import NotFound from './components/error-page/NotFound.component';
+import ContactForm from './components/contact-form/contact-form.component';
 
 const App = () => {  
   const effectRef = useRef(false);
@@ -59,6 +60,7 @@ const App = () => {
             <Route path='/Soros/about' element={<About/>}/>
             <Route path='/Soros/resources' element={<Resources/>}/>
             <Route path='/*' element={<NotFound/>}/>
+            <Route path='/Soros/contact-us' element={<ContactForm/>}/>
           </Routes>
         </div>
     
