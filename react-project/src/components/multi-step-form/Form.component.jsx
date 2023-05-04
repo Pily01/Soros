@@ -1,17 +1,22 @@
+// ---------------  F O R M  C O M P O N E N T ---------------//
+// Safety report multi step form component. It displays the different
+// steps of the form and handless form submition, cookies, and
+// required fields
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
+// - Firebase
+import { updateDoc, increment, collection, query, where, getDocs, addDoc } from "firebase/firestore";
+import { db } from '../../utils/firebase/firebase.utils';
+// - Components
 import CompanyDetails from './CompanyDetails.component';
 import CompanyRating from './CompanyRating.component';
 import CompanyExperience from './CompanyExperience.component';
 import CompanyWitness from './CompanyWitness.component';
 import CompanyReport from './CompanyReport.component';
 import CustomProgressBar from './progress-bar/ProgressBar.component';
-
-import { updateDoc, increment, collection, query, where, getDocs, addDoc } from "firebase/firestore";
-import { db } from '../../utils/firebase/firebase.utils';
-
+// - Styles
 import { Alert } from 'react-bootstrap';
 import './Form.styles.scss';
 
@@ -19,6 +24,7 @@ const Form = () => {
     const [page, setPage] = useState(0);
     const cookieChecker = useRef(false)
     const navigate = useNavigate();
+    // Every company attribute
     const [formData, setFormData] = useState({
         companyName: "",
         companyAddress: "",
@@ -31,14 +37,13 @@ const Form = () => {
         reportedHarass: "",
         support: ""
     })
-
+    // Required fields and cookies messages
     const [displayMessage, setDisplayMessage] = useState("");
 
     const location = useLocation()
     const prop = location.state;
-
     const effectRef = useRef(false);
-
+    // Google translate element
     const googleTranslateElementInit = (callback) => {
       new window.google.translate.TranslateElement(
         {
@@ -49,12 +54,11 @@ const Form = () => {
         },
         "google_translate_element"
       );
-  
       if (typeof callback === 'function') {
         callback();
       }
     };
-  
+    // Google translate use effect
     useEffect(() => {
       const gTranslate = () => {
         var addScript = document.createElement("script");
@@ -65,11 +69,9 @@ const Form = () => {
         document.body.appendChild(addScript);
         window.googleTranslateElementInit = googleTranslateElementInit;
       }
-      
       if(effectRef.current) return
       effectRef.current = true;
       gTranslate();
-  
     }, []);
 
     useEffect(() => {
@@ -80,14 +82,13 @@ const Form = () => {
     }, [])
 
     const FormTitles = ["COMPANY INFORMATION", "COMPANY SAFETY", "EXPERIENCE", "WITNESSED EXPERIENCE", "COMPANY SUPPORT"];
-
+    // Cookies functionality
     const setCookie = (name, value) => {
         const date = new Date();
         date.setTime(date.getTime() + (24 * 7 * 60 * 60 * 1000));
         const expires = `expires=${date.toUTCString()}`;
         document.cookie = `${name}=${value}; ${expires}; path=/`;
     };
-
     const cookieExists = () => { 
         const cookieValues = document.cookie.split('; ');
         for (const cookie of cookieValues) {
@@ -101,11 +102,9 @@ const Form = () => {
         }
         cookieChecker.current = false;
     }
-
+    // Form submit handler
     const handleSubmit = async () => {
-
         setCookie(formData.companyName, formData.companyAddress);
-
         try {
             const docRef = await addDoc(collection(db, "responses"), {
                 address: formData.companyAddress,
@@ -128,7 +127,7 @@ const Form = () => {
             console.error("Error adding document: ", e);
         }
     }
-
+    // Create company document to submit to database
     const handleData = async () => {
         const q = query(collection(db, "companies"), where("companyName", "==", formData.companyName));
         const querySnapshot = await getDocs(q);
@@ -155,7 +154,7 @@ const Form = () => {
             await updateData(docRef);
         }
     }
-
+    // Hanlde data to aggregate new values and previous values
     const updateData = async (docRef) => {
         const updates = {};
         if (formData.rating) {
@@ -182,10 +181,9 @@ const Form = () => {
         if (formData.support) {
             updates[`support.${formData.support}`] = increment(1);
         }
-
         await updateDoc(docRef, updates);
     }
-
+    // Handle display of different multi-step form components
     const pageDisplay = () => {
         if (page === 0) {
             return <CompanyDetails formData={formData} setFormData={setFormData} />
@@ -218,7 +216,6 @@ const Form = () => {
                         <p className='disclaimer'>The following questions are optional, but can help other women get a better idea of the
                             <br />safety of this workplace. Only answer questions you feel safe and comfortable answering. </p>
                     }
-
                     {/*Form*/}
                     <div className='section-title'>
                         <p>{FormTitles[page]}</p>
@@ -227,13 +224,11 @@ const Form = () => {
                     <div>
                         {pageDisplay()}
                     </div>
-                    
                     {displayMessage == "" ? <></> : 
                          <Alert variant='warning'>
                          {displayMessage}
                         </Alert>
                     }
-                    
                     {/* Buttons */}
                     <div className='footer'>
                         {/* Back button */}
