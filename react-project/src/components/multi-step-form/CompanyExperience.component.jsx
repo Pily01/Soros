@@ -1,6 +1,9 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+// ---------------  C O M P A N Y  E X P E R I E N C E  C O M P O N E N T ---------------//
+// Third Multistep form component: section of the form where users describes experience
 
+import React from "react";
+// - Styles
+import { Form } from "react-bootstrap";
 import './Form-steps.styles.scss'
 
 const CompanyExperience = ({ formData, setFormData }) => {
