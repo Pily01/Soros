@@ -11,10 +11,10 @@ import {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import Typewriter from 'typewriter-effect'
 
-import companies_list from '../../data/companies';
-import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
+
+import { collection, query,  getDocs } from "firebase/firestore";
 import {db} from "../../utils/firebase/firebase.utils"
-//import companies_list from '../../data/companies';
+
 
 const Home = () => {
   //const companies = companies_list;
@@ -62,7 +62,7 @@ const Home = () => {
             {/* <p>Together, we can make workplaces in Mexico City safer.</p>
             <h1> Prevent, report, and check <br/>anonymously</h1> */}
             <div className='text-container'>
-              <p>Anonymously </p>
+              <p> Anonymously </p>
               <div className="typewriter">
                 <Typewriter
                 style="display: inline"
