@@ -1,7 +1,11 @@
+// ---------------  E M P T Y  C A R D - L I S T  C O M P O N E N T ---------------//
+// Component that displays when a user does not find a company
+
 import {Card} from 'react-bootstrap';
 import { Link } from "react-router-dom";
-
+// - Styles
 import "./EmptyCardlist.styles.scss"
+
 const EmptyCardlist = () => {
     return(
         <Card className="text-center empty-cardlist">
