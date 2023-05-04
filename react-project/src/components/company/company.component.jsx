@@ -94,7 +94,7 @@ const Company = () => {
             </div>
             <Container className="company-container">
                 <Row className="company-main-row">
-                    <Col className="company-secondary-info">
+                    <Col className="company-secondary-info" sm={6}>
                         <h1 className="company-name">{name}</h1>
                         <Table borderless>
                             <tbody>
