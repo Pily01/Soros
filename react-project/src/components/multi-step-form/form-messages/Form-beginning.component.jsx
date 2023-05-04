@@ -1,12 +1,14 @@
-import React, {useRef, useEffect} from 'react';
-import begginingImg from '../../../form-beginning-img.png'
+// ---------------  F O R M  B E G I N N I N G  C O M P O N E N T ---------------//
+// Component to display before user starts safety report form
 
+import React, {useRef, useEffect} from 'react';
+// - Styles
+import begginingImg from '../../../form-beginning-img.png'
 import './Form-beginnig.styles.scss'
 
 const FormBeginning = () => {
-    
     const effectRef = useRef(false);
-
+    // Google translate element
     const googleTranslateElementInit = (callback) => {
       new window.google.translate.TranslateElement(
         {
@@ -17,12 +19,11 @@ const FormBeginning = () => {
         },
         "google_translate_element"
       );
-  
       if (typeof callback === 'function') {
         callback();
       }
     };
-  
+    // Google translate use effect
     useEffect(() => {
       const gTranslate = () => {
         var addScript = document.createElement("script");
@@ -33,12 +34,11 @@ const FormBeginning = () => {
         document.body.appendChild(addScript);
         window.googleTranslateElementInit = googleTranslateElementInit;
       }
-      
       if(effectRef.current) return
       effectRef.current = true;
       gTranslate();
-  
     }, []);
+    
     return (
         <div>
             <div id="google_translate_element">
