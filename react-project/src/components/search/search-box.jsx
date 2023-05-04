@@ -1,8 +1,10 @@
-import "./search-box.styles.scss"
+// ---------------  S E A R C H  B O X  C O M P O N E N T ---------------//
+// Home page search box to find companies.
 
+// - Styles
+import "./search-box.styles.scss"
 import { Form, InputGroup } from 'react-bootstrap'
 
-//search box componenet that will monitor change in user's search string
 const SearchBox = props => {
 
     return (
