@@ -1,15 +1,17 @@
-import React, {useEffect, useRef} from 'react';
+// ---------------  F O R M  C O M P O N E N T ---------------//
 
+import React, {useEffect, useRef} from 'react';
+// - Styles
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import './resources.styles.scss'
-
+// - Other
 import logo_PROFEDET from '../../Logo_PROFEDET.svg.png'
 import logo_INMUJERES from '../../Logo_INMUJERES_Mujeres_Transformando_México.png'
 import cdmx_logo from '../../cdmx.png'
 
-function Resources() {
+const Resources = () => {
   const effectRef = useRef(false);
-
+  // Google translate element
   const googleTranslateElementInit = (callback) => {
     new window.google.translate.TranslateElement(
       {
@@ -20,12 +22,11 @@ function Resources() {
       },
       "google_translate_element"
     );
-
     if (typeof callback === 'function') {
       callback();
     }
   };
-
+  // Google translate use effect
   useEffect(() => {
     const gTranslate = () => {
       var addScript = document.createElement("script");
@@ -36,12 +37,11 @@ function Resources() {
       document.body.appendChild(addScript);
       window.googleTranslateElementInit = googleTranslateElementInit;
     }
-    
     if(effectRef.current) return
     effectRef.current = true;
     gTranslate();
-
   }, []);
+  
 return (
   <div>
       <div id="google_translate_element">
