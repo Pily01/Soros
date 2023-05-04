@@ -1,0 +1,19 @@
+.contact-container{
+    height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1{
+        color: #087990
+    }
+
+    button{
+        background-color: #EA868F;
+        border: none;
+        color: white;
+        border-radius: 6px;
+        padding: 5px 20px;
+        box-shadow: none;
+    }
+}

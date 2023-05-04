@@ -4,6 +4,8 @@ import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 
+import './contact-form.styles.scss'
+
 function ContactForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -32,10 +34,10 @@ function ContactForm() {
   }
 
   return (
-    <div>
+    <div className='contact-container'>
       <Form style={{ maxWidth: "400px", marginTop: "20px", marginLeft: "10px" }}>
-        <h3>Contact Us</h3>
-
+        <h1>Contact Us</h1>
+        <p>We will reply as soon as possible</p>
         <Form.Group className="mb-3">
           <Form.Label>Name</Form.Label>
           <Form.Control
