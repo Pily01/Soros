@@ -1,8 +1,8 @@
+// --------------- A P P  J S  ---------------//
+
 import React from 'react';
-import {Routes, Route, BrowserRouter} from 'react-router-dom';
-
-import './App.css';
-
+import {Routes, Route} from 'react-router-dom';
+// - Components
 import Home from './routes/home/home.component';
 import Company from './components/company/company.component';
 import Form from './components/multi-step-form/Form.component';
@@ -13,10 +13,10 @@ import Resources from './components/resources/resources.component';
 import NavbarComponent from './components/navbar/navbar.component';
 import NotFound from './components/error-page/NotFound.component';
 import ContactForm from './components/contact-form/contact-form.component';
-
+// - Styles
+import './App.css';
 
 const App = () => {
-
   return (
         <div>
           <NavbarComponent/>
@@ -32,8 +32,7 @@ const App = () => {
             <Route path='/Soros/contact-us' element={<ContactForm/>}/>
           </Routes>
         </div>
-    
   );
-
 }
+
 export default App;
