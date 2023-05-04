@@ -1,5 +1,4 @@
 import React from 'react';
-import NavbarComponent from '../../navbar/navbar.component';
 import begginingImg from '../../../form-beginning-img.png'
 
 import './Form-beginnig.styles.scss'

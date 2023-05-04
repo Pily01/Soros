@@ -1,5 +1,3 @@
-
-import NavbarComponent from '../navbar/navbar.component';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import './resources.styles.scss'
 

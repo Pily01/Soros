@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
-import { useState, useEffect, useRef } from 'react';
-import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
+import { useState, useEffect } from 'react';
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
 import { Link } from "react-router-dom";
 
@@ -50,17 +50,6 @@ const Company = () => {
         };
         queryGet();
     }, [name]);
-
-
-    //console.log("DATA ---------------------");
-    //console.log(address); // USED
-    //console.log(rating);  // USED
-    //console.log(safety); // USED
-    //console.log(experiencedHarass);
-    console.log(experiencedFrequency);
-    //console.log(witnessedHarass);
-    console.log(witnessedFrequency);
-    //console.log(support);
 
     const getRating = () => {
         let totalRating = 0;
@@ -166,45 +155,3 @@ const Company = () => {
 }
 
 export default Company
-
-
-// {companyData.map(company => {
-//     return (
-//         <Container className="company-container">
-//             <Row className="company-main-row">
-//                 <Col className="company-main-info">
-//                     <h1 className="company-name"> {name}</h1>
-//                     <h1 className="rating">{company.rating}/5</h1>
-//                     <p>Overall Quality Based on 1 rating</p>
-//                     <Link className="cardlist-link" to={new_href}>
-//                         <Button className='cardlist-button' size="lg">Rate</Button>
-//                     </Link>
-//                 </Col>
-//                 <Col className="company-secondary-info">
-//                     <Table borderless>
-//                         <tbody>
-//                             <tr>
-//                                 <td><b>Address:</b></td>
-//                                 <td>{company.address}</td>
-//                             </tr>
-//                             <tr>
-//                                 <td><b>Website:</b></td>
-//                                 <td>https://www.example.com</td>
-//                             </tr>
-//                         </tbody>
-//                     </Table>
-//                 </Col>
-//             </Row>
-//             <Row>
-//                 <Col className="harassment-cases">
-//                     <p><b>100%</b> of users experienced hasrrassment</p>
-//                     <p><b>0%</b> of reported cases were resolved</p>
-//                 </Col>
-//                 <Col>
-//                     <h4>Overall Safety</h4>
-//                     <Example />
-//                 </Col>
-//             </Row>
-//         </Container>
-//     )
-// })}

@@ -1,4 +1,3 @@
-import { Component } from "react";
 import "./search-box.styles.scss"
 
 import { Form, InputGroup } from 'react-bootstrap'

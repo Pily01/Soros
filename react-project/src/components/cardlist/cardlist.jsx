@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
 import './cardlist.styles.scss'
-import companyimg from '../../company.png'
 
-import { Card, Button, Container, Badge, CardGroup } from 'react-bootstrap'
-import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
+import { Card, Button, Container} from 'react-bootstrap'
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from '../.././utils/firebase/firebase.utils';
 import { useState, useEffect } from "react";
 
