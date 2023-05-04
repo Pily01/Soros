@@ -1,6 +1,10 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+// ---------------  C O M P A N Y  R E P O R T  C O M P O N E N T ---------------//
+// Last Multistep form component: section of the form where users explain the company support they had
+// and whether they submitted a report to the company
 
+import React from "react";
+// - Styles
+import { Form } from "react-bootstrap";
 import './Form-steps.styles.scss'
 
 const CompanyReport = ({ formData, setFormData }) => {
