@@ -1,11 +1,13 @@
-import soroslogo from "./soros-logo.png"
+// ---------------  N A V B A R  C O M P O N E N T ---------------//
+
+// - Styles
 import {Container, Nav, Navbar} from 'react-bootstrap';
-
 import './navbar.styles.scss'
+// - Other
+import soroslogo from "./soros-logo.png"
 
-function NavbarComponent() {
+const NavbarComponent = () => {
   return (
-
     <Navbar className="navbar" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand href="/Soros">
