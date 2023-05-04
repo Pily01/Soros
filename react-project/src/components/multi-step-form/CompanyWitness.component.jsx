@@ -1,11 +1,15 @@
+// ---------------  C O M P A N Y  W I T N E S S  C O M P O N E N T ---------------//
+// First Multistep form component: section of the form where users describe whether they witnessed
+// harassment in their workplace
+
 import React from "react";
 import { Form } from "react-bootstrap";
-
+// - Styles
 import "./Form-steps.styles.scss"
 
 const CompanyWitness = ({ formData, setFormData }) => {
+  
   const { witnessedHarass, witnessedFrequency } = formData;
-
   return (
     <div>
       <Form.Group>
