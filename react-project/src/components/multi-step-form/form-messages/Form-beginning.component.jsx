@@ -5,6 +5,7 @@ import React, {useRef, useEffect} from 'react';
 // - Styles
 import './Form-beginnig.styles.scss'
 // - Other
+import begginingImg from '../../../form-beginning-img.png'
 
 const FormBeginning = () => {
     const effectRef = useRef(false);
