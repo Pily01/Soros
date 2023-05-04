@@ -1,21 +1,24 @@
+// ---------------  C O N T A C T  F O R M  C O M P O N E N T ---------------//
+// Contact Form 
+
 import React, { useState, useEffect, useRef } from 'react';
-import { Form } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
+// - Firebase
 import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
-import { useNavigate } from 'react-router-dom';
-
+// - Styles
+import { Form } from 'react-bootstrap'
 import './contact-form.styles.scss'
 
-function ContactForm() {
+const ContactForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const currentDate = new Date().toLocaleDateString();
-
   const effectRef = useRef(false);
-
+  // Google translate element
   const googleTranslateElementInit = (callback) => {
     new window.google.translate.TranslateElement(
       {
@@ -26,12 +29,11 @@ function ContactForm() {
       },
       "google_translate_element"
     );
-
     if (typeof callback === 'function') {
       callback();
     }
   };
-
+  // Google translate use Effect
   useEffect(() => {
     const gTranslate = () => {
       var addScript = document.createElement("script");
@@ -42,13 +44,11 @@ function ContactForm() {
       document.body.appendChild(addScript);
       window.googleTranslateElementInit = googleTranslateElementInit;
     }
-    
     if(effectRef.current) return
     effectRef.current = true;
     gTranslate();
-
   }, []);
-
+  // Handle Form Submit
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
@@ -73,54 +73,54 @@ function ContactForm() {
       <div id="google_translate_element">
         
       </div>
-    <div className='contact-container'>
-      <Form style={{ maxWidth: "400px", marginTop: "20px", marginLeft: "10px" }}>
-        <h1>Contact Us</h1>
-        <p>We will reply as soon as possible</p>
-        <Form.Group className="mb-3">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder='Name'
-            value={name}
-            onChange={(event) =>
-              setName(event.target.value)
-            }
-          />
-        </Form.Group>
+      <div className='contact-container'>
+        <Form style={{ maxWidth: "400px", marginTop: "20px", marginLeft: "10px" }}>
+          <h1>Contact Us</h1>
+          <p>We will reply as soon as possible</p>
+          <Form.Group className="mb-3">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              placeholder='Name'
+              value={name}
+              onChange={(event) =>
+                setName(event.target.value)
+              }
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder='Email'
-            value={email}
-            onChange={(event) =>
-              setEmail(event.target.value)
-            }
-          />
-        </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              placeholder='Email'
+              value={email}
+              onChange={(event) =>
+                setEmail(event.target.value)
+              }
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Message</Form.Label>
-          <Form.Control
-            required
-            as="textarea"
-            placeholder='Message'
-            value={message}
-            onChange={(event) =>
-              setMessage(event.target.value)
-            }
-            style={{ height: "150px" }}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Message</Form.Label>
+            <Form.Control
+              required
+              as="textarea"
+              placeholder='Message'
+              value={message}
+              onChange={(event) =>
+                setMessage(event.target.value)
+              }
+              style={{ height: "150px" }}
+            />
+          </Form.Group>
 
-        <button className="form-button-submit" onClick={(event) => { handleSubmit(event) }}>Submit</button>
+          <button className="form-button-submit" onClick={(event) => { handleSubmit(event) }}>Submit</button>
 
-      </Form>
-    </div>
+        </Form>
+      </div>
     </div>
   );
 }
