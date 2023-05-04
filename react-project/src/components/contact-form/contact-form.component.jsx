@@ -23,7 +23,7 @@ function ContactForm() {
         message: message,
         date: currentDate
       });
-      console.log("Document written with ID: ", docRef.id);
+      //console.log("Document written with ID: ", docRef.id);
       navigate("/Soros");
       // navigate('/Soros', {replace: true});
     }

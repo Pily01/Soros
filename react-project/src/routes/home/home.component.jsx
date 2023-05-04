@@ -32,7 +32,6 @@ const Home = () => {
 
   useEffect(() => {
     const newFiltList = companies.filter(company => company.companyName.toLocaleLowerCase().includes(searchStr));
-    console.log(newFiltList);
     updateFiltList(newFiltList);
   }, [searchStr]);
 
@@ -45,8 +44,7 @@ const Home = () => {
       querySnapshot.forEach((doc) => {
         temp.push(doc.data());
       });
-
-      console.log(temp)
+      
       setCompanies(temp)
       updateFiltList(temp)
     }

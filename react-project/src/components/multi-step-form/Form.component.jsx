@@ -55,7 +55,6 @@ const Form = () => {
 
     const cookieExists = () => { 
         const cookieValues = document.cookie.split('; ');
-        console.log(cookieValues)
         for (const cookie of cookieValues) {
             const str = cookie.split("=")
 
@@ -65,9 +64,6 @@ const Form = () => {
                 return true;
             }
         }
-        console.log(cookieChecker.current)
-
-        console.log("reached")
         cookieChecker.current = false;
     }
 
@@ -88,7 +84,7 @@ const Form = () => {
                 reportedHarass: formData.reportedHarass,
                 support: formData.support
             });
-            console.log("Document written with ID: ", docRef.id);
+            //console.log("Document written with ID: ", docRef.id);
             navigate("/Soros/form-end");
             // navigate('/Soros', {replace: true});
         }
@@ -103,7 +99,7 @@ const Form = () => {
         const querySnapshot = await getDocs(q);
 
         if (querySnapshot.docs.length > 0) {
-            console.log("Exists");
+            //console.log("Exists");
             const docRef = querySnapshot.docs[0].ref;
             await updateData(docRef);
         }
@@ -120,7 +116,7 @@ const Form = () => {
                 reportedHarass: { "yes": 0, "no": 0 },
                 support: { "fully-resolved": 0, "partially-resolved": 0, "no-action": 0 }
             });
-            console.log("Doesn't exist")
+            //console.log("Doesn't exist")
             await updateData(docRef);
         }
     }
@@ -232,7 +228,6 @@ const Form = () => {
                                     setDisplayMessage("Please select a safety level!")
                                 }
                                 else if (page === FormTitles.length - 1) {
-                                    console.log(formData);
                                     handleData();
                                     handleSubmit();
                                 }
@@ -248,7 +243,6 @@ const Form = () => {
                 </div>
             </div>
         </div>
-
     )
 }
 

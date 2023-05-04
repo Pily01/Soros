@@ -2,7 +2,7 @@ import React from 'react';
 import AutoComplete from "../form-input/autocomplete";
 import { useRef } from 'react';
 
-import {Form, Row, Col, Button} from 'react-bootstrap'
+import {Form, Row, Col} from 'react-bootstrap'
 
 const CompanyDetails = ({ formData, setFormData}) => {
     const addressString = useRef("");
@@ -14,8 +14,6 @@ const CompanyDetails = ({ formData, setFormData}) => {
         });
 
         setFormData({ ...formData, companyName: mapsData.name, companyAddress: addressString.current })
-        console.log(formData.companyName)
-        console.log(addressString.current);
     }
 
     return (
