@@ -3,8 +3,8 @@
 
 import React, {useRef, useEffect} from 'react';
 // - Styles
-import begginingImg from '../../../form-beginning-img.png'
 import './Form-beginnig.styles.scss'
+// - Other
 
 const FormBeginning = () => {
     const effectRef = useRef(false);
@@ -38,7 +38,7 @@ const FormBeginning = () => {
       effectRef.current = true;
       gTranslate();
     }, []);
-    
+
     return (
         <div>
             <div id="google_translate_element">
