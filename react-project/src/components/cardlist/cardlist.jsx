@@ -1,4 +1,5 @@
-import buildingdefault from './building_default.png'
+import buildingdefault from '../../building_default.png'
+
 import { Link } from 'react-router-dom'
 import './cardlist.styles.scss'
 import companyimg from '../../company.png'
@@ -28,7 +29,8 @@ const CardList = props => {
                     setImageUrls((prevUrls) => ({
                         ...prevUrls,
                         [companyName]:
-                        <img src={require('./building_default.png')}/>
+                        <img src={buildingdefault}/>
+                        //<img src="building_default.png" alt="building default logo"/>
                     }));
                 }
             });

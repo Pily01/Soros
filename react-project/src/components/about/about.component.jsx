@@ -1,8 +1,8 @@
 import NavbarComponent from '../navbar/navbar.component';
-import teampic from './team-pic.JPG' 
 import { Container, Row, Col } from 'react-bootstrap';
 import './about.styles.scss'
-import sorosAboutImg from '../../soros-about.png'
+import sorosAboutImg from '../../soros-illustration.png'
+
 
 
 function About() {
