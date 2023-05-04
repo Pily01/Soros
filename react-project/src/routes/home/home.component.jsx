@@ -1,20 +1,20 @@
-import '../../App.css';
-import './home.styles.scss'
-import homeimg from '../../soros-about.png'
+// ---------------  H O M E  C O M P O N E N T ---------------//
 
+import {useState, useEffect} from 'react';
+// - Firebase
+import { collection, query,  getDocs } from "firebase/firestore";
+import {db} from "../../utils/firebase/firebase.utils"
+// - Components
 import SearchBox from '../../components/search/search-box';
 import CardList from '../../components/cardlist/cardlist';
 import EmptyCardlist from './EmptyCardlist.component';
-
-import {useState, useEffect, useContext} from 'react';
-
-import {Container, Row, Col} from 'react-bootstrap';
 import Typewriter from 'typewriter-effect'
-
-
-import { collection, query,  getDocs } from "firebase/firestore";
-import {db} from "../../utils/firebase/firebase.utils"
-
+// - Styles
+import {Container, Row, Col} from 'react-bootstrap';
+import '../../App.css';
+import './home.styles.scss'
+// - Other
+import homeimg from '../../soros-about.png'
 
 const Home = () => {
   const [translatedStrings, setTranslatedStrings] = useState(["Report", "Review", "Rate"]);
@@ -30,33 +30,29 @@ const Home = () => {
   //   }
   // }, [language]);
 
-//function to update state Search string variable that is going to be updated everytime user types a character in search bar
+  // Function to update state Search string variable that is going to be updated everytime user types a character in search bar
   const onSearch = (event) => {
     var tempSearchStr = event.target.value.toLocaleLowerCase();
     updateSearchStr(tempSearchStr);
   };
 
-//function to create a filtered list based on original one and search string
-
+  // Function to create a filtered list based on original one and search string
   useEffect(() => {
     const newFiltList = companies.filter(company => company.companyName.toLocaleLowerCase().includes(searchStr));
     updateFiltList(newFiltList);
   }, [searchStr]);
-
+  // Get companies from database
   useEffect(() => {
     const fetchData = async () => {
       let temp = [];
       const q = query(collection(db, "companies"));
       const querySnapshot = await getDocs(q);
-
       querySnapshot.forEach((doc) => {
         temp.push(doc.data());
       });
-      
       setCompanies(temp)
       updateFiltList(temp)
     }
-
     fetchData()
   }, [])
 
@@ -92,7 +88,6 @@ const Home = () => {
             :
             <CardList filteredList={filtList}/>
           }
-          
         </Row>
       </Container>
     </div>
