@@ -1,4 +1,9 @@
+// ---------------  A U T O C O M P L E T E  C O M P O N E N T ---------------//
+// Cmponent for safety form. Is uses google places API to display all the
+// companies in Mexico Cty when looking for a company to rate
+
 import { useRef, useEffect } from "react";
+// - Styles
 import {Form} from 'react-bootstrap';
 
 const AutoComplete = (props) => {
@@ -9,14 +14,14 @@ const AutoComplete = (props) => {
       new window.google.maps.LatLng(19.4326 - 0.2, -99.1332 - 0.2),
       new window.google.maps.LatLng(19.4326 + 0.2, -99.1332 + 0.2)
     );
+    // Options of Google Places API
     const options = {
         bounds: mexicoCityBounds,
         componentRestrictions: { country: "mx" },
         fields: ["address_components", "geometry", "icon", "name"],
         types: ["establishment"]
     };
-
-
+    // Updates displayes places every time the user types in the search bar
     useEffect(() => {
         if (typeof window !== 'undefined' && window.google) {
             autoCompleteRef.current = new window.google.maps.places.Autocomplete(
@@ -29,6 +34,7 @@ const AutoComplete = (props) => {
             })
         }
     }, []);
+    
     return (
         <div>
             <Form.Group className="mb-3" controlId="company">
