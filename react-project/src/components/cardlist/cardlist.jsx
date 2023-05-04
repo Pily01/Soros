@@ -1,3 +1,4 @@
+import buildingdefault from './building_default.png'
 import { Link } from 'react-router-dom'
 import './cardlist.styles.scss'
 import companyimg from '../../company.png'
@@ -27,7 +28,7 @@ const CardList = props => {
                     setImageUrls((prevUrls) => ({
                         ...prevUrls,
                         [companyName]:
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg",
+                        <img src={require('./building_default.png')}/>
                     }));
                 }
             });

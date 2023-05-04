@@ -9,8 +9,7 @@ const CompanyReport = ({ formData, setFormData }) => {
     <div>
       <Form.Group>
         <Form.Label>
-          If you have experienced or witnessed any harassment, did you report it
-          to someone in the company?
+          If you have experienced or witnessed any harassment, would you feel safe reporting it to the company you work at?
         </Form.Label>
         <div>
           {[
