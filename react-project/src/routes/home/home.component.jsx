@@ -55,8 +55,8 @@ const Home = () => {
   return (
     <div className='App-main-div'>
       <Container className='home-jumbotron' fluid>
-        <Row >
-          <Col sm={8} className='home-jumbotron-col1'>
+        <Row className='home-jumbotron-row'>
+          <Col sm={3} className='home-jumbotron-col1'>
             {/* <p>Together, we can make workplaces in Mexico City safer.</p>
             <h1> Prevent, report, and check <br/>anonymously</h1> */}
             <div className='text-container'>
@@ -75,7 +75,7 @@ const Home = () => {
             <p className='slogan'>Creating Safer Workspaces, One Review at a Time</p>
             <SearchBox onChangeHandler={onSearch}/>
           </Col>
-          <Col sm={4} className='home-jumbotron-col2'>
+          <Col sm={3} className='home-jumbotron-col2'>
            <img className="home-img" src={homeimg} alt="home img"/>
           </Col>
         </Row>
