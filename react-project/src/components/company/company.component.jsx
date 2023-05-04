@@ -1,24 +1,27 @@
+// ---------------  C O M P A N Y  C O M P O N E N T ---------------//
+// Component to display companies information of a specific company
+
 import { useParams } from "react-router-dom"
 import { useState, useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
+// - Firebase
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
-import { Link } from "react-router-dom";
-
+// - Styles
 import { Container, Row, Col, Table } from 'react-bootstrap';
-
 import "./company.styles.scss"
-import jumbotron_logo from "../../Teatro_de_los_Insurgentes.jpg"
-
+// - Components
 import RatingChart from "./graphs/company-rating-chart.component";
 import SafeChart from "./graphs/company-safe-chart.component";
 import SupportChart from "./graphs/company-support-chart.component";
 import HarassmentChart from "./graphs/company-harassment-chart.component";
+// - Other
+import jumbotron_logo from "../../Teatro_de_los_Insurgentes.jpg"
 
 const Company = () => {
     const effectRef = useRef(false);
     const { name } = useParams();
-    //change the url for the next redirect to form
-
+    // Every company attribute
     const [address, setAddress] = useState("")
     const [rating, setRating] = useState({});
     const [safety, setSafety] = useState({});
@@ -27,8 +30,7 @@ const Company = () => {
     const [witnessedHarass, setWitnessedHarass] = useState({});
     const [witnessedFrequency, setWitnessedFrequency] = useState({});
     const [support, setSupport] = useState({});
-
-
+    // Google Translate element
     const googleTranslateElementInit = (callback) => {
       new window.google.translate.TranslateElement(
         {
@@ -39,13 +41,11 @@ const Company = () => {
         },
         "google_translate_element"
       );
-  
       if (typeof callback === 'function') {
         callback();
       }
     };
-  
-  
+    // Google Translate use effect
     useEffect(() => {
       const gTranslate = () => {
         var addScript = document.createElement("script");
@@ -56,13 +56,12 @@ const Company = () => {
         document.body.appendChild(addScript);
         window.googleTranslateElementInit = googleTranslateElementInit;
       }
-      
       if(effectRef.current) return
       effectRef.current = true;
       gTranslate();
-  
     }, []);
 
+    // Get and save attributes of company
     useEffect(() => {
         const queryGet = async () => {
             const q = query(
@@ -81,12 +80,11 @@ const Company = () => {
                 setWitnessedHarass(data.witnessedHarass || {});
                 setWitnessedFrequency(data.witnessedFrequency || {});
                 setSupport(data.support || {});
-
             });
         };
         queryGet();
     }, [name]);
-
+    // Calculate total rating of company
     const getRating = () => {
         let totalRating = 0;
         let totalVotes = 0;
@@ -96,7 +94,7 @@ const Company = () => {
         }
         return totalVotes === 0 ? 0 : (totalRating / totalVotes).toFixed(1);
     }
-
+    // Get number of responses of company
     const getVotes = () => {
         let votes = 0;
         for (const [key, value] of Object.entries(rating)) {
@@ -104,14 +102,14 @@ const Company = () => {
         }
         return votes
     }
-
+    // Calculate percentage of harassment according to responses
     const getHarassmentPercent = () => {
         let votes = experiencedHarass["yes"];
         let total = experiencedHarass["yes"] + experiencedHarass["no"]
         let percentage = (votes / total).toFixed(1) * 100 
         return percentage;
     }
-
+    // Calculate percentage of witness harassment according to responses
     const getWitnessedPercent = () => {
         let votes = witnessedHarass["yes"];
         let total = witnessedHarass["yes"] + witnessedHarass["no"]
@@ -187,7 +185,6 @@ const Company = () => {
                 </Row>
             </Container>  
         </div>
-
     )
 }
 
