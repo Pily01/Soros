@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from '../../utils/firebase/firebase.utils';
 import { Link } from "react-router-dom";
@@ -15,6 +15,7 @@ import SupportChart from "./graphs/company-support-chart.component";
 import HarassmentChart from "./graphs/company-harassment-chart.component";
 
 const Company = () => {
+    const effectRef = useRef(false);
     const { name } = useParams();
     //change the url for the next redirect to form
 
@@ -26,6 +27,41 @@ const Company = () => {
     const [witnessedHarass, setWitnessedHarass] = useState({});
     const [witnessedFrequency, setWitnessedFrequency] = useState({});
     const [support, setSupport] = useState({});
+
+
+    const googleTranslateElementInit = (callback) => {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: "en",
+          autoDisplay: false,
+          includedLanguages: "en,es",
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+        },
+        "google_translate_element"
+      );
+  
+      if (typeof callback === 'function') {
+        callback();
+      }
+    };
+  
+  
+    useEffect(() => {
+      const gTranslate = () => {
+        var addScript = document.createElement("script");
+        addScript.setAttribute(
+          "src",
+          "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        );
+        document.body.appendChild(addScript);
+        window.googleTranslateElementInit = googleTranslateElementInit;
+      }
+      
+      if(effectRef.current) return
+      effectRef.current = true;
+      gTranslate();
+  
+    }, []);
 
     useEffect(() => {
         const queryGet = async () => {
@@ -85,6 +121,7 @@ const Company = () => {
 
     return (
         <div>
+            <div id="google_translate_element"></div>
             <div className="company-jumbotron"
             style={
                 { backgroundImage: `url(${jumbotron_logo})`, 

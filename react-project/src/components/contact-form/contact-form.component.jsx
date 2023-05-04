@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Form } from 'react-bootstrap'
 import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
@@ -13,6 +13,41 @@ function ContactForm() {
   const navigate = useNavigate();
 
   const currentDate = new Date().toLocaleDateString();
+
+  const effectRef = useRef(false);
+
+  const googleTranslateElementInit = (callback) => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        autoDisplay: false,
+        includedLanguages: "en,es",
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+      },
+      "google_translate_element"
+    );
+
+    if (typeof callback === 'function') {
+      callback();
+    }
+  };
+
+  useEffect(() => {
+    const gTranslate = () => {
+      var addScript = document.createElement("script");
+      addScript.setAttribute(
+        "src",
+        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      );
+      document.body.appendChild(addScript);
+      window.googleTranslateElementInit = googleTranslateElementInit;
+    }
+    
+    if(effectRef.current) return
+    effectRef.current = true;
+    gTranslate();
+
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -34,6 +69,10 @@ function ContactForm() {
   }
 
   return (
+    <div>
+      <div id="google_translate_element">
+        
+      </div>
     <div className='contact-container'>
       <Form style={{ maxWidth: "400px", marginTop: "20px", marginLeft: "10px" }}>
         <h1>Contact Us</h1>
@@ -81,6 +120,7 @@ function ContactForm() {
         <button className="form-button-submit" onClick={(event) => { handleSubmit(event) }}>Submit</button>
 
       </Form>
+    </div>
     </div>
   );
 }

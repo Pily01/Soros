@@ -1,6 +1,5 @@
 import React from 'react';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
-import { useEffect, useRef } from "react";
 
 import './App.css';
 
@@ -15,41 +14,11 @@ import NavbarComponent from './components/navbar/navbar.component';
 import NotFound from './components/error-page/NotFound.component';
 import ContactForm from './components/contact-form/contact-form.component';
 
-const App = () => {  
-  const effectRef = useRef(false);
 
-  const googleTranslateElementInit = () => {
-    new window.google.translate.TranslateElement(
-      {
-        pageLanguage: "en",
-        autoDisplay: false,
-        includedLanguages: "en,es",
-        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
-      },
-      "google_translate_element"
-    );
-  };
+const App = () => {
 
-  useEffect(() => {
-    const gTranslate = () => {
-      var addScript = document.createElement("script");
-      addScript.setAttribute(
-        "src",
-        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-      );
-      document.body.appendChild(addScript);
-      window.googleTranslateElementInit = googleTranslateElementInit;
-    }
-    
-    if(effectRef.current) return
-    effectRef.current = true;
-    gTranslate();
-  }, []);
-
-  return (  
+  return (
         <div>
-          <div id="google_translate_element">
-          </div>
           <NavbarComponent/>
           <Routes>
             <Route path='/Soros' element={<Home/>}/>

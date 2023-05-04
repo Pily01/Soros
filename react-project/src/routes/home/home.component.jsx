@@ -6,7 +6,7 @@ import SearchBox from '../../components/search/search-box';
 import CardList from '../../components/cardlist/cardlist';
 import EmptyCardlist from './EmptyCardlist.component';
 
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 
 import {Container, Row, Col} from 'react-bootstrap';
 import Typewriter from 'typewriter-effect'
@@ -17,11 +17,19 @@ import {db} from "../../utils/firebase/firebase.utils"
 
 
 const Home = () => {
-  //const companies = companies_list;
+  const [translatedStrings, setTranslatedStrings] = useState(["Report", "Review", "Rate"]);
   const [companies, setCompanies] = useState([]);
   const [searchStr, updateSearchStr] = useState("");
   const [filtList, updateFiltList] = useState(companies);
  
+  // useEffect(() => {
+  //   if (language === 'es') {
+  //       setTranslatedStrings(["Reporta", "Revisa", "Califica"]);
+  //     } else {
+  //     setTranslatedStrings(["Report", "Review", "Rate"]);
+  //   }
+  // }, [language]);
+
 //function to update state Search string variable that is going to be updated everytime user types a character in search bar
   const onSearch = (event) => {
     var tempSearchStr = event.target.value.toLocaleLowerCase();
@@ -57,15 +65,13 @@ const Home = () => {
       <Container className='home-jumbotron' fluid>
         <Row className='home-jumbotron-row'>
           <Col sm={3} className='home-jumbotron-col1'>
-            {/* <p>Together, we can make workplaces in Mexico City safer.</p>
-            <h1> Prevent, report, and check <br/>anonymously</h1> */}
             <div className='text-container'>
-              <p> Anonymously </p>
+              <p      > Anonymously </p>
               <div className="typewriter">
                 <Typewriter
                 style="display: inline"
                 options={{
-                  strings: ["Report", "Review", "Rate"],
+                  strings: translatedStrings,
                   autoStart: true,
                   loop: true,
                 }}

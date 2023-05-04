@@ -1,3 +1,5 @@
+import React, {useEffect, useRef} from 'react';
+
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import './resources.styles.scss'
 
@@ -6,7 +8,45 @@ import logo_INMUJERES from '../../Logo_INMUJERES_Mujeres_Transformando_México.p
 import cdmx_logo from '../../cdmx.png'
 
 function Resources() {
+  const effectRef = useRef(false);
+
+  const googleTranslateElementInit = (callback) => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        autoDisplay: false,
+        includedLanguages: "en,es",
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+      },
+      "google_translate_element"
+    );
+
+    if (typeof callback === 'function') {
+      callback();
+    }
+  };
+
+  useEffect(() => {
+    const gTranslate = () => {
+      var addScript = document.createElement("script");
+      addScript.setAttribute(
+        "src",
+        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      );
+      document.body.appendChild(addScript);
+      window.googleTranslateElementInit = googleTranslateElementInit;
+    }
+    
+    if(effectRef.current) return
+    effectRef.current = true;
+    gTranslate();
+
+  }, []);
 return (
+  <div>
+      <div id="google_translate_element">
+        
+      </div>
     <Container className='resources-container'>
         <h1>Resources</h1>
         <p>You are supported. Please refer to these sources to speak to someone, or learn more. </p>
@@ -161,6 +201,7 @@ return (
             </Col>
         </Row>
     </Container>
+    </div>
     );
 }
 

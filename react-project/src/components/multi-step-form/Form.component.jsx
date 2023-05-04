@@ -37,6 +37,41 @@ const Form = () => {
     const location = useLocation()
     const prop = location.state;
 
+    const effectRef = useRef(false);
+
+    const googleTranslateElementInit = (callback) => {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: "en",
+          autoDisplay: false,
+          includedLanguages: "en,es",
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+        },
+        "google_translate_element"
+      );
+  
+      if (typeof callback === 'function') {
+        callback();
+      }
+    };
+  
+    useEffect(() => {
+      const gTranslate = () => {
+        var addScript = document.createElement("script");
+        addScript.setAttribute(
+          "src",
+          "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        );
+        document.body.appendChild(addScript);
+        window.googleTranslateElementInit = googleTranslateElementInit;
+      }
+      
+      if(effectRef.current) return
+      effectRef.current = true;
+      gTranslate();
+  
+    }, []);
+
     useEffect(() => {
         if (prop) {
             const { name, address } = location.state
@@ -167,6 +202,9 @@ const Form = () => {
 
     return (
         <div>
+            <div id="google_translate_element">
+                
+            </div>
             <div className='form-container'>
                 <div className='form'>
                     <h1 className='form-title'> Safety Report Form</h1>

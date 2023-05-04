@@ -1,10 +1,48 @@
+import React, { useRef, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './about.styles.scss'
 import sorosAboutImg from '../../soros-about.png'
 
 
 function About() {
+    const effectRef = useRef(false);
+
+    const googleTranslateElementInit = (callback) => {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: "en",
+          autoDisplay: false,
+          includedLanguages: "en,es",
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+        },
+        "google_translate_element"
+      );
+  
+      if (typeof callback === 'function') {
+        callback();
+      }
+    };
+  
+    useEffect(() => {
+      const gTranslate = () => {
+        var addScript = document.createElement("script");
+        addScript.setAttribute(
+          "src",
+          "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        );
+        document.body.appendChild(addScript);
+        window.googleTranslateElementInit = googleTranslateElementInit;
+      }
+      
+      if(effectRef.current) return
+      effectRef.current = true;
+      gTranslate();
+  
+    }, []);
 return (
+        <div>
+            <div id="google_translate_element">
+          </div>
         <Container className='about-container'>
             <Row>
             <Col  className="image-col" sm={5}>
@@ -36,6 +74,7 @@ return (
             </Col>
         </Row>
         </Container>
+        </div>
     );
 }
 
