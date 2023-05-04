@@ -18,8 +18,7 @@ return (
             <Col sm={7}>
                 <h1>About Us</h1>
                 <p>
-                We are the SafeCrew team, and we are thrilled to have created this web app - Soros. Our team leader, 
-                María del Pilar Domínguez Molina, is from Mexico City and came up with the idea for the app. After witnessing the 
+                We are the SafeCrew team, and we are thrilled to have created this web app - Soros. Our team leader is from Mexico City and came up with the idea for the app. After witnessing the 
                 prevalence of sexual harassment and assault in Mexican workplaces through her family, friends, and acquaintances,
                 she knew that something had to be done.
                 </p>
