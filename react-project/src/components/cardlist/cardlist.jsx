@@ -96,7 +96,7 @@ const CardList = props => {
                                         {cleanAddress(company.address)}
                                     </Card.Text>
                                     <Link className="cardlist-link" to={`companies/${company.companyName}`}>
-                                        <Button className='cardlist-button'>See Company</Button>
+                                        <Button className='cardlist-button'>{props.button}</Button>
                                     </Link>
                                 </Card.Body>
                             </Card>

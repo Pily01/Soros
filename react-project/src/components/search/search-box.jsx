@@ -15,7 +15,7 @@ const SearchBox = props => {
                 className="search-search-bar"
                 aria-describedby="basic-addon1"
                 type="search" 
-                placeholder="Search Company" 
+                placeholder={props.placeholder} 
                 onChange={props.onChangeHandler} />
             </InputGroup>
         </Form>

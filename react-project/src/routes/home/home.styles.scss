@@ -16,6 +16,18 @@
     }
 }
 
+.translate{
+    position: absolute;
+    left: 10px;
+}
+.translate-button{
+    border-radius: 5px;
+    margin: 10px 5px;
+    background-color: #EA868F!important;
+    color: #fff;
+    font-size: 13pt;
+}
+
 .card-title{
     flex-direction: column;
 }
