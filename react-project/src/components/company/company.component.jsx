@@ -137,10 +137,6 @@ const Company = () => {
                                     <td className="gray-font">Address:</td>
                                     <td>{address}</td>
                                 </tr>
-                                <tr>
-                                    <td className="gray-font">Website:</td>
-                                    <td>https://www.example.com</td>
-                                </tr>
                             </tbody>
                         </Table>
                         <Link to="/Soros/multi-form" state={{ name: name, address: address }} className="form-link">Submit Review</Link>
