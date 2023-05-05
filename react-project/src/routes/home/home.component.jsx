@@ -18,7 +18,7 @@ import homeimg from '../../soros-about.png'
 
 const Home = () => {
   const [translatedStrings, setTranslatedStrings] = useState(["Report", "Review", "Rate"]);
-  const [slogan, setSlogan] = useState("Creating Safer Workspaces, One Review at a Time");
+  const [slogan, setSlogan] = useState("Finding Safer Workspaces, One Review at a Time");
   const [anon, setAnon] = useState("Anonymously")
   const [searchProp, setSearchProp] = useState("Search Company")
   const [buttonProp, setButtonProp] = useState("See company")
@@ -45,7 +45,7 @@ const Home = () => {
     counter.current += 1;
     if(counter.current % 2 == 0){
       setTranslatedStrings(["Reporta", "Revisa", "Califica"])
-      setSlogan("Creando espacios de trabajo más seguros, una revisión a la vez")
+      setSlogan("Encontrando espacios de trabajo más seguros, una revisión a la vez")
       setAnon("Anónimamente")
       setSearchProp("Buscar Empresa")
       setButtonProp("Ver Empresa")
