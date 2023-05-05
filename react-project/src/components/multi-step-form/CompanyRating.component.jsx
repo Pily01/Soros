@@ -15,12 +15,11 @@ const CompanyRating = ({formData, setFormData}) => {
                 On a scale from 1 to 5, how would you rate your company? *
               </Form.Label>
               <div>
-                {Array.from(
-                  { length: 5 }, (_, i) => i + 1).map((number) => (
+                {Array.from({ length: 5 }, (_, i) => i + 1).map((number) => (
                   <Form.Check
                     key={number}
                     inline
-                    label={number}
+                    label={number === 1 ? '1 (unsafe)' : number === 5 ? '5 (safe)' : number}
                     name="rating"
                     type="radio"
                     id={`rating${number}`}
