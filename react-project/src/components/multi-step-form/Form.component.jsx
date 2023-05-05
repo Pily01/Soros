@@ -144,7 +144,7 @@ const Form = () => {
                 rating: { "1": 0, "2": 0, "3": 0, "4": 0, "5": 0 },
                 experiencedHarass: { "yes": 0, "no": 0 },
                 experiencedFrequency: { "rare": 0, "sometimes": 0, "often": 0, "always": 0 },
-                safety: { "safe": 0, "moderately safe": 0, "unsafe": 0 },
+                safety: { "safe": 0, "unsafe": 0 },
                 witnessedHarass: { "yes": 0, "no": 0 },
                 witnessedFrequency: { "rare": 0, "sometimes": 0, "often": 0, "always": 0 },
                 reportedHarass: { "yes": 0, "no": 0 },

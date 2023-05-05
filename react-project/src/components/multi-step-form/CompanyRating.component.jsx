@@ -35,12 +35,12 @@ const CompanyRating = ({formData, setFormData}) => {
             </Form.Group>
                 
             <Form.Group className='bottom-form-group'>
-                <Form.Label>How safe do you feel at this company? *</Form.Label>
+                <Form.Label>Do you feel safe from sexual harassment at this company? *</Form.Label>
                 <div>
                   {[
-                    { label: "Safe", value: "safe" },
-                    { label: "Moderately Safe", value: "moderately safe" },
-                    { label: "Unsafe", value: "unsafe" },
+                    { label: "Yes, I feel safe", value: "safe" },
+                    { label: "No, I do not feel safe", value: "not safe" },
+                    
                   ].map(({ label, value }) => (
                     <Form.Check
                       key={value}

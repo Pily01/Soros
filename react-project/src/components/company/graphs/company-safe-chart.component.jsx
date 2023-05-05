@@ -6,16 +6,12 @@ const SafeChart = ({ safety }) => {
 
     const data = [
       {
-        name: 'Safe',
+        name: 'Yes, I feel safe',
         responses: (safety["safe"]),
       },
       {
-        name: 'Moderately Safe',
-        responses: (safety["moderately safe"]),
-      },
-      {
-        name: 'Not safe',
-        responses: (safety["unsafe"]),
+        name: 'No, I do not feel safe',
+        responses: (safety["not safe"]),
       }
     ];
 
