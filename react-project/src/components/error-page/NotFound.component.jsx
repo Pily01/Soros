@@ -48,7 +48,7 @@ const NotFound = () => {
     <Container className="PageContainer">
         <h1>404</h1>
         <h2 id="mainWriting">Page Not Found</h2>
-        <p id="description">Something went wrong! Please return to home page</p>
+        <p id="description">Something went wrong! Please return to home page.</p>
         <Link className="home-link" to='/Soros'>Go to Home </Link>
     </Container>
     </div>

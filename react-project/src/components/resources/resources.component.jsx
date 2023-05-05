@@ -98,7 +98,7 @@ return (
             <h3>What is the safety report form?</h3>
             <p>The Safety Report Form is a user-friendly tool designed to collect user-generated data and provide scores on the safety performance of companies. Users can rate companies on a scale of 1 to 5, with 1 indicating "unsafe" and 5 indicating "safe."</p>
             <p>The form allows users to provide feedback on various aspects of a company's safety, such as reports of harassment, type of harassment experienced, frequency of harassment, and company response. The data collected from the form is compiled to generate scores that reflect the overall safety from sexual harassment of companies, helping users make informed decisions about which companies to apply to.</p>
-            <a href='/Soros/form'><button className='form-link-button'>Submit form</button></a>
+            <a href='/Soros/form'><button className='form-link-button'>Submit Safety Report Form</button></a>
         </div>
         <h3>Types of sexual harassment and violence</h3>
         <Row xs={1} md={2} className="g-4 types-row">

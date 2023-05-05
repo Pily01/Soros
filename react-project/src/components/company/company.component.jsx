@@ -178,9 +178,10 @@ const Company = () => {
                         This chart shows how the company handled the user's complaints regarding sexual harassment.
                         </p>
                         <p>
-                            If your complaint was not resolved and you want to follow up, check the resources you have avaliable here
+                        If your complaint was not resolved and you want to follow up, check the resources you have avaliable {" "}
+                            <Link to="/Soros/resources" className="resources-link">here.</Link>
                         </p>
-                        <Link to="/Soros/resources" className="form-link">Check resources</Link>
+                        
                     </Col>
                 </Row>
             </Container>  

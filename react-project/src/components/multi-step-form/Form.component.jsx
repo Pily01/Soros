@@ -81,7 +81,7 @@ const Form = () => {
         }
     }, [])
 
-    const FormTitles = ["COMPANY INFORMATION", "COMPANY SAFETY", "EXPERIENCE", "WITNESSED EXPERIENCE", "COMPANY SUPPORT"];
+    const FormTitles = ["COMPANY INFORMATION", "COMPANY SAFETY", "HARASSMENT EXPERIENCE", "WITNESSED EXPERIENCE", "COMPANY SUPPORT"];
     // Cookies functionality
     const setCookie = (name, value) => {
         const date = new Date();

@@ -74,7 +74,7 @@ const Home = () => {
                 />
               </div>
             </div>
-            <p className='slogan'>Creating Safer Workspaces, One Review at a Time</p>
+            <p className='slogan'>Finding safer workspaces, one review at a time.</p>
             <SearchBox onChangeHandler={onSearch}/>
           </Col>
           <Col sm={3} className='home-jumbotron-col2'>

@@ -6,7 +6,8 @@ import React, { useRef, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './about.styles.scss'
 // - Other
-import sorosAboutImg from '../../soros-about.png'
+import sorosAboutImg from './about-pic.png'
+
 
 
 const About = () => {
