@@ -30,6 +30,7 @@ const Company = () => {
     const [witnessedHarass, setWitnessedHarass] = useState({});
     const [witnessedFrequency, setWitnessedFrequency] = useState({});
     const [support, setSupport] = useState({});
+    const [imgSrc, setImgSrc] = useState("");
     // Google Translate element
     const googleTranslateElementInit = (callback) => {
       new window.google.translate.TranslateElement(
@@ -80,6 +81,7 @@ const Company = () => {
                 setWitnessedHarass(data.witnessedHarass || {});
                 setWitnessedFrequency(data.witnessedFrequency || {});
                 setSupport(data.support || {});
+                setImgSrc(data.img_src || "");
             });
         };
         queryGet();
@@ -122,7 +124,7 @@ const Company = () => {
             <div id="google_translate_element"></div>
             <div className="company-jumbotron"
             style={
-                { backgroundImage: `url(${jumbotron_logo})`, 
+                { backgroundImage: `url(${imgSrc})`, 
                 backgroundPosition:'center'
                 }
                 }>
