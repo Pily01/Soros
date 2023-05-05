@@ -15,7 +15,8 @@ const CompanyRating = ({formData, setFormData}) => {
                 On a scale from 1 to 5, how would you rate your company? *
               </Form.Label>
               <div>
-                {Array.from({ length: 5 }, (_, i) => i + 1).map((number) => (
+                {Array.from(
+                  { length: 5 }, (_, i) => i + 1).map((number) => (
                   <Form.Check
                     key={number}
                     inline
