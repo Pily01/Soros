@@ -1,8 +1,21 @@
 # Soros
 This is a web application for the Boston University Spark! course XC475.
+Soros is a web app that enables anonymous reporting of workplace and sexual harassmentand violence in Mexico City. The platform complies user-generated data to create scores that inform job seekers about the safety of a particular workplace. Users have a safe space to share their experiences and help others avoid dangerous workplaces.
 
-Firebase Project Link
-https://console.firebase.google.com/u/0/project/soros-web-app/overview
+## Tech Stack
+
+Frontend: ReactBootstrap, Fontawesome, Sass
+Backend: Firebase, Google PLaces API, Google Translate API
+
+Website Link
+https://soros-web-app.web.app/Soros
+
+## Installation
+
+- npm install 
+- yarn start
+
+Go to localhost 300 and you are good to go!
 
 ## Commit Conventions
 
@@ -18,14 +31,3 @@ Types
 - build Commits, that affect build components like build tool, ci pipeline, dependencies, project version, ...
 - ops Commits, that affect operational components like infrastructure, deployment, backup, recovery, ...
 - chore Miscellaneous commits e.g. modifying .gitignore
-
-## Installation
-
-
-## Contributing
-
-Pull requests and commits are done by the team members of Safe Crew.
-
-
-## License
-
