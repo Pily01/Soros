@@ -1,21 +1,40 @@
-.home-jumbotron-col1{
-    height: 600px;
+.home-jumbotron-row{
     display: flex;
-    padding-left: 300px;
+    align-items: center;
+    justify-content: center;
+}
+.home-jumbotron-col1{
+    height: 550px;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: left;
     color: black;
-    padding-left: 10% !important;
-    
+
     .slogan{
         font-size: 20px;
     }
 }
 
+.translate{
+    position: absolute;
+    left: 10px;
+}
+.translate-button{
+    border-radius: 5px;
+    margin: 10px 5px;
+    background-color: #EA868F!important;
+    color: #fff;
+    font-size: 13pt;
+}
+
+.card-title{
+    flex-direction: column;
+}
+
 .text-container{
     display: flex;
-    font-size: 40px;
+    font-size: 38px;
     color: black;
     font-weight: 500;
     p{
@@ -30,7 +49,6 @@
 .home-jumbotron-col2{
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .home-search-bar{

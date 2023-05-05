@@ -1,26 +1,26 @@
-import React, { PureComponent } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React from 'react';
+import { BarChart, Bar, XAxis,  CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const RatingChart = ({ rating }) => {
     const data = [
         {
-            name: 'Awful',
+            name: '1',
             responses: (rating["1"]),
         },
         {
-            name: 'Ok',
+            name: '2',
             responses: (rating["2"]),
         },
         {
-            name: 'Good',
+            name: '3',
             responses: (rating["3"]),
         },
         {
-            name: 'Great',
+            name: '4',
             responses: (rating["4"]),
         },
         {
-            name: 'Awesome',
+            name: '5',
             responses: (rating["5"]),
         }
 

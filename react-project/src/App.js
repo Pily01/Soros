@@ -1,9 +1,8 @@
+// --------------- A P P  J S  ---------------//
+
 import React from 'react';
-import {Routes, Route, BrowserRouter} from 'react-router-dom';
-import { useEffect, useRef } from "react";
-
-import './App.css';
-
+import {Routes, Route} from 'react-router-dom';
+// - Components
 import Home from './routes/home/home.component';
 import Company from './components/company/company.component';
 import Form from './components/multi-step-form/Form.component';
@@ -13,42 +12,13 @@ import About from './components/about/about.component';
 import Resources from './components/resources/resources.component';
 import NavbarComponent from './components/navbar/navbar.component';
 import NotFound from './components/error-page/NotFound.component';
+import ContactForm from './components/contact-form/contact-form.component';
+// - Styles
+import './App.css';
 
-const App = () => {  
-  const effectRef = useRef(false);
-
-  const googleTranslateElementInit = () => {
-    new window.google.translate.TranslateElement(
-      {
-        pageLanguage: "en",
-        autoDisplay: false,
-        includedLanguages: "en,es",
-        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
-      },
-      "google_translate_element"
-    );
-  };
-
-  useEffect(() => {
-    const gTranslate = () => {
-      var addScript = document.createElement("script");
-      addScript.setAttribute(
-        "src",
-        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-      );
-      document.body.appendChild(addScript);
-      window.googleTranslateElementInit = googleTranslateElementInit;
-    }
-    
-    if(effectRef.current) return
-    effectRef.current = true;
-    gTranslate();
-  }, []);
-
-  return (  
+const App = () => {
+  return (
         <div>
-          <div id="google_translate_element">
-          </div>
           <NavbarComponent/>
           <Routes>
             <Route path='/Soros' element={<Home/>}/>
@@ -59,10 +29,10 @@ const App = () => {
             <Route path='/Soros/about' element={<About/>}/>
             <Route path='/Soros/resources' element={<Resources/>}/>
             <Route path='/*' element={<NotFound/>}/>
+            <Route path='/Soros/contact-us' element={<ContactForm/>}/>
           </Routes>
         </div>
-    
   );
-
 }
+
 export default App;

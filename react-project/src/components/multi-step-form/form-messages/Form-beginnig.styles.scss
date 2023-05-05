@@ -4,6 +4,8 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - 70px);
+    padding-left: 5px;
+    padding-right: 5px;
 
     h1{
         color: #087990;
@@ -13,6 +15,7 @@
 
     p{
         color: #6C757D;
+        text-align: center;
     }
     button{
         background-color: #EA868F;
@@ -38,7 +41,7 @@
     .icon-section{
         display: flex;
         justify-content: space-between;
-        width: 400px;
+        width: 350px;
     }
 
     .disclaimer-section{

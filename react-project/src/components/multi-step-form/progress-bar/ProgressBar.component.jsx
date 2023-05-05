@@ -1,3 +1,5 @@
+// ---------------   P R O G R E S S  B A R  C O M P O N E N T ---------------//
+
 const CustomProgressBar = ({progress,height}) => {
      
     const Parentdiv = {

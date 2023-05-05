@@ -2,7 +2,7 @@
     background-color: #087990 !important;
     color: white;
     border: 1px solid #087990;
-    height: 200px !important;
+    height: 200px;
     padding-top: 20px;
 
     .empty-cardlist-footer{
@@ -10,5 +10,17 @@
         color: white !important;
         background-color: #087990;
         border-top: #087990;
+    }
+
+    .empty-card-link{
+        background-color: #EA868F;
+        border: none;
+        color: white;
+        border-radius: 6px;
+        padding: 5px 20px;
+        box-shadow: none;
+        max-width: 150px;
+        align-self: center;
+        text-decoration: none;
     }
 }

@@ -1,26 +1,26 @@
-import React from 'react';
-import AutoComplete from "../form-input/autocomplete";
-import { useRef } from 'react';
+// ---------------  C O M P A N Y  D E T A I L S  C O M P O N E N T ---------------//
+// First Multistep form component: section of the form where users type company info
 
-import {Form, Row, Col, Button} from 'react-bootstrap'
+import React from 'react';
+import { useRef } from 'react';
+// - Components
+import AutoComplete from "../form-input/autocomplete";
+// - Styles
+import {Form, Row, Col} from 'react-bootstrap'
 
 const CompanyDetails = ({ formData, setFormData}) => {
     const addressString = useRef("");
-
+    // Set form data according to inputs
     const callBack = (mapsData) => {
         setFormData({ ...formData, companyName: mapsData.name});
         mapsData.address_components.map(address => {
             addressString.current = addressString.current+ address.long_name + "," + " ";
         });
-
         setFormData({ ...formData, companyName: mapsData.name, companyAddress: addressString.current })
-        console.log(formData.companyName)
-        console.log(addressString.current);
     }
 
     return (
         <div>
-
             <Form>
                 <AutoComplete handleCallback={callBack}/>
 

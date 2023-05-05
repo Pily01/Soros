@@ -1,11 +1,13 @@
-import soroslogo from "./soros-logo.png"
+// ---------------  N A V B A R  C O M P O N E N T ---------------//
+
+// - Styles
 import {Container, Nav, Navbar} from 'react-bootstrap';
-
 import './navbar.styles.scss'
+// - Other
+import soroslogo from "./soros-logo.png"
 
-function NavbarComponent() {
+const NavbarComponent = () => {
   return (
-
     <Navbar className="navbar" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand href="/Soros">
@@ -19,6 +21,7 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
+            <Nav.Link href="/Soros/contact-us">Contact Us</Nav.Link>
             <Nav.Link href="/Soros/about">About</Nav.Link>
             <Nav.Link href="/Soros/resources">Resources</Nav.Link>
             <Nav.Link className='safety-report-link' href="/Soros/form">Submit Safety Report</Nav.Link>

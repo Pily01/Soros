@@ -1,6 +1,9 @@
-import React from 'react';
-import {Form} from 'react-bootstrap';
+// ---------------  C O M P A N Y  R A T I N G  C O M P O N E N T ---------------//
+// Second Multistep form component: section of the form where users rate company
 
+import React from 'react';
+// - Styles
+import {Form} from 'react-bootstrap';
 import './Form-steps.styles.scss'
 
 const CompanyRating = ({formData, setFormData}) => {

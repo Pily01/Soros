@@ -1,22 +1,25 @@
+// ---------------  C A R D - L I S T  C O M P O N E N T ---------------//
+// Component to display companies in home page. Companies are displayed as cards.
+
 import { Link } from 'react-router-dom'
-import './cardlist.styles.scss'
-import companyimg from '../../company.png'
-
-import { Card, Button, Container, Badge, CardGroup } from 'react-bootstrap'
-import { collection, query, where, getDocs, Firestore } from "firebase/firestore";
-import { db } from '../.././utils/firebase/firebase.utils';
 import { useState, useEffect } from "react";
+// - Firebase
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from '../.././utils/firebase/firebase.utils';
+// - Styles
+import { Card, Button, Container} from 'react-bootstrap'
+import './cardlist.styles.scss'
+// - Other
+import defaultImg from '../../building_default.png'
 
-
-//cardlist componenet that will display all relevent search results
 const CardList = props => {
     const [imageUrls, setImageUrls] = useState({});
     const [responses, setResponses] = useState({});
 
+    // Get images of companies from database
     useEffect(() => {
         const fetchImages = async (companyName) => {
             const q = query(collection(db, "companies"), where("companyName", "==", companyName));
-
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
                 // doc.data() is never undefined for query doc snapshots
@@ -26,8 +29,7 @@ const CardList = props => {
                 } else {
                     setImageUrls((prevUrls) => ({
                         ...prevUrls,
-                        [companyName]:
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg/1200px-M%C3%BCnster%2C_LVM%2C_B%C3%BCrogeb%C3%A4ude_--_2013_--_5149-51.jpg",
+                        [companyName]: defaultImg,
                     }));
                 }
             });
@@ -36,22 +38,21 @@ const CardList = props => {
         props.filteredList.forEach((company) => fetchImages(company.companyName));
     }, [props.filteredList]);
 
+    // Filter Companies as user types company name
     useEffect(() => {
         const fetchResponses = async (companyName) => {
             const q = query(collection(db, "responses"), where("companyName", "==", companyName));
             let count = 0;
-
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
                 count++;
             });
-
             setResponses((prevResponses) => ({ ...prevResponses, [companyName]: count }));
         }
-
         props.filteredList.forEach((company) => fetchResponses(company.companyName));
     }, [])
 
+    // Function to remove Mexico and Mexico City from company address
     function cleanAddress(address) {
         const regex = /(?:México|Mexico|Ciudad de México)(, )?/gi;
         let cleanedAddress = address.replace(regex, '');
@@ -59,10 +60,10 @@ const CardList = props => {
         cleanedAddress = cleanedAddress.replace(/,(?=\s*,)/g, '');
         // Remove trailing comma, if present
         cleanedAddress = cleanedAddress.slice(0, -2) + ".";
-      
         return cleanedAddress;
     }
 
+    // Caculate total rating of a company
     const getRating = (rating) => {
         let totalRating = 0;
         let totalVotes = 0;
@@ -95,7 +96,7 @@ const CardList = props => {
                                         {cleanAddress(company.address)}
                                     </Card.Text>
                                     <Link className="cardlist-link" to={`companies/${company.companyName}`}>
-                                        <Button className='cardlist-button'>See Company</Button>
+                                        <Button className='cardlist-button'>{props.button}</Button>
                                     </Link>
                                 </Card.Body>
                             </Card>

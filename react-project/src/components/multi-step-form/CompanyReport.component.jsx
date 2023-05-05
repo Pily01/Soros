@@ -1,6 +1,10 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+// ---------------  C O M P A N Y  R E P O R T  C O M P O N E N T ---------------//
+// Last Multistep form component: section of the form where users explain the company support they had
+// and whether they submitted a report to the company
 
+import React from "react";
+// - Styles
+import { Form } from "react-bootstrap";
 import './Form-steps.styles.scss'
 
 const CompanyReport = ({ formData, setFormData }) => {
@@ -9,7 +13,7 @@ const CompanyReport = ({ formData, setFormData }) => {
     <div>
       <Form.Group>
         <Form.Label>
-          If you have experienced or witnessed any harassment, did you report it
+          If you have experienced or witnessed any harassment, would you feel safe reporting it
           to someone in the company?
         </Form.Label>
         <div>
