@@ -57,7 +57,7 @@ const FormBeginning = () => {
                 <a href='/Soros/multi-form'><button> Start Safety Report Form </button></a>
                 <a className='link' href='/Soros/resources'>What is this form?</a>
                 <div className='disclaimer-section'>
-                    <p><i class="fa-solid fa-triangle-exclamation"></i> This form asks optional questions about sexual assault, harassment, and other experiences that may be traumatic to some users.</p>
+                    <p><i class="fa-solid fa-triangle-exclamation"></i> This form asks optional questions about sexual assault, harassment, and other experiences that may be triggering to some users.</p>
                 </div>
             </div>
         </div>

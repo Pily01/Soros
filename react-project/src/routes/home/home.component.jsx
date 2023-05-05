@@ -52,7 +52,7 @@ const Home = () => {
     }
     else{
       setTranslatedStrings(["Report", "Review", "Rate"])
-      setSlogan("Creating Safer Workspaces, One Review at a Time")
+      setSlogan("Finding Safer Workspaces, One Review at a Time")
       setAnon("Anonymously")
       setSearchProp("Search Company")
       setButtonProp("See Company")
@@ -88,7 +88,7 @@ const Home = () => {
         <Row className='home-jumbotron-row'>
           <Col sm={3} className='home-jumbotron-col1'>
             <div className='text-container'>
-              <p      > {anon} </p>
+              <p> {anon} </p>
               <div className="typewriter">
                 <Typewriter
                 style="display: inline"
